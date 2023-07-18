@@ -1,6 +1,6 @@
 <?php
 include "./include/header.php";
-include "./include/side-bar.php";
+include "./include/sidebar.php";
 include "./include/function.php";
 if(isset($_GET['page'])){
     switch($_GET['page']){
@@ -20,7 +20,7 @@ if(isset($_GET['page'])){
             include './page/home.php';
     }
 }else{
-    include './page/home.php'
+    include './page/home.php';
 }
 
 include "./include/footer.php"
