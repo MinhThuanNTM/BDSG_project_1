@@ -20,14 +20,19 @@ function connect($sql){
         }
 }
 $product_list = connect("select*from product");
+$product_img = connect("select*from prd_img ");
+
 function showproduct(){
     foreach ($GLOBALS['product_list'] as $product){
+        $product_img = $GLOBALS['product_img'];
+        $id = $product['product_id'];
+        // print_r($product_img['product_id']);
         echo'<div class="product-block" onclick="expand(this)">
         <div class="prd-row1">
             <div class="sp1">
                 <div class="chaaa">
                     <div class="img">
-                        <img src="IMG/'.$product['image0'].'" alt=""
+                        <img src="IMG/'.$product_img[$id]['image_0'].'.png" alt=""
                             width="100px" height="120px">
                     </div>
                     <div class="p">
@@ -59,7 +64,7 @@ function showproduct(){
                 <div class="text">
                     <p>'.$product['decription'].'</p>
                     <div class="nut">
-                        <div class="a1"><a href="index copy 3.html  ">Cập nhật</a></div>
+                        <div class="a1"><a href="?page=edit-product ">Cập nhật</a></div>
                         <div class="a2"><a href="">Xóa</a></div>
                         <div class="a3"><a href="">Thống kê</a></div>
                     </div>
@@ -68,6 +73,12 @@ function showproduct(){
         </div>
     </div>';
 
+    }
+}
+function category_select(){
+    $category_list = connect("select*from category");
+    foreach($category_list as $category){
+        echo'<option value="'.$category['category_id'].'">'.$category['category_name'].'</option>';
     }
 }
 ?>

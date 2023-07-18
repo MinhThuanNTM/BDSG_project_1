@@ -13,9 +13,16 @@ if(isset($_GET['page'])){
         case 'sign-in':
             include "./page/sign-in.php";
             break;
+            case 'edit-product':
+                include "./page/edit-product.php
+                20";
+                break;
         case 'user':
             include "./page/user.php";
             break;
+            case 'add-product':
+                include "./page/add-product.php";
+                break;
         default:
             include './page/home.php';
     }

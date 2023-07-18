@@ -1,7 +1,7 @@
 
 <div class="product">
                     <div class="button">
-                        <div class="a"><a href="">Thêm sản phẩm</a></div>
+                        <div class="a"><a href="?page=add-product">Thêm sản phẩm</a></div>
                     </div>
                     <div class="product-list">
                 
