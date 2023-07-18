@@ -1,4 +1,6 @@
-
+<?php
+ob_start();
+?>
 <div class="admin-dashboard container-fluid">
         <div class="row">
             <div class="col-2">

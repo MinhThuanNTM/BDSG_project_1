@@ -1,3 +1,9 @@
+<?php
+if(isset($_POST['addProduct'])&&$_POST['addProduct']) {
+    add_product();
+};
+?>
+
 <form action=""method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-6">
@@ -8,7 +14,7 @@
                             <label class="form-label" >số lượng</label>
                             <input type="text" class="form-control"  name="qty">
                             <label class="form-label" >danh mục</label>
-                            <select id="cars" name="cars">
+                            <select id="category" name="category">
                                 <?php category_select();?>
                             </select><br>
                             <label class="form-label" >giảm giá</label>
@@ -33,7 +39,6 @@
                             <br>
                             <label class="form-label" >Image will be save as:</label>
                             <input type="text" disabled class="form-control" value='<?php ?>' name="image">
-                            <label class="form-label" >Branding: </label>
                             <!-- <?php
                             ?> -->
                         </div>
