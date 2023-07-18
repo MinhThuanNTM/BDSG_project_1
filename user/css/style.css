@@ -517,3 +517,91 @@ footer {
   border-radius: 400px;
   text-align: center;
 }
+
+
+
+
+
+
+/* ----------------shop page----------------------------- */
+.prd-item{
+  gap: 15px;
+}
+.prd-item a{
+  color: #000;
+  text-decoration: none;
+}
+.prd-img{
+  background: var(--prd-bg, #F0EFF5);
+  
+  background-position: center center;
+  height: 440px;
+  width: 324px;
+}
+
+.set-bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tag-new{
+  position: absolute;
+  margin-top: 20px;
+  display: flex;
+width: 48px;
+height: 20px;
+padding: 4px 8px;
+justify-content: center;
+align-items: center;
+background: #FFF;
+
+color: #000;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+
+}
+
+.prd-name{
+  display: flex;
+  justify-content: space-between;
+font-size: 13px;
+font-weight: 400;
+letter-spacing: 0.4px;
+text-transform: capitalize;
+height: 42px;
+gap: 8px;
+}
+.prd-name i{
+  padding-right: 14px;
+  font-size: 28px;
+  font-weight: 100;
+}
+
+.add-cart{
+  display: none;
+  color: #FF0F00;
+  font-weight: 600;
+  margin-top: -100px;
+}
+
+.prd-react{
+  display: flex;
+height: 16px;
+align-items: center;
+gap: 8px;
+
+letter-spacing: 0.3px;
+}
+
+.prd-react a{
+  
+font-size: 14px;
+}
+
+.prd-price{
+font-size: 18px;
+font-weight: 700;
+letter-spacing: 0.4px;
+}

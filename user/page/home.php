@@ -1,41 +1,4 @@
-<header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">
-                        <img src="img/logoback.png" alt="" width="118px" height="33px">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">TRANG CHỦ</a>
-                </li>
-                <li>
-                    <a href="product.html">NAM</a>
-                </li>
-                <li>
-                    <a href="productnu.html">NỮ</a>
-                </li>
-                <li>
-                    <a href="#">NEW</a>
-                </li>
-                <li>
-                    <a href="#">BEST</a>
-                </li>
-                <li>
-                    <a href="#">SALE</a>
-                </li>
 
-                <li>
-                    <a href="login.html">Đăng Nhập</a>
-                    <a href="#">|</a>
-                    <a href="dangky.html">Đăng Ký</a>
-                    <a href="#"><i class="fa-regular fa-user"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
     <main>
         <div class="banner">
             <h3>Quần áo</h3>

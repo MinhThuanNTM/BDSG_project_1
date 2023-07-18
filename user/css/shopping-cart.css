@@ -2,7 +2,7 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
-a{
+.cart-page a{
     color: #000;
     text-decoration: none;
 }
@@ -16,7 +16,7 @@ table input:focus{
 }
 
 .cart-page{
-    margin-top: 64px;
+    margin-top: 120px;
 }
 
 
@@ -24,9 +24,13 @@ table input:focus{
     
     box-sizing: content-box;
 }
-.container{
+.cart-page.container{
     width: 1360px;
     padding: 0;
+}
+
+.cart-page .row{
+    width: 1340px;
 }
 
 .cart-item{
@@ -133,6 +137,7 @@ line-height: 27px; /* 150% */
 
 .cart-calc{
     gap: 52px;
+    width: 100%;
 }
 
 .coupon-use{
@@ -155,7 +160,7 @@ text-transform: uppercase;
     
     border: 1px solid #c2c2c2;
     padding-left: 12px;
-    width: 260px;
+    width: 196px;
 }
 .coupon-code input:focus{
     
