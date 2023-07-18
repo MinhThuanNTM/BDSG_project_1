@@ -146,6 +146,7 @@ display: flex;
   position: relative;
   background-color: #E1E1E1;
   margin-top: 30px;
+  height: 160px;
 }
 
 .prd-row2{
@@ -178,7 +179,10 @@ margin-top: 10px;
 
 .chitiet{
   display: flex;
-  margin-top: 20px;
+  margin-top: 64px;
+  height: 0;
+  overflow: hidden;
+  transition:  .5s;
 }
 .chitiet .anh1{
   margin-top: 15px;

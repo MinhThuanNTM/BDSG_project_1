@@ -25,6 +25,34 @@ function connect($sql){
 
 //-----------------------------------------------------------------------------Thuận---------------------------------------------------------------------------------------//
 
+if(isset($_POST['add'])&&($_POST['add'])){
+    $product = db("SELECT * FROM product where product_id = '".$_POST['index']."'")[0];
+    $item = array(
+        'id' => $product['product_id'],
+        'name' => $product['name'],
+        'img' => $product['img'],
+        'price' => $product['price'],
+        'sale' => $product['sale'],
+        'quantity' => 1,
+    );
+    if (isset($_POST['qty'])&& $_POST['qty'] > 0){
+        $item['quantity'] = $_POST['qty'];
+    }
+    // echo $item['price'] * 2;
+    $flag = 0;
+    if(count($_SESSION['data-cart']) > 0){
+        foreach($_SESSION['data-cart'] as $x=>$product){
+            if(in_array($item['id'], $_SESSION['data-cart'][$x])){
+                $_SESSION['data-cart'][$x]['quantity']+=1;
+                $flag = 1;
+            }
+        }
+    }
+    if ($flag ==0){
+        array_push($_SESSION['data-cart'],$item);
+    }
+    
+}
 
 
 

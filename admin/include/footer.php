@@ -26,6 +26,18 @@ function controlDropdown(n){
         
     }
 }
+
+                                
+function expand(n){
+    if(n.classList.contains('block-active')){
+        n.classList.remove('block-active')
+        n.style.height ='160px';
+    }else{
+        n.classList.toggle('block-active')
+        n.style.height ='500px';
+    }
+    console.log(n.classList)
+}
     </script>
 </body>
 </html>
