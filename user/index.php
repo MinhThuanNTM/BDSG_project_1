@@ -19,7 +19,7 @@ if(isset($_GET['page'])){
             include './page/home.php';
     }
 }else{
-    include './page/home.php'
+    include './page/home.php';
 }
 
 include "./include/footer.php"
