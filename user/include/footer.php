@@ -50,6 +50,8 @@
     <script src="js/login.js"></script>
     <script src="js/script.js"></script>
     <script src="js/size.js"></script>
+    
+    <script src="./js/set-bg.js"></script>
 </body>
 
 </html>

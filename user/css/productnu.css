@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 @font-face {
   font-family: RobotoCondensed-Bold;
   src: url(font/Roboto_Condensed/RobotoCondensed-Bold.ttf);
@@ -48,6 +44,7 @@ nav ul li a {
 .menu ul li a {
   text-decoration: none;
   font-family: RobotoCondensed-Regular;
+  text-transform: uppercase;
   font-size: 14px;
   padding: 2px;
   color: rgb(153, 149, 149);

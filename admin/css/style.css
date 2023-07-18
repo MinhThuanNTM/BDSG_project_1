@@ -103,3 +103,28 @@ background-color: #F9FAFB;
     transform: rotate(180deg);
     transition: .35s;
 }
+.admin-page{
+   margin-top: 54px;
+}
+
+.product-list{
+
+}
+
+.product-block{
+    
+  transition:  .5s;
+}
+
+.block-active .chitiet{
+    height: 240px;
+}
+
+.down{
+    transition:  .35s;
+}
+
+.block-active .down{
+    transition:  .35s;
+    transform: rotate(180deg);
+}

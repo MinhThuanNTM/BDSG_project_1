@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <ul data-sl="2">
-                                <li>Danh sách sản phẩm</li>
+                                <li><a href="?page=product-list">Danh sách sản phẩm</a></li>
                                 <li>Quản lý danh mục</li>
                             </ul>
                         </li>

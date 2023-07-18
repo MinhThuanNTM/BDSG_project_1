@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 @font-face {
   font-family: RobotoCondensed-Bold;
   src: url(font/Roboto_Condensed/RobotoCondensed-Bold.ttf);

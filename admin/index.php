@@ -7,7 +7,7 @@ if(isset($_GET['page'])){
         case 'shop': 
             include "./page/post-list.php";
             break;
-        case 'shopping-cart':
+        case 'product-list':
             include "./page/product-list.php";
             break;
         case 'sign-in':
