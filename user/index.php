@@ -10,6 +10,9 @@ if(isset($_GET['page'])){
             include "./page/shopping-cart.php";
             break;
         case 'sign-in':
+            include "./page/sign-in.php";
+            break;
+        case 'checkout':
             include "./page/checkout.php";
             break;
         case 'user-setting':

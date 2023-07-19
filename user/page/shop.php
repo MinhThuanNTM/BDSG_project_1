@@ -1,4 +1,4 @@
- <header>
+ <!-- <header>
       <nav>
         <ul>
           <li>
@@ -17,7 +17,7 @@
           </li>
         </ul>
       </div>
-    </header>
+    </header> -->
     <main>
       <div class="banner">
         <h3>Thời Trang Nam</h3>
@@ -73,14 +73,12 @@
                   <!------------- product block -------------->
                   <div class="prd-item d-flex flex-column col-3">
                       <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
                       </div>
                       <div class="prd-text">
                         <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
+                            <a class="prd-name-text">product name1</a>
+                            <div class="add-cart"><a href="?page=shop&addToCart=1">+ Thêm vào giỏ hàng</a></div>
+                            <i class="fa-regular fa-heart"></i>
                         </div>
                         <div class="prd-price">
                             <a>4.200.000 đ</a>
@@ -88,107 +86,7 @@
                       </div>
                   </div>
                   <!------------- product block end -------------->
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
                   
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
-                  
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
-                  
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
-                  
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
-                  
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-
-                          <div class="tag-new">
-                              <a>new</a>
-                          </div>
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name</a><i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
                   <!-------------- product list end ----------------->
               </div>
             </div>

@@ -22,6 +22,8 @@ function connect($sql){
 $product_list = connect("select*from product");
 $product_img = connect("select*from prd_img ");
 
+
+// ------------------------------------- Thịnh ------------------------------------------
 function showproduct(){
     foreach ($GLOBALS['product_list'] as $product){
         $product_img = $GLOBALS['product_img'];
