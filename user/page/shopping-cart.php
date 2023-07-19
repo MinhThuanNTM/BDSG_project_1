@@ -23,7 +23,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                        <?php
+                            shoppingCart('cart-list');
+                        ?>
+                      <!-- <tr>
                         <td>
                             <div class="cart-item d-flex ">
                                 <div class="cart-prd-img-pd">
@@ -115,41 +118,19 @@
                                 <i class="fa-solid fa-xmark"></i>
                             </div>
                         </td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                   <button class="continue-btn">
-                    Tiếp tục mua hàng
+                    <a href="?page=home">
+                        Tiếp tục mua hàng
+                    </a>
                   </button>
             </div>
             <div class="col-1" style="width: calc(25% / 3);"></div>
-            <div class="col-3">
-                <div class="cart-calc d-flex flex-column">
-                    <div class="coupon-use d-flex flex-column">
-                        <a>mã giảm giá</a>
-                        <div class="coupon-code d-flex justify-content-between">
-                            <input type="text">
-                            <button class="coupon-apply-btn">dùng</button>
-                        </div>
-                    </div>
-                    <div class="price-total">
-                        <a class="calc-title">Tổng giá</a>
-                        <div class="cart-calc-text d-flex justify-content-between">
-                            <a>Tạm tính</a>
-                            <a>7.000.000 đ</a>
-                        </div>
-                        <div class="cart-calc-text  d-flex justify-content-between">
-                            <a >Giảm giá</a>
-                            <a>1.000 đ</a>
-                        </div>
-                        <div class="cart-calc-text d-flex justify-content-between">
-                            <a>Tổng cộng</a>
-                            <a >7.000.000 đ</a>
-                        </div>
-                        <button class="to-checkout-btn">đặt hàng</button>
-                    </div>
-                </div>
-            </div>
+            <?php
+            shoppingCart('cart-calc');
+            ?>
         </div>
 
     </div>

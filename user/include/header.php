@@ -24,6 +24,10 @@
 </head>
 
 <body>
+    <?php 
+    ob_start();
+    session_start();
+    ?>
 <header>
         <nav>
             <ul>
@@ -36,10 +40,10 @@
                     <a href="#">TRANG CHỦ</a>
                 </li>
                 <li>
-                    <a href="product.html">NAM</a>
+                    <a href="?page=shop">NAM</a>
                 </li>
                 <li>
-                    <a href="productnu.html">NỮ</a>
+                    <a href="?page=shop">NỮ</a>
                 </li>
                 <li>
                     <a href="#">NEW</a>
@@ -56,7 +60,7 @@
                     <a href="#">|</a>
                     <a href="dangky.html">Đăng Ký</a>
                     <a href="#"><i class="fa-regular fa-user"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                    <a href="?page=shopping-cart"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 </li>
 
             </ul>
