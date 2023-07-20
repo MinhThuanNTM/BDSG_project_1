@@ -72,11 +72,10 @@ if(isset($_GET['addToCart'])){
 
 //-------- show giỏ hàng -----------//
 
-function shoppingCart($var){
+function shoppingCart(){
     $product = connect("select*from product");
     $subTotal = 0;
-    if(($var == 'cart-list')){
-        print_r($_SESSION['data-cart']);
+        // print_r($_SESSION['data-cart']);
         // print_r( $_SESSION['data-cart']);
         foreach($_SESSION['data-cart'] as $index => $item){
             // print_r(gettype($item['id']));
@@ -91,8 +90,8 @@ function shoppingCart($var){
                           </div>
                       </div>
                       <div class="cart-text content-box d-flex flex-column justify-content-center">
-                          <a class="cart-prd-name">'.$product[(int)$item['id']]['name'].'</a>
-                          <a class="cart-prd-price">'.$product[(int)$item['id']]['price'].'</a>
+                          <a class="cart-prd-name">'.$product[$item['id']]['name'].'</a>
+                          <a class="cart-prd-price">'.$product[$item['id']]['price'].'</a>
                       </div> 
                   </div>
               </td>
@@ -114,13 +113,18 @@ function shoppingCart($var){
                   </div>
               </td>
             </tr>';
-        }
+                }
     }
-    }
-    
-    if($var == 'cart-calc'){
-        
         echo'
+        </tbody>
+      </table>
+      <button class="continue-btn">
+        <a href="?page=home">
+            Tiếp tục mua hàng
+        </a>
+      </button>
+</div>
+<div class="col-1" style="width: calc(25% / 3);"></div>
         
             <div class="col-3">
                 <div class="cart-calc d-flex flex-column">
@@ -152,7 +156,7 @@ function shoppingCart($var){
         ';
     }
     
-}
+
 
 //-------- --------------- -----------//
 

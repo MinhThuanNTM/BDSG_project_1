@@ -32,12 +32,12 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="?page=home">
                         <img src="img/logoback.png" alt="" width="118px" height="33px">
                     </a>
                 </li>
                 <li>
-                    <a href="#">TRANG CHỦ</a>
+                    <a href="?page=home">TRANG CHỦ</a>
                 </li>
                 <li>
                     <a href="?page=shop">NAM</a>

@@ -23,7 +23,7 @@
   font-family: RobotoCondensed-Regular;
   src: url(font/Roboto_Condensed/RobotoCondensed-Regular.ttf);
 }
-nav {
+/* nav {
   text-align: center;
 }
 
@@ -54,7 +54,41 @@ nav ul li a {
 }
 .menu ul li a:last-child {
   color: rgb(224, 117, 117);
+} */
+nav {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
+nav ul {
+  display: flex;
+  align-items: center;
+}
+nav ul li {
+  list-style-type: none;
+  padding: 16px 18px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-family: RobotoCondensed-Bold;
+}
+li:nth-child(1) {
+  margin-right: 50px;
+}
+
+li:last-child {
+  flex-grow: 1;
+  text-align: right;
+  padding: 0 56px;
+}
+li:last-child a {
+  padding: 0 10px;
+  font-size: 18px;
+} 
 .banner {
   margin-top: 30px;
   background-image: url(../img/bannerproduct.jpg);

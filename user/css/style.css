@@ -77,6 +77,7 @@ li:last-child a {
 }
 
 .introduce {
+  width: 1000px;
   display: flex;
   margin-top: 80px;
 }
@@ -601,4 +602,43 @@ letter-spacing: 0.4px;
 
 .prd-item:hover .prd-name .prd-name-text{
   display: none;
+}
+
+
+
+.dmuc {
+  /* margin: 40px 40px 10px 20px; */
+}
+.aonam {
+  margin-bottom: 10px;
+}
+.product-cha {
+  padding-top: 40px;
+  width: 1900px;
+  margin: 0 auto;
+}
+
+
+.dmuc {
+  margin: 40px 0 10px 40px;
+  width: 20%;
+}
+.aonam {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.product-cha {
+  margin-left: 40px;
+  display: flex;
+}
+.product-left {
+  width: 20%;
+}
+/* .product-right {
+  width: 80%;
+  display: flex;
+} */
+
+.product-right .row{
+  width: 1356px;
 }

@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
 
-    <link rel="stylesheet" href="./css/css copy.css">
+    <!-- <link rel="stylesheet" href="./css/css copy.css"> -->
 
     <title>Document</title>
 </head>

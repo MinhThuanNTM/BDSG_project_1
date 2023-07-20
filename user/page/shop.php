@@ -87,6 +87,23 @@
                   </div>
                   <!------------- product block end -------------->
                   
+                  <!------------- product block -------------->
+                  <div class="prd-item d-flex flex-column col-3">
+                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
+                      </div>
+                      <div class="prd-text">
+                        <div class="prd-name">
+                            <a class="prd-name-text">product name2</a>
+                            <div class="add-cart"><a href="?page=shop&addToCart=2">+ Thêm vào giỏ hàng</a></div>
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <div class="prd-price">
+                            <a>2.200.000 đ</a>
+                        </div>
+                      </div>
+                  </div>
+                  <!------------- product block end -------------->
+                  
                   <!-------------- product list end ----------------->
               </div>
             </div>
