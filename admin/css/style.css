@@ -129,3 +129,10 @@ background-color: #F9FAFB;
     transform: rotate(180deg);
 }
 
+.prd_img_bg{
+    width: 120px;
+    height: 140px;
+
+    background-position: center center;
+    background-size: cover;
+}

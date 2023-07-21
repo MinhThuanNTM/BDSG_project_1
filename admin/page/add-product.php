@@ -31,14 +31,14 @@ if(isset($_POST['addProduct'])&&$_POST['addProduct']) {
                             <label for=""> </label>
                             <br>
                             <div style="height:100px;">
-                            <img src="" height="100px" >
+                            <img src="../user/img/product/<?php echo $_SESSION['add-image']?>" height="100px" >
                             </div>
                             <br>
                             <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">
                             <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="Load image">
                             <br>
                             <label class="form-label" >Image will be save as:</label>
-                            <input type="text" disabled class="form-control" value='<?php ?>' name="image">
+                            <input type="text" disabled class="form-control" value='<?php echo $_SESSION['add-image']?>' name="image">
                             <!-- <?php
                             ?> -->
                         </div>

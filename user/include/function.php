@@ -49,7 +49,6 @@ foreach ($_SESSION['data-cart'] as $index => $item){
 //-------- thêm vào giỏ hàng -----------
 if(isset($_GET['addToCart'])){
     $id = $_GET['addToCart'];
-        // $product = db("SELECT * FROM product where product_id = '".1."'")[0];
         $item = array(
             'id' => $id,
             'quantity' => 1,
@@ -72,27 +71,27 @@ if(isset($_GET['addToCart'])){
 //-------- thêm vào giỏ hàng end -----------//
 
 //-------- show giỏ hàng -----------//
-
+// session_destroy();
 function shoppingCart(){
-    $product = connect("select*from product");
     $subTotal = 0;
         // print_r($_SESSION['data-cart']);
         // print_r( $_SESSION['data-cart']);
         foreach($_SESSION['data-cart'] as $index => $item){
-            // print_r(gettype($item['id']));
-            // $subTotal += $product[$id]['price'] * $item['quantity'];
-            if($item['quantity'] >= 1){
+            $id = $item['id'];
+            $product = connect("select*from product WHERE product_id = $id");
+            $prd_img = connect("select*from prd_img WHERE product_id = $id");
+            if($item['quantity'] > 0){
             echo '
             <tr>
               <td>
                   <div class="cart-item d-flex ">
                       <div class="cart-prd-img-pd">
-                          <div class="cart-prd-img set-bg" data-bg="00038-3896515113.png" >
+                          <div class="cart-prd-img set-bg" data-bg="'.$prd_img[0]['image_0'].'" >
                           </div>
                       </div>
                       <div class="cart-text content-box d-flex flex-column justify-content-center">
-                          <a class="cart-prd-name">'.$product[$item['id']]['name'].'</a>
-                          <a class="cart-prd-price">'.$product[$item['id']]['price'].'</a>
+                          <a class="cart-prd-name">'.$product[0]['name'].'</a>
+                          <a class="cart-prd-price">'.$product[0]['price'].'</a>
                       </div> 
                   </div>
               </td>
@@ -105,7 +104,7 @@ function shoppingCart(){
               </td>
               <td>
                   <div class="cart-prd-total content-box d-flex align-items-center">
-                      <a>'.$product[$item['id']]['price'] * $item['quantity'].'</a>
+                      <a>'.$product[0]['price'] * $item['quantity'].'</a>
                   </div>
               </td>
               <td>
@@ -124,8 +123,8 @@ function shoppingCart(){
             Tiếp tục mua hàng
         </a>
       </button>
-</div>
-<div class="col-1" style="width: calc(25% / 3);"></div>
+    </div>
+    <div class="col-1" style="width: calc(25% / 3);"></div>
         
             <div class="col-3">
                 <div class="cart-calc d-flex flex-column">

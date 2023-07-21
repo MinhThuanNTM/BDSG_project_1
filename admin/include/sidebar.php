@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 ?>
 <div class="admin-dashboard container-fluid">
         <div class="row">
