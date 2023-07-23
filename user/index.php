@@ -18,6 +18,9 @@ if(isset($_GET['page'])){
         case 'user-setting':
             include "./page/user-setting.php";
             break;
+             case 'blog':
+            include "./page/blog.php";
+            break;
         default:
             include './page/home.php';
     }

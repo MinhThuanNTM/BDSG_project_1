@@ -1,4 +1,8 @@
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 @font-face {
   font-family: RobotoCondensed-Bold;
   src: url(font/Roboto_Condensed/RobotoCondensed-Bold.ttf);
@@ -23,90 +27,57 @@
   font-family: RobotoCondensed-Regular;
   src: url(font/Roboto_Condensed/RobotoCondensed-Regular.ttf);
 }
-.menu-larst {
+.menu-index {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.menu-index ul {
   display: flex;
   align-items: center;
 }
-.input-first {
-  margin-right: 30px;
-  position: relative;
+.menu-index ul li {
+  list-style-type: none;
+  padding: 16px 18px;
 }
-.search {
-  position: absolute;
-  top: 7px;
-}
-.menu-larst input {
-  width: 250px;
-  height: 30px;
-  font-size: 15px;
-  padding: 0 20px;
-  border: none;
-  border-bottom: 1px solid rgb(212, 205, 205);
-  outline: none;
-}
-.menu-larst input::placeholder {
+
+.menu-index ul li a {
+  text-decoration: none;
+  color: black;
   font-family: RobotoCondensed-Bold;
 }
-.icon-c {
+.menu-index li:nth-child(1) {
   margin-right: 50px;
 }
-.icon-c a {
+
+.menu-index li:last-child {
+  flex-grow: 1;
+  text-align: right;
+  padding: 0 56px;
+}
+.menu-index li:last-child a {
   padding: 0 10px;
-}
-.icon-c i {
-  color: black;
-}
-nav {
-  text-align: center;
-  margin: auto;
-  padding-left: 450px;
+  font-size: 18px;
 }
 
-nav ul li {
-  list-style-type: none;
-  padding: 16px 0;
-}
-nav ul li a {
-  text-decoration: none;
-}
-
-.menu {
-  text-align: center;
-}
-.menu ul li {
-  list-style-type: none;
-}
-.menu ul li a {
-  text-decoration: none;
-  font-family: RobotoCondensed-Regular;
-  font-size: 14px;
-  padding: 2px;
-  color: rgb(153, 149, 149);
-}
-.menu ul li a:hover {
-  color: rgb(224, 117, 117);
-  transition: 0.3s;
-}
-.menu ul li a:last-child {
-  color: rgb(224, 117, 117);
-}
-
-.container {
-  margin-top: 50px;
+.container-check {
+  margin-top: 120px;
   display: flex;
 }
-.container .form-dk {
+.container-check .form-dk-check {
   width: 650px;
   margin-left: 180px;
 }
-.container .form-dk p {
+.container-check .form-dk-check p {
   border-top: 3px solid green;
   font-size: 14px;
   padding: 12px 0;
   padding-left: 20px;
   background-color: gainsboro;
 }
-.container .h2 {
+.container-check .h2-check {
   margin-top: 20px;
   font-family: RobotoCondensed-Bold;
   text-transform: uppercase;
@@ -115,33 +86,33 @@ nav ul li a {
   border-bottom: 1px solid rgb(221, 215, 215);
   margin-bottom: 30px;
 }
-.container .form-dk label {
+.container-check .form-dk-check label {
   font-family: RobotoCondensed-Light;
 }
-.p {
+.p-check {
   margin: 20px 0;
 }
-.id4 {
+.id4-check {
   display: flex;
 }
-.id7 {
+.id7-check {
   margin-top: 20px;
 }
-.email {
+.email-check {
   width: 50%;
   padding: 0 20px 0 0;
 }
-.sdt {
+.sdt-check {
   width: 50%;
   padding: 0 0 0 10px;
 }
 span {
   color: red;
 }
-.spam {
+.spam-check {
   font-family: RobotoCondensed-Light;
 }
-.container .ip {
+.container-check .ip-check {
   width: 100%;
   height: 35px;
   outline: none;
@@ -149,7 +120,7 @@ span {
   margin-bottom: 20px;
   border: 1px solid rgb(148, 145, 143);
 }
-.container .form-dk label {
+.container-check .form-dk-check label {
   display: inline-block;
   margin-bottom: 5px;
 }
@@ -159,13 +130,13 @@ textarea {
   padding: 7px;
 }
 
-.hoadon {
+.hoadon-check {
   background-color: gainsboro;
   width: 300px;
   height: 650px;
   margin-left: 50px;
 }
-.hd {
+.hd-check {
   margin: 20px 20px 0 20px;
   font-size: 20px;
   text-transform: uppercase;
@@ -173,91 +144,91 @@ textarea {
   padding-bottom: 20px;
   border-bottom: 1px solid white;
 }
-.text-1 {
+.text-1-check {
   margin: 30px 20px 0 20px;
   display: flex;
   font-family: RobotoCondensed-Bold;
 }
-.text-1 .tt {
+.text-1-check .tt-check {
   flex-grow: 1;
   text-align: right;
 }
-.text-2 {
+.text-2-check {
   margin: 20px 20px 0 20px;
   display: flex;
 }
-.text-2 .sp {
+.text-2-check .sp-check {
   font-family: RobotoCondensed-Light;
   font-size: 15px;
 }
-.text-2 .tt {
+.text-2-check .tt-check {
   flex-grow: 1;
   text-align: right;
   font-family: RobotoCondensed-Light;
 }
-.x2 {
+.x2-check {
   margin: 7px 20px 0 20px;
   font-family: RobotoCondensed-Light;
 }
-.x1 {
+.x1-check {
   margin: 7px 20px 0 20px;
   font-family: RobotoCondensed-Light;
   border-bottom: 1px solid white;
   padding-bottom: 20px;
 }
 
-.text-3 {
+.text-3-check {
   margin: 25px 20px 0 20px;
   display: flex;
 }
-.text-3 .sp {
+.text-3-check .sp-check {
   font-family: RobotoCondensed-Light;
   font-size: 15px;
 }
-.text-3 .tt {
+.text-3-check .tt-check {
   flex-grow: 1;
   text-align: right;
   font-family: RobotoCondensed-Light;
 }
 
-.text-4 {
+.text-4-check {
   margin: 25px 20px 0 20px;
   display: flex;
 }
-.text-4 .sp {
+.text-4-check .sp-check {
   font-family: RobotoCondensed-Light;
   font-size: 15px;
   font-family: RobotoCondensed-Bold;
 }
-.text-4 .tt {
+.text-4-check .tt-check {
   flex-grow: 1;
   text-align: right;
   color: red;
   font-family: RobotoCondensed-Light;
 }
 
-.text-5 {
+.text-5-check {
   margin: 25px 20px 0 20px;
   display: flex;
   border-bottom: 1px solid white;
   padding-bottom: 30px;
 }
-.text-5 .sp {
+.text-5-check .sp-check {
   font-family: RobotoCondensed-Bold;
   font-size: 15px;
 }
-.text-5 .tt {
+.text-5-check .tt-check {
   flex-grow: 1;
   text-align: right;
   color: red;
   font-family: RobotoCondensed-Light;
 }
 
-.chek {
+.chek-check {
   margin: 25px 20px 0 20px;
   font-family: RobotoCondensed-Light;
 }
-.chek .chek1 {
+.chek-check .chek1-check {
   margin-bottom: 10px;
   font-family: RobotoCondensed-Light;
 }
@@ -274,7 +245,7 @@ textarea {
   color: white;
   border-radius: 5px;
 } */
-.a a {
+.a-check a {
   display: block;
   text-decoration: none;
   color: white;
@@ -288,7 +259,7 @@ textarea {
   border-radius: 5px;
   margin-top: 30px;
 }
-.a a:hover {
+.a-check a:hover {
   background-color: white;
   color: black;
   transition: 0.5s;

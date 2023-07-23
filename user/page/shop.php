@@ -1,64 +1,46 @@
- <!-- <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="index.html"
-              ><img src="img/logoback.png" alt="" width="118px" height="32px"
-            /></a>
-          </li>
-        </ul>
-      </nav>
-      <div class="menu">
-        <ul>
-          <li>
-            <a href="index.html">Trang Chủ</a>
-            <a href="">/</a>
-            <a href="">Thời trang nam</a>
-          </li>
-        </ul>
+<main>
+      <div class="banner-product">
+        <img src="img/bannerproduct.jpg" alt="" width="100%" />
       </div>
-    </header> -->
-    <main>
-      <div class="banner">
-        <h3>Thời Trang Nam</h3>
-      </div>
-      <div class="h1">
+      <div class="h1-product">
         <h1>Thời Trang Nam</h1>
       </div>
-      <div class="product-cha row">
-        <div class="product-left col-3">
-          <div class="menu-row">
-      <div class="dmuc">
-        <div class="h3">
+      <div class="dmuc-product">
+        <div class="h3-product">
           <h3>Danh Mục</h3>
         </div>
+        <div class="aonam-product"><input type="radio" name="#" /> Áo Nam</div>
+        <div class="quannam-product"><input type="radio" name="#" /> Quần Nam</div>
       </div>
-            <ul>  <!-----------category list--------------->
+      <div class="product-cha-product">
+        <div class="product-left-product">
+          <div class="menu-row-product">
+            <ul>
               <li>
-                <a href="#"> Áo nữ</a>
+                <a href="#"> Thiết Kế</a>
               </li>
               <li>
-                <a href="#"> Áo nam</a>
-              </li>
-
-              <li>
-                <a href="#">Quần nam</a>
-              </li>
-              <li>
-                <a href="#">Quần nữ</a>
+                <a href="#"> Giới Tính</a>
               </li>
 
               <li>
-                <a href="#">Váy ngắn</a>
+                <a href="#">Nhóm Sản Phẩm</a>
               </li>
               <li>
-                <a href="#">Đầm dài</a>
+                <a href="#">Kiểu Tay</a>
+              </li>
+
+              <li>
+                <a href="#">Màu Sắc</a>
               </li>
               <li>
-                <a href="#">Trang sức bạc</a>
+                <a href="#">Size</a>
               </li>
               <li>
-                <a href="#">Trang sức vàng</a>
+                <a href="#"> Giá Tiền</a>
+              </li>
+              <li>
+                <a href="#">Form</a>
               </li>
               <li>
                 <a href="#">Chất Liệu</a>
@@ -66,48 +48,6 @@
             </ul>
           </div>
         </div>
-        <div class="product-right col-9">
-              <div class="row"> 
-                <!-------------- product list ----------------->
-
-                  <!------------- product block -------------->
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name1</a>
-                            <div class="add-cart"><a href="?page=shop&addToCart=1">+ Thêm vào giỏ hàng</a></div>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>4.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
-                  <!------------- product block end -------------->
-                  
-                  <!------------- product block -------------->
-                  <div class="prd-item d-flex flex-column col-3">
-                      <div class="prd-img set-bg " data-bg="00038-3896515113.png">
-                      </div>
-                      <div class="prd-text">
-                        <div class="prd-name">
-                            <a class="prd-name-text">product name2</a>
-                            <div class="add-cart"><a href="?page=shop&addToCart=2">+ Thêm vào giỏ hàng</a></div>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                        <div class="prd-price">
-                            <a>2.200.000 đ</a>
-                        </div>
-                      </div>
-                  </div>
-                  <!------------- product block end -------------->
-                  
-                  <!-------------- product list end ----------------->
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="product-right-product"></div>
       </div>
     </main>
