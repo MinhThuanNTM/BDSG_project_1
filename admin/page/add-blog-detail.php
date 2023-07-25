@@ -3,7 +3,7 @@ if(isset($_POST['thembaiviet'])&&$_POST['thembaiviet']) {
     add_blog_detail();
 };
 ?>
-<form class="more-blog-detail">
+<form class="more-blog-detail" action=""method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleFormControlInput1">Tiêu Đề</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" name="title"  value=" ">
@@ -17,7 +17,7 @@ if(isset($_POST['thembaiviet'])&&$_POST['thembaiviet']) {
                             </div>
                             <br>
                             <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">
-                            <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="Load image">
+                            <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="themhinhanh">
                             <br>
                         </div>
  
