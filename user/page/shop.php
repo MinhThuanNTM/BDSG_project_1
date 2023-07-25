@@ -48,6 +48,35 @@
             </ul>
           </div>
         </div>
-        <div class="product-right-product"></div>
+        <div class="product-right-product">
+          
+        <div class="prd_list row"> 
+                <!-------------- product list ----------------->
+                <?php 
+                    foreach ($product_list as $product) {
+                      $product_id = $product['product_id'];
+                      $sql1 = "SELECT * FROM prd_img WHERE product_id = $product_id";
+                      $img_url = connect($sql1);
+
+                    ?>
+                      <div class="prd-item d-flex flex-column col-3">
+                        <div class="prd-img set-bg " data-bg="<?php echo $img_url[0]['image_0'] ?>">
+                        </div>
+                        <div class="prd-text">
+                          <div class="prd-name">
+                            <a class="prd-name-text"><?php echo $product['name'] ?></a>
+                            <div class="add-cart"><a href="?page=shop&addToCart=<?php echo $product_id;?>">+ Thêm vào giỏ hàng</a></div>
+                            <i class="fa-regular fa-heart"></i>
+                          </div>
+                          <div class="prd-price">
+                            <a><?php echo $product['price'] ?> đ</a>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php } ?>
+                  <!-------------- product list end ----------------->
+              </div>
+        </div>
       </div>
     </main>

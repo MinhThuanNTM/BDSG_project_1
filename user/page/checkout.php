@@ -1,5 +1,6 @@
 <main>
-      <div class="container-check">
+  <div class="container">
+      <form class="container-check" action="" method="post">
         <div class="form-dk-check">
           <p>
             A Bạn chưa có tài khoản? Đăng ký tài khoản để lưu thông tin của bạn
@@ -9,28 +10,28 @@
           <div class="id1-check">
             <label for="username">Họ và Tên<span>*</span></label
             ><br />
-            <input class="ip-check" type="text" id="username" />
+            <input class="ip-check" type="text" id="username" name="full-name" value=" "/>
           </div>
           <div class="id2-check">
             <label for="diachi">Địa Chỉ<span>*</span></label
             ><br />
-            <input class="ip-check" type="text" id="diachi" />
+            <input class="ip-check" type="text" id="diachi" name="address" value=" "/>
           </div>
           <div class="id3-check">
             <label for="ma">Mã Bưu Chính <span>*</span></label
             ><br />
-            <input class="ip-check" type="text" id="ma" />
+            <input class="ip-check" type="text" id="ma" name="zip-code" value=" "/>
           </div>
           <div class="id4-check">
             <div class="email-check">
               <label for="email-check">Email<span>*</span></label
               ><br />
-              <input class="ip-check" type="email" id="email" />
+              <input class="ip-check" type="email" id="email" name="email" value=" "/>
             </div>
             <div class="sdt-check">
               <label for="number">Số điện thoại<span>*</span></label
               ><br />
-              <input class="ip-check" type="number" id="number" placeholder="+84" />
+              <input class="ip-check" type="number" id="number" placeholder="+84" name="phone" value=" "/>
             </div>
           </div>
           <div class="chebook-check">
@@ -60,40 +61,14 @@
             <textarea name="" id="" cols="30" rows="12"></textarea>
           </div>
         </div>
-
+      
         <div class="hoadon-check">
           <div class="hd-check">Hóa đơn</div>
           <div class="text-1-check">
             <div class="sp-check">Sản phẩm</div>
             <div class="tt-check">Thành tiền</div>
           </div>
-
-          <div class="text-2-check">
-            <div class="sp-check">Vanillita Saited caramel</div>
-            <div class="tt-check">1.250k</div>
-          </div>
-          <div class="x2-check">x2</div>
-          <div class="text-3-check">
-            <div class="sp-check">Vanillita Saited caramel</div>
-            <div class="tt-check">1.250k</div>
-          </div>
-          <div class="x1-check">x2</div>
-          <div class="text-4-check">
-            <div class="sp-check">Tổng Giá</div>
-            <div class="tt-check">11.500k</div>
-          </div>
-          <div class="text-4-check">
-            <div class="sp-check">Giảm Giá</div>
-            <div class="tt-check">500k</div>
-          </div>
-          <div class="text-4-check">
-            <div class="sp-check">VAT(10%)</div>
-            <div class="tt-check">1.150k</div>
-          </div>
-          <div class="text-5-check">
-            <div class="sp-check">Tổng Cộng</div>
-            <div class="tt-check">13.150k</div>
-          </div>
+              <?php checkout_cart(); ?>
 
           <div class="chek-check">
             <div class="chek1-check">
@@ -101,7 +76,8 @@
             </div>
             <div class="chek2-check"><input type="checkbox" name="t[]" /> Visa</div>
           </div>
-          <div class="a-check"><a href="">Đặt Hàng</a></div>
+          <input class="a-check" type="submit" name="checkout" value="Đặt Hàng">
         </div>
-      </div>
+  </form>
+  </div>
     </main>
