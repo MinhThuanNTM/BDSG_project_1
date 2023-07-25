@@ -176,6 +176,19 @@ function add_product(){
         // session_destroy();
         header('Location: index.php');
 }
+
+function add_blog_detail(){
+    $id = new_id();
+    $title = $_POST['title'];
+    $image = $_SESSION['add-image'];
+    $conten = $_POST['textarea'];
+    echo 'ok';
+    // echo $image;
+        connect("INSERT INTO post (post_id ,post_title ,post_thumb,post_content,post_by) VALUES ('$id','$title','$image', '$conten','post_by'");
+        // session_destroy();
+        header('Location: index.php');
+}
+
 if(isset ($_GET['delete'])){
     $id = $_GET['delete'];
     connect("DELETE FROM prd_img WHERE product_id='$id'"); 

@@ -77,7 +77,7 @@
               </div>
             </div>
             <div class="con-2-blog">
-              <img src="img/blog2.jpg" alt="" width="393px" height="262px" />
+              <a href="?page=blog_detail"><img src="img/blog2.jpg" alt="" width="393px" height="262px" /></a>
               <div class="km-blog">
                 <a href="#">Xu Hướng Thời Trang</a>
                 <a href="#">Khám Phá</a>

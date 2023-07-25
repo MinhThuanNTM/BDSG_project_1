@@ -1,138 +1,150 @@
-*{
-    list-style: none;
+* {
+  list-style: none;
 }
-.header{
-    padding-top: 12px;
-    font-size: 20px;
+.header {
+  padding-top: 12px;
+  font-size: 20px;
 }
-.logo{
-    background-size: cover;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    margin: 0 20px;
-}
-
-.admin-name{
-    
-font-style: normal;
-font-weight: 500;
-line-height: 30px; /* 150% */
-letter-spacing: 0.15px;
+.logo {
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 0 20px;
 }
 
-
-.admin-search{
-    font-size: 16px;
-    gap: 12px;
-    border: 1px solid #c2c3c4;
-    border-radius: 20px;
-width: 520px;
-height: 44px;
-padding: 12px 16px;
-background-color: #F9FAFB;
+.admin-name {
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 150% */
+  letter-spacing: 0.15px;
 }
 
-.admin-search input{
-    background: none;
-    outline: none;
-    border: none;
+.admin-search {
+  font-size: 16px;
+  gap: 12px;
+  border: 1px solid #c2c3c4;
+  border-radius: 20px;
+  width: 520px;
+  height: 44px;
+  padding: 12px 16px;
+  background-color: #f9fafb;
 }
 
-.nofication{
-    
-}
-.side-bar{
-    margin: 20px;
-    width: 240px;
-    border-right: 1px solid #E5E7EB;
+.admin-search input {
+  background: none;
+  outline: none;
+  border: none;
 }
 
-.side-bar ul{
-    padding: 0;
-    font-weight: 500;
-    font-size: 16px;
+.nofication {
+}
+.side-bar {
+  margin: 20px;
+  width: 240px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.side-bar ul {
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .side-bar_card {
-    display: flex;
-    flex-direction: row;
-    padding-top: 24px;
-    align-items: center;
-    justify-content: space-between;
-    transition: .25s;
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding-top: 24px;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
-.side-bar_card .card-text{
-    display: flex;
-    gap: 16px;
+.side-bar_card .card-text {
+  display: flex;
+  gap: 16px;
 }
 
-.side-bar_card .card-img{
-    height: 24px;
-    width: 24px;
+.side-bar_card .card-img {
+  height: 24px;
+  width: 24px;
 }
 
-.side-bar_card-angle-down{
+.side-bar_card-angle-down {
 }
 
-.side-bar_card + ul{
-    display: flex;
-    padding-top: 0px;
-    margin-left: 40px;
-    flex-direction: column;
-    gap: 12px;
-    height: 0;
-    justify-content: end;
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: .35s;
-    cursor: pointer;
+.side-bar_card + ul {
+  display: flex;
+  padding-top: 0px;
+  margin-left: 40px;
+  flex-direction: column;
+  gap: 12px;
+  height: 0;
+  justify-content: end;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: 0.35s;
+  cursor: pointer;
 }
-.side-bar_card.card-active + ul{
-    padding-top: 20px;
-    transition: linear .35s;
-    border-top: 1px solid #E5E7EB;
+.side-bar_card.card-active + ul {
+  padding-top: 20px;
+  transition: linear 0.35s;
+  border-top: 1px solid #e5e7eb;
 }
-.angle-down{
-    margin: 0 16px;
-    transition: .35s;
+.angle-down {
+  margin: 0 16px;
+  transition: 0.35s;
 }
-.card-active .angle-down{
-    transform: rotate(180deg);
-    transition: .35s;
+.card-active .angle-down {
+  transform: rotate(180deg);
+  transition: 0.35s;
 }
-.admin-page{
-   margin-top: 54px;
-}
-
-.product-list{
-
+.admin-page {
+  margin-top: 54px;
 }
 
-.product-block{
-    
-  transition:  .5s;
+.product-list {
 }
 
-.block-active .chitiet{
-    height: 240px;
+.product-block {
+  transition: 0.5s;
 }
 
-.down{
-    transition:  .35s;
+.block-active .chitiet {
+  height: 240px;
 }
 
-.block-active .down{
-    transition:  .35s;
-    transform: rotate(180deg);
+.down {
+  transition: 0.35s;
 }
 
-.prd_img_bg{
-    width: 120px;
-    height: 140px;
+.block-active .down {
+  transition: 0.35s;
+  transform: rotate(180deg);
+}
 
-    background-position: center center;
-    background-size: cover;
+.prd_img_bg {
+  width: 120px;
+  height: 140px;
+
+  background-position: center center;
+  background-size: cover;
+}
+
+.more-posts {
+  border: 1px solid black;
+  margin-left: 50px;
+  width: 100px;
+  background-color: black;
+  color: white;
+}
+
+.more-blog-detail {
+  margin-left: 120px;
+}
+.more-blog {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
