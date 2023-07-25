@@ -21,6 +21,9 @@ if(isset($_GET['page'])){
              case 'blog':
             include "./page/blog.php";
             break;
+             case 'blog_detail':
+            include "./page/blog_detail.php";
+            break;
         default:
             include './page/home.php';
     }

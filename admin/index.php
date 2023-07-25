@@ -23,6 +23,12 @@ if(isset($_GET['page'])){
             case 'add-product':
                 include "./page/add-product.php";
                 break;
+                case 'blog-list':
+                include "./page/blog-list.php";
+                break;
+                 case 'add-blog-detail':
+                include "./page/add-blog-detail.php";
+                break;
         default:
             include './page/home.php';
     }

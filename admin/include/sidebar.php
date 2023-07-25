@@ -23,7 +23,7 @@ session_start();
                                     <div class="card-img">
                                         <img src="./svg/page.svg" alt="">
                                     </div>
-                                    <a >Bài viết</a>
+                                    <a href="?page=blog-list" >Bài viết</a>
                                 </div>
                             </div>
                         </li>
