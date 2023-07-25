@@ -529,3 +529,95 @@ footer {
   border-radius: 400px;
   text-align: center;
 }
+
+
+
+
+/* ----------------shop page----------------------------- */
+.prd_list{
+  width: 100%;
+}
+
+.prd-item{
+  gap: 15px;
+}
+.prd-item a{
+  color: #000;
+  text-decoration: none;  
+}
+.prd-img{
+  background: var(--prd-bg, #F0EFF5);
+  
+  background-position: center center;
+  height: 440px;
+  width: 324px;
+}
+
+.set-bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.prd-name{
+  display: flex;
+  justify-content: space-between;
+font-size: 13px;
+font-weight: 400;
+letter-spacing: 0.4px;
+text-transform: capitalize;
+height: 42px;
+gap: 8px;
+cursor: pointer;
+}
+.prd-name i{
+  padding-right: 14px;
+  font-size: 28px;
+  font-weight: 100;
+}
+
+.add-cart{
+  display: none;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: -100px;
+}
+.add-cart a{
+  
+  color: #FF0F00;
+}
+
+.add-cart a:hover{
+  text-decoration: none;  
+  color: #FF0F00;
+}
+
+.prd-react{
+  display: flex;
+height: 16px;
+align-items: center;
+gap: 8px;
+
+letter-spacing: 0.3px;
+}
+
+.prd-react a{
+  
+font-size: 14px;
+}
+
+.prd-price{
+font-size: 18px;
+font-weight: 700;
+letter-spacing: 0.4px;
+}
+
+
+.prd-item:hover .prd-name .add-cart{
+  display: flex;
+  margin-top: 0;
+}
+
+.prd-item:hover .prd-name .prd-name-text{
+  display: none;
+}

@@ -30,8 +30,13 @@ if(isset($_POST['addProduct'])&&$_POST['addProduct']) {
                         <div class="col-6">
                             <label for=""> </label>
                             <br>
-                            <div style="height:100px;">
-                            <img src="../user/img/product/<?php echo $_SESSION['add-image']?>" height="100px" >
+                            <div class="add-prd_img d-flex " style="">
+                                <div class="mini-img d-flex flex-column">
+                                    <div class="mini-img_block set-bg" data-bg="" > </div>
+                                    <div class="mini-img_block set-bg" data-bg="" > </div>
+                                    <div class="mini-img_block set-bg" data-bg="" > </div>
+                                </div>
+                                <img class="large-img" src="../user/img/product/" height="100px" >
                             </div>
                             <br>
                             <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">

@@ -63,12 +63,14 @@
 }
 
 .container-check {
+  width: 100%;
   margin-top: 120px;
   display: flex;
+  justify-content: space-between;
 }
 .container-check .form-dk-check {
   width: 650px;
-  margin-left: 180px;
+  /* margin-left: 180px; */
 }
 .container-check .form-dk-check p {
   border-top: 3px solid green;

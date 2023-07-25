@@ -57,7 +57,7 @@ if(isset($_GET['addToCart'])){
         if(count($_SESSION['data-cart']) > 0){
             foreach($_SESSION['data-cart'] as $x=>$product){
                 if(in_array($item['id'], $product)){
-                    $product['quantity']+=1;
+                    $_SESSION['data-cart'][$x]['quantity'] +=1;
                     $flag = 1;
                 }
             }
@@ -74,12 +74,13 @@ if(isset($_GET['addToCart'])){
 // session_destroy();
 function shoppingCart(){
     $subTotal = 0;
-        // print_r($_SESSION['data-cart']);
+        print_r($_SESSION['data-cart']);
         // print_r( $_SESSION['data-cart']);
         foreach($_SESSION['data-cart'] as $index => $item){
             $id = $item['id'];
             $product = connect("select*from product WHERE product_id = $id");
             $prd_img = connect("select*from prd_img WHERE product_id = $id");
+            print_r($prd_img);
             if($item['quantity'] > 0){
             echo '
             <tr>
@@ -189,7 +190,51 @@ if(isset($_GET['decrease'])){
     header('Location: index.php?page=shopping-cart');
 }
 
+// -------------checkout---------------
 
+function checkout_cart(){
+    if($_SESSION['data-cart']){
+        $subTotal = 0;
+        foreach($_SESSION['data-cart'] as $index => $item){
+            $id = $item['id'];
+            $product = connect("select*from product WHERE product_id = $id");
+
+            echo '<div class="text-2-check">
+            <div class="sp-check">'.$product[0]['name'].'</div>
+            <div class="tt-check">'.$product[0]['price'] * $item['quantity'].' k</div>
+          </div>
+          <div class="x2-check">x'.$item['quantity'].'</div>';
+
+          $subTotal += $product[0]['price'] * $item['quantity'];
+        }
+        $tax = $subTotal *10/100;
+        $totalCost = $subTotal + $tax;
+        echo '
+        <div class="text-4-check">
+          <div class="sp-check">Tổng Giá</div>
+          <div class="tt-check">'.$subTotal.'k</div>
+        </div>
+        <div class="text-4-check">
+          <div class="sp-check">Giảm Giá</div>
+          <div class="tt-check">0</div>
+        </div>
+        <div class="text-4-check">
+          <div class="sp-check">VAT(10%)</div>
+          <div class="tt-check">'.$tax.'k</div>
+        </div>
+        <div class="text-5-check">
+          <div class="sp-check">Tổng Cộng</div>
+          <div class="tt-check">'.$totalCost.'k</div>
+        </div>';
+    }
+}
+
+if(isset($_POST['checkout'])&& $_POST['checkout']){
+    $fullName = $_POST['full-name'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    
+}
 //-------- -------------- -----------
 
 //-------- -------------- -----------
