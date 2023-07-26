@@ -258,4 +258,42 @@ if(isset ($_GET['delete'])){
         
         header('Location: index.php?page=product-list');
   }
+
+  function edit_product($id){
+    
+    $product_img = connect("SELECT* FROM prd_img WHERE product_id='$id'")[0];
+    
+    if(uploadimg_1('upImg_1') != '' && uploadimg_1('upImg_1') != null){
+      $_SESSION['add-image_1'] = uploadimg_1('upImg_1');
+  }else{
+    $_SESSION['add-image_1'] = $product_img['image_0'];
+  }
+  if(uploadimg_1('upImg_2') != '' && uploadimg_1('upImg_2') != null){
+      $_SESSION['add-image_2'] = uploadimg_1('upImg_2');
+  }else{
+    $_SESSION['add-image_2'] = $product_img['image_1'];
+  }
+  if(uploadimg_1('upImg_3') != '' && uploadimg_1('upImg_3') != null){
+      $_SESSION['add-image_3'] = uploadimg_1('upImg_3');
+  }else{
+    $_SESSION['add-image_3'] = $product_img['image_2'];
+  }
+  
+      $dec = $_POST['decription'];
+      $qty = $_POST['qty'];
+      $name = $_POST['name'];
+      $price = $_POST['price'];
+      $sale = $_POST['sale'];
+      $category_id = $_POST['category'];
+      $image1 = $_SESSION['add-image_1'];
+      $image2 = $_SESSION['add-image_2'];
+      $image3 = $_SESSION['add-image_3'];
+      echo $image1;
+          // connect("INSERT INTO product (product_id ,category_id ,name	,price	,decription,qty,sale) VALUES ('$id','$category_id','$name', '$price','$dec','$qty', '$sale')" );
+          connect("UPDATE product SET name='$name', category_id='$category_id', price='$price', sale='$sale', qty='$qty', decription='$dec' WHERE product_id='$id'");
+          connect("UPDATE prd_img SET image_0 = '$image1', image_1 = '$image2',  image_2 = '$image3'  WHERE product_id='$id'");
+          session_destroy();
+          header('Location: index.php?page=product-list');
+    }
 ?>
+
