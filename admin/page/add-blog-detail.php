@@ -17,7 +17,7 @@ if(isset($_POST['thembaiviet'])&&$_POST['thembaiviet']) {
                             </div>
                             <br>
                             <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">
-                            <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="Load image">
+                            <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="themhinhanh">
                             <br>
                         </div>
  
