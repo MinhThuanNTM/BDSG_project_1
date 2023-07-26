@@ -138,6 +138,17 @@ function new_id(){
     
 }
 
+// function detail_id(){
+
+//     if(!isset($GLOBALS['product_list']) || $GLOBALS['product_list'] == null){
+//         $lasted_id = 0;
+//     }else{
+//         $lasted_id = Array_pop($GLOBALS['product_list'])['product_id'];
+//     }
+//     return($lasted_id+1);
+    
+// }
+
 function showproduct(){
     foreach ($GLOBALS['product_list'] as $product){
         $id = $product['product_id'];
@@ -229,14 +240,14 @@ function add_product(){
 }
 
 function add_blog_detail(){
-    $id = new_id();
+   
     $title = $_POST['title'];
     $image = $_SESSION['add-image'];
     $conten = $_POST['textarea'];
     // echo $image;
-        connect("INSERT INTO post (post_id ,post_title ,post_thumb,post_content,post_by) VALUES ('$id','$title','$image', '$conten','post_by'");
+        connect("INSERT INTO post ( post_title ,post_thumb,post_content,post_by) VALUES ('$title','$image', '$conten','post_by')");
         // session_destroy();
-        header('Location: index.php');
+        // header('Location: index.php');
 }
 
 if(isset ($_GET['delete'])){

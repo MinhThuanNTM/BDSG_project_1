@@ -61,7 +61,25 @@
   padding: 0 10px;
   font-size: 18px;
 }
+.input-blog-index {
+  margin-left: 20px;
+  position: relative;
+}
+.input-blog-index input {
+  width: 200%;
+  height: 40px;
+  outline: none;
+  padding-left: 50px;
+  border-radius: 20px;
+  border: 1px solid gray;
+}
 
+.position-index {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(0, -50%);
+}
 /* main */
 
 .banner-index {
@@ -530,95 +548,88 @@ footer {
   text-align: center;
 }
 
-
-
-
 /* ----------------shop page----------------------------- */
-.prd_list{
+.prd_list {
   width: 100%;
 }
 
-.prd-item{
+.prd-item {
   gap: 15px;
 }
-.prd-item a{
+.prd-item a {
   color: #000;
-  text-decoration: none;  
+  text-decoration: none;
 }
-.prd-img{
-  background: var(--prd-bg, #F0EFF5);
-  
+.prd-img {
+  background: var(--prd-bg, #f0eff5);
+
   background-position: center center;
   height: 440px;
   width: 324px;
 }
 
-.set-bg{
+.set-bg {
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-
-.prd-name{
+.prd-name {
   display: flex;
   justify-content: space-between;
-font-size: 13px;
-font-weight: 400;
-letter-spacing: 0.4px;
-text-transform: capitalize;
-height: 42px;
-gap: 8px;
-cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+  height: 42px;
+  gap: 8px;
+  cursor: pointer;
 }
-.prd-name i{
+.prd-name i {
   padding-right: 14px;
   font-size: 28px;
   font-weight: 100;
 }
 
-.add-cart{
+.add-cart {
   display: none;
   font-size: 13px;
   font-weight: 600;
   margin-top: -100px;
 }
-.add-cart a{
-  
-  color: #FF0F00;
+.add-cart a {
+  color: #ff0f00;
 }
 
-.add-cart a:hover{
-  text-decoration: none;  
-  color: #FF0F00;
+.add-cart a:hover {
+  text-decoration: none;
+  color: #ff0f00;
 }
 
-.prd-react{
+.prd-react {
   display: flex;
-height: 16px;
-align-items: center;
-gap: 8px;
+  height: 16px;
+  align-items: center;
+  gap: 8px;
 
-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
 }
 
-.prd-react a{
-  
-font-size: 14px;
+.prd-react a {
+  font-size: 14px;
 }
 
-.prd-price{
-font-size: 18px;
-font-weight: 700;
-letter-spacing: 0.4px;
+.prd-price {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
-
-.prd-item:hover .prd-name .add-cart{
+.prd-item:hover .prd-name .add-cart {
   display: flex;
   margin-top: 0;
 }
 
-.prd-item:hover .prd-name .prd-name-text{
+.prd-item:hover .prd-name .prd-name-text {
   display: none;
 }
 
