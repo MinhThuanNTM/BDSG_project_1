@@ -1,4 +1,4 @@
-<canvas id="myChart" style="width:100%;max-width:570px"></canvas>
+<!-- <canvas id="myChart" style="width:100%;max-width:570px"></canvas> -->
 
   <script>
   var xValues = [];

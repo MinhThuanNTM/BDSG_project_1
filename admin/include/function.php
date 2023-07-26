@@ -63,6 +63,45 @@ if ($uploadOk == 0) {
 
 // ----------------------------------------------------------------------
 
+function uploadimg_1($n){
+    $target_dir = "../user/img/product/";
+    $target_file = $target_dir . basename($_FILES[$n]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    
+    // Check if image file is a actual image or fake image
+    //   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    //   if($check !== false) {
+    //     // echo "File is an image - " . $check["mime"] . ".";
+    //     $uploadOk = 1;
+    //   } else {
+    //     echo "File is not an image.";
+    //     $uploadOk = 0;
+    //   }
+    
+
+// Allow certain file formats
+    if($imageFileType != "webp" && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+    echo "Sorry, only WEBP, JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES[$n]["tmp_name"], $target_file)) {
+    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    // echo "Sorry, there was an error uploading your file.";
+  }
+}
+
+
+    return basename($_FILES[$n]["name"]);
+}
 
 
 
@@ -85,7 +124,7 @@ if(isset ($_POST['loadUploadedFile']) && ($_POST['loadUploadedFile'])){
     if(uploadimg() != '' && uploadimg() != null){
         $_SESSION['add-image'] = uploadimg();
     }
-    // echo $_SESSION['add-image'];
+    echo '<script> alert("abc") </script>';
 }
 
 function new_id(){
@@ -161,7 +200,17 @@ function category_select(){
         echo'<option value="'.$category['category_id'].'">'.$category['category_name'].'</option>';
     }
 }
+
 function add_product(){
+    if(uploadimg_1('upImg_1') != '' && uploadimg_1('upImg_1') != null){
+        $_SESSION['add-image_1'] = uploadimg_1('upImg_1');
+    }
+    if(uploadimg_1('upImg_2') != '' && uploadimg_1('upImg_2') != null){
+        $_SESSION['add-image_2'] = uploadimg_1('upImg_2');
+    }
+    if(uploadimg_1('upImg_3') != '' && uploadimg_1('upImg_3') != null){
+        $_SESSION['add-image_3'] = uploadimg_1('upImg_3');
+    }
     $dec = $_POST['decription'];
     $qty = $_POST['qty'];
     $id = new_id();
@@ -169,12 +218,14 @@ function add_product(){
     $price = $_POST['price'];
     $sale = $_POST['sale'];
     $category_id = $_POST['category'];
-    $image = $_SESSION['add-image'];
+    $image1 = $_SESSION['add-image_1'];
+    $image2 = $_SESSION['add-image_2'];
+    $image3 = $_SESSION['add-image_3'];
     // echo $image;
         connect("INSERT INTO product (product_id ,category_id ,name	,price	,decription,qty,sale) VALUES ('$id','$category_id','$name', '$price','$dec','$qty', '$sale')" );
-        connect("INSERT INTO prd_img (product_id,image_0,image_1,image_2)VALUE ('$id','$image','$image','$image')");
-        // session_destroy();
-        header('Location: index.php');
+        connect("INSERT INTO prd_img (product_id,image_0,image_1,image_2)VALUE ('$id','$image1','$image2','$image3')");
+        session_destroy();
+        header('Location: index.php?page=product-list');
 }
 
 function add_blog_detail(){

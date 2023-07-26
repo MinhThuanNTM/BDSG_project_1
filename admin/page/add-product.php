@@ -32,18 +32,26 @@ if(isset($_POST['addProduct'])&&$_POST['addProduct']) {
                             <br>
                             <div class="add-prd_img d-flex " style="">
                                 <div class="mini-img d-flex flex-column">
-                                    <div class="mini-img_block set-bg" data-bg="" > </div>
-                                    <div class="mini-img_block set-bg" data-bg="" > </div>
-                                    <div class="mini-img_block set-bg" data-bg="" > </div>
+                                    <div class="mini-img_block set-bg" data-bg="" onclick="showImage(this)"> </div>
+                                    <div class="mini-img_block set-bg" data-bg="" onclick="showImage(this)"> </div>
+                                    <div class="mini-img_block set-bg" data-bg="" onclick="showImage(this)"> </div>
                                 </div>
-                                <img class="large-img" src="../user/img/product/" height="100px" >
+                                <div class="large-img set-bg" data-bg="<?php if(isset($_SESSION['add-image_1'])) {echo $_SESSION['add-image_1'];}?>">
+                                    <input type="file" class="btn-fullW" name="upImg_1" value=" ">
+                                </div>
+                                <div class="large-img set-bg" data-bg="<?php if(isset($_SESSION['add-image_2'])) {echo $_SESSION['add-image_2'];}?>">
+                                    <input type="file" class="btn-fullW" name="upImg_2" value=" ">
+                                </div>
+                                <div class="large-img set-bg" data-bg="<?php if(isset($_SESSION['add-image_3'])) {echo $_SESSION['add-image_3'];}?>">
+                                    <input type="file" class="btn-fullW" name="upImg_3" value=" ">
+                                </div>
                             </div>
                             <br>
-                            <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">
-                            <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="Load image">
+                            <!-- <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image"> -->
+                            <!-- <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="Load image"> -->
                             <br>
-                            <label class="form-label" >Image will be save as:</label>
-                            <input type="text" disabled class="form-control" value='<?php echo $_SESSION['add-image']?>' name="image">
+                            <!-- <label class="form-label" >Image will be save as:</label>
+                            <input type="text" disabled class="form-control" value='<?php if(isset($_SESSION['add-image'])) {echo $_SESSION['add-image'];}?>' name="image"> -->
                             <!-- <?php
                             ?> -->
                         </div>
