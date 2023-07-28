@@ -1,59 +1,57 @@
-<div class="chitiet">
-  <div class="anh1">
-    <img src="IMG/1.jpg" alt="" width="45px" height="60px">
-    <img src="IMG/2.jpg" alt="" width="45px" height="60px">
-    <img src="IMG/3.jpg" alt="" width="45px" height="60px">
-  </div>
-  <div class="anh2">
-    <img src="IMG/ao-polo-nam-10s23pol063_evegreen_1__1.jpg" alt="" width="170px" height="220px">
-  </div>
-  <div class="text">
-    <h3>Áo Polo Nam Tay Bo Cổ Thêu Họa Tiết Form Fitted - 10S23POL063
-      <i class="fa-regular fa-pen-to-square"></i></h3>
-    <div class="p"> <div class="p1">Size:</div> 
-    <div class="p2">
-       <span>S</span>
-       <span>M</span>
-       <span>L</span>
-       <span>+</span>
-      </div>
-      </div>
-<div class="sl">
-  <div class="a1">Số lượng:</div>
-  <div class="a2"><span>-</span>  1  <span>+</span></div>
-  <div class="a3">(Đang có: 16)</div>
-</div>
+<?php
+  $id = $_GET['id'];
+  $product = connect("SELECT* FROM product WHERE product_id='$id'")[0];
+  $product_img = connect("SELECT* FROM prd_img WHERE product_id='$id'")[0];
 
-<div class="gia">Giá:
-  <span>250.000 đ <i class="fa-regular fa-pen-to-square"></i></span>
-</div>
+  if(isset($_POST['editProduct'])&&$_POST['editProduct']) {
+    edit_product($id);
+};
 
-<div class="sale">Giảm giá:
-  <select><option value="">Mặc định</option>
-    <option value="">Giảm theo %</option>
-    <option value="">Giảm theo giá trị</option>
- </select>
-</div>
 
-<div class="dmuc">Danh mục:
-  <select>
-    <option value="">Mặc định</option>
-    <option value="">Áo </option>
-    <option value="">Quần</option>
-    <option value="">Váy</option>
- </select>
-</div>
+?>
 
-<div class="mt">
-  <div class="mota">
-    <span>Mô Tả:</span>
-    <p>Áo Polo Nam Tay Bo Cổ Thêu Họa Tiết Form Fitted - 10S23POL063 được may từ chất liệu 100% cotton nên vô cùng thoáng mát, thấm hút mồ hôi tốt kết hợp cũng form áo fitted có phần thân áo và tay áo ôm nhẹ vào cơ thể nhưng không quá bó sát vẫn giữ được sự thoải mái cho người mặc...<i class="fa-regular fa-pen-to-square"></i></p>
-  </div>
-</div>
-  </div>
-  
-</div>
+<form action=""method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label" >Tên sản phẩm</label>
+                            <input type="text" class="form-control"  name="name" value="<?php echo $product['name'];?>" > 
+                            <label class="form-label" >giá</label>
+                            <input type="text" class="form-control"  name="price" value="<?php echo $product['price'];?>">
+                            <label class="form-label" >số lượng</label>
+                            <input type="text" class="form-control"  name="qty" value="<?php echo $product['qty'];?>">
+                            <label class="form-label" >danh mục</label>
+                            <select id="category" name="category">
+                                <?php category_select();?>
+                            </select><br>
+                            <label class="form-label" >giảm giá</label>
+                            <input type="text" class="form-control"  name="sale" value="<?php echo $product['sale'];?>">
+                            <label class="form-label" >mô tả</label>
+                            <input type="text" class="form-control"  name="decription" value="<?php echo $product['decription'];?>">
+                            
+                            <br>
+                            <input  type="submit" class="btn btn-primary" name="editProduct" value="cập nhật">
+                        </div>
+                        <div class="col-6">
+                            <label for=""> </label>
+                            <br>
+                            <div class="add-prd_img d-flex " style="">
+                                <div class="mini-img d-flex flex-column">
+                                    <div class="mini-img_block set-bg" data-bg="<?php echo $product_img['image_0'];?>" onclick="showImage(this)"> </div>
+                                    <div class="mini-img_block set-bg" data-bg="<?php echo $product_img['image_1'];?>" onclick="showImage(this)"> </div>
+                                    <div class="mini-img_block set-bg" data-bg="<?php echo $product_img['image_2'];?>" onclick="showImage(this)"> </div>
+                                </div>
+                                <div class="large-img set-bg" data-bg="<?php echo $product_img['image_0'];?>">
+                                    <input type="file" class="btn-fullW" name="upImg_1" value=" ">
+                                </div>
+                                <div class="large-img set-bg" data-bg="<?php echo $product_img['image_1'];?>">
 
-<div class="but">
-  <a href="">Cập nhật</a>
-</div>
+                                <input type="file" class="btn-fullW" name="upImg_2" value=" ">
+                                </div>
+                                <div class="large-img set-bg" data-bg="<?php echo $product_img['image_2'];?>">
+                                    <input type="file" class="btn-fullW" name="upImg_3" value=" ">
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </form>
