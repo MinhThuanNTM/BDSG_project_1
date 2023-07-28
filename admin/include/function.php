@@ -124,7 +124,6 @@ if(isset ($_POST['loadUploadedFile']) && ($_POST['loadUploadedFile'])){
     if(uploadimg() != '' && uploadimg() != null){
         $_SESSION['add-image'] = uploadimg();
     }
-    echo '<script> alert("abc") </script>';
 }
 
 function new_id(){
@@ -257,5 +256,30 @@ if(isset ($_GET['delete'])){
         connect("DELETE FROM product WHERE product_id='$id'"); 
         
         header('Location: index.php?page=product-list');
+  }
+  function show_blog_list(){
+    $blog_list = connect("select*from post");
+    foreach($blog_list as $index=>$item){
+        
+         echo '<div class="img-show-blog">
+            <img src="../user/img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
+            <div class="a-show-blog">
+                <a href="#">Khám Phá</a>
+                <a href="#">Chất Liệu</a>
+            </div>
+            <div class="p-show-blog">
+             '.$item['post_title'].'
+            </div>
+            <div class="span-show-blog">
+                12.07.2023
+            </div>
+            <div class="tack-show-blog">
+              '.$item['post_content'].'
+            </div>
+        </div>';
+    
+    }
+   
+
   }
 ?>
