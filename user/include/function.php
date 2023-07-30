@@ -229,12 +229,49 @@ function checkout_cart(){
     }
 }
 
+
+// $x=  connect("select*from order_sold");
+// $itemName  = Array_pop($x)['order_id'] +1;
+// print_r($itemName);
+
 if(isset($_POST['checkout'])&& $_POST['checkout']){
     $fullName = $_POST['full-name'];
     $email = $_POST['email'];
     $address = $_POST['address'];
+    $phoneNum = $_POST['phone'];
     
+    $note;
+    if(isset($_POST['note']) &&  $_POST['note'] != ''){
+        $note = $_POST['note'];
+    }
+
+    $id;
+    $x = connect("select*from order_sold");
+    if(!isset($x) || $x == null){
+        $id = 0;
+    }else{
+        $id = Array_pop($x)['order_id'] + 1;
+    }
+
+    connect("INSERT INTO order_sold (order_id , client_name, client_phone, client_email, user_note ) VALUES ('$id', '$fullName', '$phoneNum', '$email', '$note')" );
+    connect("INSERT INTO delivery (order_id , address ) VALUES ('$id', '$address')" );
+    connect("INSERT INTO order_status (order_id) VALUES ('$id')" );
+    
+    // print_r($_SESSION['data-cart']);
+    
+    foreach($_SESSION['data-cart'] as $index => $item){
+        $itemID = $item['id'];
+        $itemName = connect("SELECT name from product WHERE product_id = '$itemID' ")[0]['name'];
+        $itemImg = connect("SELECT image_0 from prd_img WHERE product_id = '$itemID' ")[0]['image_0'];
+        $itemQty = $item['quantity'];
+        $itemPrice = connect("SELECT price from product WHERE product_id = '$itemID' ")[0]['price'];
+        connect("INSERT INTO sold_item (order_id , product_name, prd_img, price, qty ) VALUES ('$id', '$itemName', '$itemImg' ,  '$itemPrice', '$itemQty')");
+    }
+    session_destroy();
+    
+    // header('Location: index.php?page=shopping-cart');
 }
+// session_destroy();
 //-------- -------------- -----------
 
 //-------- -------------- -----------
