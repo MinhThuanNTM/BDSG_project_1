@@ -58,7 +58,7 @@
           <div class="id7-check">
             <label for="password">Ghi chú<span>*</span></label
             ><br />
-            <textarea name="" id="" cols="30" rows="12"></textarea>
+            <textarea name="user-note" value=" " id="" cols="30" rows="12"></textarea>
           </div>
         </div>
       

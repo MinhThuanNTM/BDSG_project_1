@@ -50,7 +50,7 @@ session_start();
                                     <div class="card-img">
                                         <img src="./svg/order.svg" alt style="margin-left: -3px;">
                                     </div>
-                                    <a >Đơn hàng</a>
+                                    <a href="?page=order-list">Đơn hàng</a>
                                 </div>
                             </div>
                         </li>

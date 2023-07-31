@@ -1,13 +1,12 @@
- <main>
+<?php 
+    $product = 
+?> <main>
         <div class="container">
             <div class="product">
                 <div class="con1">
                     <button class="data" data="12"><img src="img/12.jpg" alt="" width="70px" height="100px"></button>
                     <button class="data" data="13"><img src="img/13.jpg" alt="" width="72px" height="108px"></button>
                     <button class="data" data="14"><img src="img/14.jpg" alt="" width="72px" height="108px"></button>
-                    <button class="data" data="15"><img src="img/15.jpg" alt="" width="72px" height="108px"></button>
-                    <button class="data" data="16"><img src="img/16.jpg" alt="" width="72px" height="108px"></button>
-                    <button class="data" data="17"><img src="img/17.jpg" alt="" width="72px" height="108px"></button>
                 </div>
                 <div class="con2"><img class="igg" src="img/12.jpg" alt=""></div>
             </div>

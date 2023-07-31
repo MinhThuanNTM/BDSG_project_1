@@ -13,22 +13,24 @@ if(isset($_GET['page'])){
         case 'sign-in':
             include "./page/sign-in.php";
             break;
-            case 'edit-product':
-                include "./page/edit-product.php
-                20";
-                break;
+        case 'edit-product':
+            include "./page/edit-product.php";
+            break;
+        case 'order-list':
+            include "./page/order-list.html";
+            break;
         case 'user':
             include "./page/user.php";
             break;
-            case 'add-product':
-                include "./page/add-product.php";
-                break;
-                case 'blog-list':
-                include "./page/blog-list.php";
-                break;
-                 case 'add-blog-detail':
-                include "./page/add-blog-detail.php";
-                break;
+        case 'add-product':
+            include "./page/add-product.php";
+            break;
+        case 'blog-list':
+            include "./page/blog-list.php";
+            break;
+         case 'add-blog-detail':
+            include "./page/add-blog-detail.php";
+            break;
         default:
             include './page/home.php';
     }
