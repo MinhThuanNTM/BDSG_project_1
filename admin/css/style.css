@@ -227,6 +227,11 @@
 .img-show-blog {
   padding-left: 30px;
 }
+.display-blog {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1290px;
+}
 .display-blog .img-show-blog img {
   width: 400px;
 }
@@ -249,6 +254,9 @@
 }
 .tack-show-blog {
   margin-top: 10px;
+  width: 400px;
+  height: 48px;
+  overflow: hidden;
 }
 .display-blog {
   display: flex;
