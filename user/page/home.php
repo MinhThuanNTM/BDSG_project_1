@@ -4,7 +4,7 @@
         </div>
         <div class="introduce-index">
             <div class="con1-index">
-                <img src="img/anh1.png" alt="Giới thiệu chung" width="380px" height="600px">
+                <img src="img/anh7.jpg" alt="Giới thiệu chung" width="380px" height="600px">
                 <div class="btn-index">
                     <button>Xem Ngay</button>
                 </div>
@@ -25,7 +25,7 @@
         <div class="banner1-index">
 
             <div class="iframe">
-                <iframe width="700" height="400" src="https://www.youtube.com/embed/1gTvEIpl8K0"
+                <iframe width="800" height="500" src="https://www.youtube.com/embed/1gTvEIpl8K0"
                     title="YouTube video player" frameborder="0"
                     allow="controls; autoplay=1 ; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -47,7 +47,7 @@
                     <img src="img/icon2.png" alt="" width="58px" height="35px">
                 </div>
                 <div class="img-index"><img onmouseover="this.src='img/b1.1.png'" onmouseout="this.src='img/b1.jpg'"
-                        src="img/b1.jpg" alt="" width="280" height="380" /></div>
+                        src="img/b1.jpg" alt="" width="100%" height="80%" /></div>
                 <p>Áo Thun Nam Tay Ngắn In Ngực Years Of Love Form Fitted - 10S23TSS080</p>
                 <span>299.000 đ</span>
                 <div class="contai-index">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="img-index">
                     <div class="img-index"><img onmouseover="this.src='img/b2.2.jpg'" onmouseout="this.src='img/b2.jpg'"
-                            src="img/b2.jpg" alt="" width="280" height="380" /></div>
+                            src="img/b2.jpg" alt="" width="100%" height="80%" /></div>
                 </div>
                 <p>Áo Thun Nam Tay Ngắn In Ngực Years Of Love Form Fitted - 10S23TSS080</p>
                 <span>229.000 đ</span>
@@ -80,7 +80,7 @@
                 <div class="img-index">
 
                     <div class="img-index"><img onmouseover="this.src='img/b3.3.jpg'" onmouseout="this.src='img/b3.jpg'"
-                            src="img/b3.jpg" alt="" width="280" height="380" /></div>
+                            src="img/b3.jpg" alt=""width="100%" height="80%"  /></div>
                 </div>
                 <p>Áo Thun Nam Tay Ngắn In Ngực Years Of Love Form Fitted - 10S23TSS080</p>
                 <span>229.000 đ</span>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="img-index">
                     <div class="img-index"><img onmouseover="this.src='img/b4.4.jpg'" onmouseout="this.src='img/b4.jpg'"
-                            src="img/b4.jpg" alt="" width="280" height="380" /></div>
+                            src="img/b4.jpg" alt=""width="100%" height="80%"  /></div>
                 </div>
                 <p>Áo Thun Nam Tay Ngắn In Ngực Years Of Love Form Fitted - 10S23TSS080</p>
                 <span>229.000 đ</span>
@@ -120,7 +120,7 @@
                     <img src="img/icon4.png" alt="" width="58px" height="60px">
                 </div>
                 <div class="img-index"><img onmouseover="this.src='img/c2.jpg'" onmouseout="this.src='img/c1.jpg'"
-                        src="img/c1.jpg" alt="" width="280" height="380" /></div>
+                        src="img/c1.jpg" alt="" width="100%" height="80%"  /></div>
                 <p>
                     Áo Sơ Mi Kaki Nam Denim Tay Ngắn Họa Tiết Form Loose - 10S21DSH001</p>
                 <span>229.000 đ </span>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="img-index">
                     <div class="img-index"><img onmouseover="this.src='img/3.jpg'" onmouseout="this.src='img/a3.jpg'"
-                            src="img/a3.jpg" alt="" width="280" height="380" /></div>
+                            src="img/a3.jpg" alt="" width="100%" height="80%"  /></div>
                 </div>
                 <p>Áo Thun Nữ Cúp Ngực Trơn Form Fitted Crop - 10S22TTOW007</p>
                 <span>229.000 đ</span>
@@ -162,7 +162,7 @@
                 <div class="img-index">
 
                     <div class="img-index"><img onmouseover="this.src='img/c4.jpg'" onmouseout="this.src='img/c3.jpg'"
-                            src="img/c3.jpg" alt="" width="280" height="380" /></div>
+                            src="img/c3.jpg" alt="" width="100%" height="80%"  /></div>
                 </div>
                 <p>Áo Thun Nam Tay Ngắn In Ngực Years Of Love Form Fitted - 10S23TSS080</p>
                 <span>229.000 đ</span>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="img-index">
                     <div class="img-index"><img onmouseover="this.src='img/c6.jpg'" onmouseout="this.src='img/c5.jpg'"
-                            src="img/c5.jpg" alt="" width="280" height="380" /></div>
+                            src="img/c5.jpg" alt=""width="100%" height="80%"  /></div>
                 </div>
                 <p>Áo Thun Nam Tay Ngắn In Ngực Years Of Love Form Fitted - 10S23TSS080</p>
                 <span>229.000 đ</span>

@@ -102,12 +102,20 @@
 }
 .introduce-index .con1-index img {
   border-radius: 14px;
+  height: 700px;
+  width: 450px;
 }
 .introduce-index .con2-index img {
   border-radius: 14px;
+  height: 700px;
+
+  width: 450px;
 }
 .introduce-index .con3-index img {
   border-radius: 14px;
+  height: 700px;
+
+  width: 450px;
 }
 .con1-index,
 .con2-index,
@@ -126,15 +134,16 @@
   width: 100px;
   height: 30px;
   border-radius: 7px;
-  border: 1px solid white;
-  color: white;
-  background-color: rgba(0, 255, 255, 0);
+  border: 1px solid rgb(3, 3, 3);
+  color: rgb(0, 0, 0);
+  background-color: rgba(2, 2, 2, 0);
   font-family: RobotoCondensed-Bold;
+  margin-left: 10px;
 }
 
 .btn-index button:hover {
-  background-color: white;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   transition: 0.5s ease;
 }
 .banner1-index {
@@ -147,9 +156,10 @@
 
 .iframe {
   text-align: right;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 130px;
+  padding-bottom: 130px;
   margin-right: 50px;
+  background-position: center;
 }
 
 /* sản phẩm */
@@ -235,7 +245,7 @@
   font-family: RobotoCondensed-Bold;
   width: 100%;
   border: 1px solid black;
-  padding: 10px 56px;
+  padding: 10px 95px;
   border-radius: 5px;
 }
 
@@ -245,7 +255,7 @@
   font-family: RobotoCondensed-Bold;
   width: 100%;
   border: 1px solid black;
-  padding: 10px 56px;
+  padding: 10px 95px;
   border-radius: 5px;
 }
 
@@ -255,7 +265,7 @@
   font-family: RobotoCondensed-Bold;
   width: 100%;
   border: 1px solid black;
-  padding: 10px 56px;
+  padding: 10px 95px;
   border-radius: 5px;
 }
 
@@ -265,7 +275,7 @@
   font-family: RobotoCondensed-Bold;
   width: 100%;
   border: 1px solid black;
-  padding: 10px 56px;
+  padding: 10px 95px;
   border-radius: 5px;
 }
 /* hover product */
@@ -336,6 +346,8 @@
 .nam-index img,
 .nu-index img {
   border-radius: 10px;
+  width: 780px;
+  height: 100%;
 }
 
 .product2-index {
@@ -380,13 +392,16 @@
 
 .last-index .imglast1-index img {
   border-radius: 5px;
+  width: 100%;
 }
 .last-index .imglast2-index img {
   border-radius: 5px;
+  width: 100%;
 }
 
 .last-index .imglast3-index img {
   border-radius: 5px;
+  width: 100%;
 }
 .boder-index {
   margin-top: 15px;
@@ -412,10 +427,10 @@
   font-size: 18px;
 }
 .last-index .imglast1-index {
-  margin-left: 50px;
+  margin-left: 100px;
 }
 .last-index .imglast3-index {
-  margin-right: 50px;
+  margin-right: 100px;
 }
 .day-index {
   color: rgb(156, 156, 156);

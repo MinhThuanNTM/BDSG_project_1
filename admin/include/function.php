@@ -271,6 +271,8 @@ if(isset ($_GET['delete'])){
         
          echo '<div class="img-show-blog">
             <img src="../user/img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
+            <div class="icon-blog"><a href="#"><i class="fa-solid fa-trash" style="color: #000000;"></i></div></a>
+            <div class="icon-fix-blog"><a href="#"><i class="fa-solid fa-wrench" style="color: #000000;"></i></a></div>
             <div class="a-show-blog">
                 <a href="#">Khám Phá</a>
                 <a href="#">Chất Liệu</a>
@@ -282,7 +284,7 @@ if(isset ($_GET['delete'])){
                 12.07.2023
             </div>
             <div class="tack-show-blog">
-              '.$item['post_content'].'
+              '.$item['post_content'].'..
             </div>
         </div>';
     
