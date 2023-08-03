@@ -198,12 +198,13 @@
   border-radius: 5px;
 }
 .flex-blog p {
+  font-size: 20px;
   font-family: RobotoCondensed-Bold;
 }
 .day-blog {
   position: absolute;
-  bottom: 0;
-  left: 29%;
+  bottom: -4px;
+  left: 124px;
   color: gray;
 }
 

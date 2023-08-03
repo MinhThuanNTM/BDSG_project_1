@@ -57,6 +57,11 @@
                     <a href="#">SALE</a>
                 </li>
 
+               <div class="input-blog-index">
+                <input type="text">
+                <i class="position-index fa-solid fa-magnifying-glass"></i>
+               </div>
+
                 <li>
                     <a href="?page=Log-in&form=true">Đăng Nhập</a>
                     <a href="#">|</a>
