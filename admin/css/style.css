@@ -283,7 +283,9 @@
   width: 65%;
 }
 
-.order-card_top {
+.order-card_top {}
+.order-show{
+
 }
 .client-info {
   gap: 32px;
@@ -305,6 +307,15 @@
 
 .order-status {
   color: rgb(0, 196, 0);
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-card{
+  padding: 12px;
+  border: 1px solid #e5e7eb;
 }
 
 .order-card_bottom {
@@ -314,7 +325,9 @@
 }
 
 .order-expand {
-  padding-top: 32px;
+  padding-top: 32px;}
+.order-expand{
+  padding: 32px 12px 12px 12px;
 }
 
 .order-note {
@@ -330,6 +343,7 @@
 .order-progress {
   width: 100%;
   justify-content: start;
+  height: 164px;
 }
 
 .progress_bar {
@@ -358,6 +372,14 @@
 .progress-text {
   position: absolute;
   padding-top: 48px;
+  user-select: none;
+}
+
+.progress-text_1{
+  position: absolute;
+  padding-top: 76px;
+  opacity: .7;
+  user-select: none;
 }
 
 .progress-num {
@@ -382,10 +404,25 @@
   background-color: rgb(0, 196, 0);
   border-radius: 4px;
   margin-top: 80px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
 }
 
 .progress-confirm:hover {
   background-color: white;
   color: rgb(0, 196, 0);
   border: 1px solid rgb(0, 196, 0);
+}
+
+.progress-confirm:active{
+  background-color: rgb(240, 240, 240);
+}
+
+ tr th:last-child,td:last-child{
+  text-align: end;
+}
+
+.order_time{
+  color: grey;
 }

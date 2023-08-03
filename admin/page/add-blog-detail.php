@@ -13,7 +13,7 @@ if(isset($_POST['thembaiviet'])&&$_POST['thembaiviet']) {
                             <label for=""> </label>
                             <br>
                             <div style="height:100px;">
-                            <img src="../user/img/product/<?php echo  $_SESSION['add-image'] ?>"  height="100px" >
+                            <img src="../img/product/<?php echo  $_SESSION['add-image'] ?>"  height="100px" >
                             </div>
                             <br>
                             <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">

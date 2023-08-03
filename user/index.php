@@ -16,7 +16,7 @@ if(isset($_GET['page'])){
             include "./page/checkout.php";
             break;
         case 'user-setting':
-            include "./page/user-setting.php";
+            include "./page/user-setting.html";
             break;
              case 'blog':
             include "./page/blog.php";

@@ -1,5 +1,5 @@
 <?php
-// connect database
+// connect database../
 function connect($sql){
     $servername = "localhost";
         $username = "root";
@@ -22,7 +22,7 @@ function connect($sql){
 
 // --------------------uploadimg-----------------
 function uploadimg(){
-    $target_dir = "../user/img/product/";
+    $target_dir = "../img/product/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -64,7 +64,7 @@ if ($uploadOk == 0) {
 // ----------------------------------------------------------------------
 
 function uploadimg_1($n){
-    $target_dir = "../user/img/product/";
+    $target_dir = "../img/product/";
     $target_file = $target_dir . basename($_FILES[$n]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -182,9 +182,9 @@ function showproduct(){
             </div>
             <div class="chitiet">
                 <div class="anh1">
-                    <img src="../user/IMG/product/'.$product_img[0]['image_0'].'" alt="" width="30px" height="40px">
-                    <img src="../user/IMG/product/'.$product_img[0]['image_1'].'" alt="" width="30px" height="40px">
-                    <img src="../user/IMG/product/'.$product_img[0]['image_2'].'" alt="" width="30px" height="40px">
+                    <img src="../IMG/product/'.$product_img[0]['image_0'].'" alt="" width="30px" height="40px">
+                    <img src="../IMG/product/'.$product_img[0]['image_1'].'" alt="" width="30px" height="40px">
+                    <img src="../IMG/product/'.$product_img[0]['image_2'].'" alt="" width="30px" height="40px">
                 </div>
                 <div class="anh2">
                     <img src="IMG/ao-polo-nam-10s23pol063_evegreen_1__1.jpg" alt="" width="130px"
@@ -270,7 +270,7 @@ if(isset ($_GET['delete'])){
     foreach($blog_list as $index=>$item){
         
          echo '<div class="img-show-blog">
-            <img src="../user/img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
+            <img src="../img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
             <div class="icon-blog"><a href="#"><i class="fa-solid fa-trash" style="color: #000000;"></i></div></a>
             <div class="icon-fix-blog"><a href="#"><i class="fa-solid fa-wrench" style="color: #000000;"></i></a></div>
             <div class="a-show-blog">
@@ -331,79 +331,4 @@ if(isset ($_GET['delete'])){
 }
 
 // ------------
-function order_list(){
-    $order_list = connect("SELECT * FROM order_sold");
-    foreach($order_list as $index => $item){
-        echo '
-        <div class="order-show">
-          <div class="order-card">
-            <div class="order-card_top  d-flex justify-content-between">
-              <div class="client-info d-flex ">
-                <div class="client-avatar">
-                    <img src="" alt="">
-                </div>
-                <div class="client-info_text">
-                    <div class="client-name">Tên: abc</div>
-                    <div class="client-phone">Điện thoại: abc</div>
-                    <div class="client-email">Email: abc</div>
-                    <div class="client-address">Địa chỉ: abc</div>
-                </div>
-            </div>
-            <div class="order-status">Trạng thái: Đang vận chuyển</div>
-            </div>
-            <div class="order-card_bottom d-flex justify-content-between">
-              <div class="total-prd">Số lượng sản phẩm: 4</div>
-              <div class="angle-down">
-                  <i class="fa-solid fa-angle-down"></i>
-              </div>
-              <div class="cost-total">Giá trị đơn hàng: 200000 đ</div>
-            </div>
-          </div>
-          <div class="order-expand">
-              <a>Đơn hàng: </a>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col" colspan="3">Tên</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Tổng</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td><div class="img"></div></td>
-                    <td>Mark</td>
-                    <td>120</td>
-                    <td>x 2</td>
-                    <td>120000</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="order-note">
-                <a>Note: </a>
-                shop hứa tặng tui 1 voucher 50% all sản phẩm
-              </div>
-              <div class="order-progress d-flex">
-                <div class="row progress_bar">
-                    <div class="col-2">
-                      <i class="fa-solid fa-circle-check"></i>
-                      <div class="progress-text">Chuẩn bị hàng</div>
-                      <div class="progress-confirm"> Hoàn thành </div>
-                    </div>
-                    <div class="col-2">
-                      <i class="fa-solid fa-spinner"></i>
-                      <div class="progress-text">Đang giao</div>
-                    </div>  
-                    <div class="col-2">
-                      <i class="fa-solid fa-circle-notch"></i>
-                      <div class="progress-text">Đã giao</div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>';
-    }
-}
 ?>

@@ -80,7 +80,7 @@ function shoppingCart(){
             $id = $item['id'];
             $product = connect("select*from product WHERE product_id = $id");
             $prd_img = connect("select*from prd_img WHERE product_id = $id");
-            print_r($prd_img);
+            // print_r($prd_img);
             if($item['quantity'] > 0){
             echo '
             <tr>
@@ -274,6 +274,186 @@ if(isset($_POST['checkout'])&& $_POST['checkout']){
 // session_destroy();
 //-------- -------------- -----------
 
+function order_list(){
+    $user_id = 0;
+    $order_list = connect("SELECT * FROM order_sold ");
+    foreach($order_list as $index => $item){
+        $id = $item['order_id'];
+        $orderItem = connect("SELECT price FROM sold_item WHERE order_id = '$id'");
+        $orderItem_price = 0;
+        foreach($orderItem as $index => $price){
+            // print_r($price['price']);
+            $orderItem_price += $price['price'];
+        }
+        $order_status = connect("SELECT * FROM order_status WHERE order_id = '$id'")[0];
+        // print_r($order_status);
+        $orderItem_count = count($orderItem);
+        $delivery = connect("SELECT * FROM delivery WHERE order_id = '$id'")[0];
+
+        $status ;
+        if($delivery['delivery_start'] == null){
+            $status = 0;
+        }else{
+            if($delivery['delivery_end'] == null){
+                $status = 1;
+            }else{
+                if($order_status['purchase_time']== null){
+                    $status = 2;
+                }else{
+                    $status = 3;
+                }
+            }
+        }
+        echo '
+        <div class="order-show">
+          <div class="order-card">
+            <div class="order-card_top  d-flex justify-content-between">
+              <div class="client-info d-flex ">
+                <div class="client-info_text">
+                    <div class="client-name">Tên: '.$item['client_name'].'</div>
+                    <div class="client-phone">Điện thoại: '.$item['client_phone'].'</div>
+                    <div class="client-email">Email: '.$item['client_email'].'</div>
+                    <div class="client-address">Địa chỉ: '.$delivery['address'].'</div>
+                </div>
+            </div>
+            <div class="order-status">Trạng thái: ';
+                                                switch($status){
+                                                    case 0: 
+                                                        echo 'Chuẩn bị hàng';
+                                                        break;
+                                                    case 1:
+                                                        echo 'Đang vận chuyển';
+                                                        break;
+                                                    case 2:
+                                                        echo 'Chờ thanh toán';
+                                                        break;
+                                                    case 3: 
+                                                        echo 'Đã hoàn thành';
+                                                        break;
+                                                }
+        echo '
+                <div class="order_time">Bắt đầu: '.$order_status['order_time'].' </div>
+                <div class="order_time">Hoàn thành: '.$order_status['purchase_time'].' </div>
+            </div>
+            </div>
+            <div class="order-card_bottom d-flex justify-content-between">
+              <div class="total-prd">Số lượng sản phẩm: '.$orderItem_count.'</div>
+              <div class="angle-down">
+                  <i class="fa-solid fa-angle-down"></i>
+              </div>
+              <div class="cost-total">Giá trị đơn hàng: '.$orderItem_price.' đ</div>
+            </div>
+          </div>
+          <div class="order-expand">
+              <a>Đơn hàng: </a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" colspan="3">Tên</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tổng</th>
+                  </tr>
+                </thead>
+                <tbody>';
+                order_item($id);
+            echo'
+                </tbody>
+              </table>
+              <div class="order-note">
+                <a>Ghi chú: </a>
+                '.$item['user_note'].'
+              </div>
+              <div class="order-progress d-flex">
+                <div class="row progress_bar">';
+                    if ($status <= 0){
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-spinner"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-notch"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                          <i class="fa-solid fa-circle-notch"></i>
+                          <div class="progress-text">Đã giao</div>
+                        </div>';
+                    }elseif($status == 1) {
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-spinner"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                          <i class="fa-solid fa-circle-notch"></i>
+                          <div class="progress-text">Đã giao</div>
+                        </div>';
+                    }elseif($status == 2){
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                            <i class="fa-solid fa-spinner"></i>
+                          <div class="progress-text">Đã giao</div>
+                          <a href="?page=user-setting&delivery_confirm='.$id.'" class="progress-confirm"> Đã nhận </a>
+                        </div>';
+                    }elseif($status == 3){
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Đã giao</div>
+                        </div>';
+                    }
+                    echo'
+                  </div>
+              </div>
+          </div>
+        </div>';
+    }
+}
+
+if(isset($_GET['delivery_confirm'])){
+    $id = $_GET['delivery_confirm'];
+    connect("UPDATE order_status SET purchase_time = (now()) WHERE order_id = '$id'");
+    header('Location: index.php?page=user-setting');
+
+}
+
+function order_item($id){
+    $order_item = connect("SELECT * FROM sold_item WHERE order_id = '$id'");
+    foreach($order_item as $index => $item){
+        echo'
+        <tr>
+            <th scope="row">'. 1+$index.'</th>
+            <td><div class="img"></div></td>
+            <td>'.$item['product_name'].'</td>
+            <td>'.$item['price'].' đ</td>
+            <td>x '.$item['qty'].'</td>
+            <td>'.$item['price']*$item['qty'].' đ</td>
+        </tr>
+        ';
+    }
+}
 //-------- -------------- -----------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 

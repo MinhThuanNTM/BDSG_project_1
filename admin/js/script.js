@@ -1,7 +1,7 @@
 const bg = document.getElementsByClassName("set-bg");
 for (let i = 0; i < bg.length; i++) {
     let data = bg[i].getAttribute("data-bg")
-    bg[i].style.backgroundImage = "url(../user/img/product/"+ data +")"
+    bg[i].style.backgroundImage = "url(../img/product/"+ data +")"
 }
 
 function controlDropdown(n){
