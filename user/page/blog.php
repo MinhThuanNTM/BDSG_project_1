@@ -1,6 +1,6 @@
   <main>
       <div class="h1-blog">
-        <h2>tin thời trang</h2>
+        <h2>.</h2>
       </div>
       <div class="blogrow-blog">
         <div class="blofcolleft-blog">
