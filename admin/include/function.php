@@ -22,7 +22,7 @@ function connect($sql){
 
 // --------------------uploadimg-----------------
 function uploadimg(){
-    $target_dir = "../img/product/";
+    $target_dir = "../user/img/product/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -64,7 +64,7 @@ if ($uploadOk == 0) {
 // ----------------------------------------------------------------------
 
 function uploadimg_1($n){
-    $target_dir = "../img/product/";
+    $target_dir = "../user/img/product/";
     $target_file = $target_dir . basename($_FILES[$n]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -182,9 +182,9 @@ function showproduct(){
             </div>
             <div class="chitiet">
                 <div class="anh1">
-                    <img src="../IMG/product/'.$product_img[0]['image_0'].'" alt="" width="30px" height="40px">
-                    <img src="../IMG/product/'.$product_img[0]['image_1'].'" alt="" width="30px" height="40px">
-                    <img src="../IMG/product/'.$product_img[0]['image_2'].'" alt="" width="30px" height="40px">
+                    <img src="../user/img/product/'.$product_img[0]['image_0'].'" alt="" width="30px" height="40px">
+                    <img src="../user/img/product/'.$product_img[0]['image_1'].'" alt="" width="30px" height="40px">
+                    <img src="../user/img/product/'.$product_img[0]['image_2'].'" alt="" width="30px" height="40px">
                 </div>
                 <div class="anh2">
                     <img src="IMG/ao-polo-nam-10s23pol063_evegreen_1__1.jpg" alt="" width="130px"
@@ -270,7 +270,7 @@ if(isset ($_GET['delete'])){
     foreach($blog_list as $index=>$item){
         
          echo '<div class="img-show-blog">
-            <img src="../img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
+            <img src="../user/img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
             <div class="icon-blog"><a href="#"><i class="fa-solid fa-trash" style="color: #000000;"></i></div></a>
             <div class="icon-fix-blog"><a href="#"><i class="fa-solid fa-wrench" style="color: #000000;"></i></a></div>
             <div class="a-show-blog">
