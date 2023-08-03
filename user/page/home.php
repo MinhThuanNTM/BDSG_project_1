@@ -2,6 +2,9 @@
         <div class="banner-index">
           <img src="img/banner4.png" alt="" width="100%">
         </div>
+        <div class="xemngay-index">
+              <a href="#">Xem Ngay</a>
+        </div>
         <div class="introduce-index">
             <div class="con1-index">
                 <img src="img/anh7.jpg" alt="Giới thiệu chung" width="380px" height="600px">
@@ -225,7 +228,7 @@
             <div class="imglast3-index">
                 <img src="img/11.jpg" alt="" width="396px" height="294px">
                 <div class="boder-index"><a href="#">Sự Kiện</a> </div>
-                <div class="p-index">Kết quả Minigame ĐUA TOP LẬT HÌNH - RINH QUÀ SINH NHẬT | Lộ diện chủ nhân chiếc điện
+                <div class="p-index">Kết quả Minigame ĐUA TOP LẬT HÌNH - RINH QUÀ  | Lộ diện chủ nhân chiếc điện
                     thoại</div>
                 <div class="day-index">June 19, 2023</div>
             </div>
