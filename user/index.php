@@ -1,9 +1,9 @@
 <?php
 include "./include/header.php";
 include "./include/function.php";
-if(isset($_GET['page'])){
-    switch($_GET['page']){
-        case 'shop': 
+if (isset($_GET['page'])) {
+    switch ($_GET['page']) {
+        case 'shop':
             include "./page/shop.php";
             break;
         case 'shopping-cart':
@@ -18,18 +18,20 @@ if(isset($_GET['page'])){
         case 'user-setting':
             include "./page/user-setting.php";
             break;
-             case 'blog':
+        case 'blog':
             include "./page/blog.php";
             break;
-             case 'blog_detail':
+        case 'blog_detail':
             include "./page/blog_detail.php";
+            break;
+        case 'Log-in':
+            include "./page/login.php";
             break;
         default:
             include './page/home.php';
     }
-}else{
+} else {
     include './page/home.php';
 }
 
-include "./include/footer.php"
-?>
+include "./include/footer.php";
