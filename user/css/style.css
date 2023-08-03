@@ -108,6 +108,7 @@
   display: inline-block;
   font-weight: bold;
   font-family: RobotoCondensed-Bold;
+  text-decoration: none;
 }
 .xemngay-index a:hover {
   box-shadow: 0 0px 25px rgba(255, 255, 255, 1);
@@ -449,6 +450,8 @@
   background-color: black;
   color: white;
   transition: 0.5s ease;
+  text-decoration: none;
+  text-decoration: none;
 }
 .p-index {
   margin-top: 25px;
