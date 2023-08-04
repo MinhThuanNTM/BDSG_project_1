@@ -33,6 +33,8 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link rel="shortcut icon" href="logoback.ico" type="image/x-icon">
+    
 </head>
 
 <body>
