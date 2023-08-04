@@ -27,6 +27,15 @@ if (isset($_GET['page'])) {
         case 'Log-in':
             include "./page/login.php";
             break;
+        case 'Forgotpass':
+            include "./page/Forgotpass.php";
+            break;
+        case 'forgotpass-mail':
+            include "./page/forgotpass-mail.php";
+            break;
+        case 'resetpass':
+            include "./page/resetpass.php";
+            break;
         default:
             include './page/home.php';
     }

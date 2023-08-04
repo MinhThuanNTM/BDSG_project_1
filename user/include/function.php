@@ -263,7 +263,7 @@ function order_list()
         $orderItem_count = count($orderItem);
         $delivery = connect("SELECT * FROM delivery WHERE order_id = '$id'")[0];
 
-        $status;
+
         if ($delivery['delivery_start'] == null) {
             $status = 0;
         } else {

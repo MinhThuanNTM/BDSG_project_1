@@ -7,16 +7,20 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // Thiết lập chế độ báo lỗi cho PDO
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    session_start();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Lấy thông tin đăng ký từ form
         $username = $_POST['usernameregis'];
         $password = $_POST['passwordregis'];
         $email = $_POST['emailregis'];
+        $repassword = $_POST['repassword'];
 
         // Kiểm tra tính hợp lệ của thông tin đăng ký
-        if (empty($username) || empty($password) || empty($email)) {
+        if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
             echo 'Vui lòng điền đầy đủ thông tin.';
+        } else if ($password != $repassword) {
+            $_SESSION['register-err'] = 'Mật khẩu và nhập lại mật khẩu không trùng khớp';
+            header('Location: http://localhost/BDSG_project_1/user/?page=Log-in&form=false');
         } else {
             // Sử dụng prepared statement để tránh SQL injection
             $query = "SELECT * FROM user WHERE user_nickname = :username OR email = :email";
@@ -35,7 +39,8 @@ try {
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':password', $password);
                 $stmt->execute();
-                echo 'Đăng ký thành công.';
+                $_SESSION['register-success'] = 'Đăng ký thành công';
+                header('Location: http://localhost/BDSG_project_1/user/?page=Log-in');
             }
         }
     }
