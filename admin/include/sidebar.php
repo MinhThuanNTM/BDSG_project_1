@@ -13,7 +13,7 @@ session_start();
                                 <div class="card-img">
                                     <img src="./svg/dashboard.svg" alt="">
                                 </div>
-                                <a >Bảng điều khiển</a>
+                                <a href="?page=dashboard">Bảng điều khiển</a>
                             </div>
                             
                         </li>

@@ -23,6 +23,19 @@ function connect($sql)
     }
 }
 
+
+$userID;
+if(isset($_COOKIE['BDSG_user-name'])){
+    $username = $_COOKIE['BDSG_user-name'];
+    $userID = connect("SELECT user_id FROM user WHERE user_nickname = '$username' ")[0]['user_id'];
+}
+
+$delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ");
+
+if($userID != null && $delivery_info == null){
+    connect("INSERT INTO delivery_info (user_id ) VALUES ('$userID')");
+}
+
 $product_list = connect("select*from product");
 $product_img = connect("select*from prd_img ");
 
@@ -246,24 +259,26 @@ if (isset($_POST['checkout']) && $_POST['checkout']) {
 // session_destroy();
 //-------- -------------- -----------
 
+
 function order_list()
-{
-    $user_id = 0;
-    $order_list = connect("SELECT * FROM order_sold ");
+{   
+    $userID = $GLOBALS['userID'];
+    $order_list = connect("SELECT * FROM order_sold WHERE user_id = $userID ");
+    if($order_list != '')
     foreach ($order_list as $index => $item) {
         $id = $item['order_id'];
         $orderItem = connect("SELECT price FROM sold_item WHERE order_id = '$id'");
-        $orderItem_price = 0;
+        $orderItem_price = 0.0;
         foreach ($orderItem as $index => $price) {
             // print_r($price['price']);
             $orderItem_price += $price['price'];
         }
         $order_status = connect("SELECT * FROM order_status WHERE order_id = '$id'")[0];
-        // print_r($order_status);
+        // print_r(connect("SELECT * FROM order_status WHERE order_id = '$id'"));
         $orderItem_count = count($orderItem);
         $delivery = connect("SELECT * FROM delivery WHERE order_id = '$id'")[0];
 
-
+        $status;
         if ($delivery['delivery_start'] == null) {
             $status = 0;
         } else {
@@ -335,7 +350,7 @@ function order_list()
               </table>
               <div class="order-note">
                 <a>Ghi chú: </a>
-                ' . $item['user_note'] . '
+                ' . $item['note'] . '
               </div>
               <div class="order-progress d-flex">
                 <div class="row progress_bar">';
@@ -411,6 +426,13 @@ if (isset($_GET['delivery_confirm'])) {
     header('Location: index.php?page=user-setting');
 }
 
+function echox($var){
+    if($var != '')
+    echo $var;
+    else
+    echo '';
+}
+
 function order_item($id)
 {
     $order_item = connect("SELECT * FROM sold_item WHERE order_id = '$id'");
@@ -418,7 +440,7 @@ function order_item($id)
         echo '
         <tr>
             <th scope="row">' . 1 + $index . '</th>
-            <td><div class="img"></div></td>
+            <td><div class="orderItem-img set-bg" data-bg="'.$item['prd_img'].'"></div></td>
             <td>' . $item['product_name'] . '</td>
             <td>' . $item['price'] . ' đ</td>
             <td>x ' . $item['qty'] . '</td>
@@ -426,6 +448,15 @@ function order_item($id)
         </tr>
         ';
     }
+}
+
+
+if(isset($_POST['updateUserInfo']) && $_POST['updateUserInfo']){
+    $phoneNum = $_POST['phone'];
+    $fullName = $_POST['fullName'];
+    $address = $_POST['address'];
+
+    connect("UPDATE delivery_info SET client_name = '$fullName', client_phone = '$phoneNum', address = '$address' WHERE user_id = '$userID'");
 }
 //-------- -------------- -----------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------//

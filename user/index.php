@@ -24,6 +24,9 @@ if (isset($_GET['page'])) {
         case 'blog_detail':
             include "./page/blog_detail.php";
             break;
+        case 'chitiet':
+            include "./page/chitiet.php";
+            break;
         case 'Log-in':
             include "./page/login.php";
             break;

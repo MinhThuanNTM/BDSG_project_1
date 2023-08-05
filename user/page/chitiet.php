@@ -1,5 +1,6 @@
 <?php 
-    $product = 
+$id = $_GET['id'];
+    $product = connect("SELECT * FROM product WHERE product_id = '$id'");
 ?> <main>
         <div class="container">
             <div class="product">

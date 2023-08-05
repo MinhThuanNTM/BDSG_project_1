@@ -6,53 +6,63 @@
 <div class="user-page container">
     <!-- <div class="row">
         <div class="col-3">
-            <ul class="user-sidebar">
-                <li><i class="fa-regular fa-user"></i> <a href="">Thông tin cá nhân</a></li>
-                <li><i class="fa-regular fa-heart"></i> <a href="">Sản phẩm yêu thích</a></li>
-                <li><i class="fa-solid fa-clock-rotate-left"></i> <a href="">Lịch sử đơn hàng</a></li>
-                <li></li>
-            </ul>
         </div> -->
-        <div class="col-9">
-            <div class="user-base_info d-flex gap-4 ">
-                <div class="user-avatar"><div></div></div>
-                <div class="user-info">
-                    <div class="user-name">Minh Thuận</div>
-                    <div class="user-favorite"><i class="fa-regular fa-heart"></i><a> 0</a></div>
+        <?php $userInfor = connect("SELECT * FROM user WHERE user_id = '$userID'")[0]; 
+        $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = '$userID'")[0]; 
+         ?>
+        <div class="row">
+            <div class="user-base_info col-4">
+                <div class="user-avatar"><input class="btn-fullW" type="file"><div class="set-avatar" data-avatar="<?php echo $userInfor['avatar'] ?>"></div><i class="fa-solid fa-pen-to-square"></i></div>
+                <div class="sidebar">
+                    <div class="user-info">
+                        <div class="user-name"><?php echo $delivery_info['client_name'] ?></div>
+                        <div class="user-favorite"><i class="fa-regular fa-heart"></i><a> 0 <?php  ?></a></div>
+                    </div>
+                    
+                    <ul class="user-sidebar">
+                        <li class="sideBarTab actived" onclick="openTab(this)" ><i class="fa-regular fa-user"></i> <a>Thông tin cá nhân</a></li>
+                        <li class="sideBarTab" onclick="openTab(this)"><i class="fa-regular fa-heart"></i> <a >Sản phẩm yêu thích</a></li>
+                        <li class="sideBarTab" onclick="openTab(this)"><i class="fa-solid fa-clock-rotate-left"></i> <a >Lịch sử đơn hàng</a></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
-            <form action="" method="post" class="user-page_content user-infor_details">
+            <form action="" method="post" class="userPage_content user-infor_details col-8  gap-4" >
                 <div class="user-contact d-flex justify-content-between">
-                    <label for="">email
-                        <input type="text" class="form-control">
+                    <label for="">Email
+                        <input type="text" class="form-control" name="email" value="<?php echo $userInfor['email']?>" disabled>
                     </label>
                     <label for="">Điện thoại
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="phone" value="<?php echox($delivery_info['client_phone']) ?>">
                     </label>
                 </div>
-                <label for="">Họ và tên</label>
-                <input type="text" class="form-control">
+                <label for="">Họ và tên
+                    <input type="text" class="form-control" name="fullName" value="<?php echox($delivery_info['client_name']) ?>">
+                </label>
                 <div class="user-contact d-flex justify-content-between">
                     <label for="">Tên đăng nhập
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="fullName" value="<?php echox($userInfor['user_nickname']) ?>" disabled>
                     </label>
                     <label for="">Mật khẩu
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="password" value="<?php echox($userInfor['password']) ?>" disabled>
                     </label>
                 </div>
-                <label for="">Địa chỉ</label>
-                <input type="text" class="form-control">
+                <label for="">Địa chỉ
+                    <input type="text" class="form-control" name="address" value="<?php echox($delivery_info['address']) ?>">
+                </label>
+                
+                <input class="updtInfo btn btn-primary w-25" type="submit" name="updateUserInfo" value="CẬP NHẬT" disabled>
             </form>
 
-            <div>
+            <div class="userPage_content order-history col-8">
                  
             </div>
-            <div>
-                Danh sách đơn hàng
-            </div>
-            <div class="user-page_content order-history">
+            <form class="userPage_content order-history col-8">
+                <div>
+                    Danh sách đơn hàng
+                </div>
                 <?php order_list(); ?>
-            </div>
+            </form>
         </div>
     </div>
 </div>
