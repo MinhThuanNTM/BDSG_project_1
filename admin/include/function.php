@@ -80,24 +80,24 @@ function uploadimg_1($n){
     //   }
     
 
-// Allow certain file formats
+    // Allow certain file formats
     if($imageFileType != "webp" && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
     echo "Sorry, only WEBP, JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
     }
 
-    // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-  echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-  if (move_uploaded_file($_FILES[$n]["tmp_name"], $target_file)) {
-    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-  } else {
-    // echo "Sorry, there was an error uploading your file.";
-  }
-}
+        // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+    if (move_uploaded_file($_FILES[$n]["tmp_name"], $target_file)) {
+        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    } else {
+        // echo "Sorry, there was an error uploading your file.";
+    }
+    }
 
 
     return basename($_FILES[$n]["name"]);
@@ -333,7 +333,10 @@ if(isset ($_GET['delete'])){
 
 
 function order_list(){
-    $order_list = connect("SELECT * FROM order_sold");
+//     SELECT Orders.OrderID, Customers.CustomerName
+// FROM Orders
+// INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+    $order_list = connect("SELECT order_sold.*, order_status.order_time FROM order_sold INNER JOIN order_status ON order_sold.order_id = order_status.order_id ORDER BY order_status.order_time DESC");
     foreach($order_list as $index => $item){
         $id = $item['order_id'];
         $userID = $item['user_id'];

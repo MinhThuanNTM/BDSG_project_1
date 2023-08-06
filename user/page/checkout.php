@@ -1,4 +1,6 @@
 <main>
+  <?php $userInfor = connect("SELECT * FROM user WHERE user_id = '$userID'")[0]; 
+        $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = '$userID'")[0]; ?>
   <div class="container">
       <form class="container-check" action="" method="post">
         <div class="form-dk-check">
@@ -10,31 +12,31 @@
           <div class="id1-check">
             <label for="username">Họ và Tên<span>*</span></label
             ><br />
-            <input class="ip-check" type="text" id="username" name="full-name" value=" "/>
+            <input class="ip-check" type="text" id="username" name="full-name" value="<?php echo $delivery_info['client_name'] ?>"/>
           </div>
           <div class="id2-check">
             <label for="diachi">Địa Chỉ<span>*</span></label
             ><br />
-            <input class="ip-check" type="text" id="diachi" name="address" value=" "/>
+            <input class="ip-check" type="text" id="diachi" name="address" value="<?php echo $delivery_info['address'] ?>"/>
           </div>
-          <div class="id3-check">
+          <!-- <div class="id3-check">
             <label for="ma">Mã Bưu Chính <span>*</span></label
             ><br />
             <input class="ip-check" type="text" id="ma" name="zip-code" value=" "/>
-          </div>
+          </div> -->
           <div class="id4-check">
             <div class="email-check">
               <label for="email-check">Email<span>*</span></label
               ><br />
-              <input class="ip-check" type="email" id="email" name="email" value=" "/>
+              <input class="ip-check" type="email" id="email" name="email" value="<?php echo $userInfor['email'] ?>"/>
             </div>
             <div class="sdt-check">
               <label for="number">Số điện thoại<span>*</span></label
               ><br />
-              <input class="ip-check" type="number" id="number" placeholder="+84" name="phone" value=" "/>
+              <input class="ip-check" type="number" id="number" placeholder="+84" name="phone" value="<?php echo $delivery_info['client_phone'] ?>"/>
             </div>
           </div>
-          <div class="chebook-check">
+          <!-- <div class="chebook-check">
             <input type="checkbox" />
             <spam class="spam-check">Tạo tài khoản</spam>
           </div>
@@ -50,7 +52,7 @@
             <label for="password-check">Mật Khẩu<span>*</span></label
             ><br />
             <input class="ip-check" type="password" id="password" />
-          </div>
+          </div> -->
           <div class="chebook-check">
             <input type="checkbox" />
             <spam class="spam-check">Thêm ghi chú</spam>

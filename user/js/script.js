@@ -1,17 +1,17 @@
 
-const userInfo = document.getElementsByClassName('user-infor_details')[0]
+const userInfox = document.getElementsByClassName('user-infor_details')[0]
 const updtBtn = document.getElementsByClassName('updtInfo')[0]
 
-userInfo.addEventListener("change", function(){ 
+userInfox.addEventListener("change", function(){ 
     updtBtn.disabled = false
     console.log(updtBtn)
 });
 
 
-const userAvatar = document.getElementsByClassName('user-avatar')[0]
-userAvatar.addEventListener("click", function(){
-    alert('yo')
-})
+// const userAvatar = document.getElementsByClassName('user-avatar')[0]
+// userAvatar.addEventListener("click", function(){
+//     alert('yo')
+// })
 
 
 const userSidebarTab = document.getElementsByClassName('sideBarTab')
@@ -64,15 +64,17 @@ xmlhttp.send();
 
 
 
-const input = document.getElementsByClassName('btn-fullW');
+const avaChange = document.getElementById('avatar-change');
+const submitAva = document.getElementById('submitAva')
+// for (const btn of submitAva) {
+//     btn.
+// }
 
-for(let i = 0; i < imgBtn.length; i++){
-
-    input[i].addEventListener('change', (e) => {
+    avaChange.addEventListener('change', (e) => {
         if (e.target.files.length) {
             let src = URL.createObjectURL(e.target.files[0]);
-            image[i].style.backgroundImage = 'url('+src+')'
-            imgBtn[i].style.backgroundImage = 'url('+src+')'
+            console.log(src)
+            ava[0].style.backgroundImage = 'url('+src+')'
+            submitAva.click()
         }
     });
-}

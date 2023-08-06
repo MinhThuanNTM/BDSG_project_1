@@ -12,11 +12,16 @@
          ?>
         <div class="row">
             <div class="user-base_info col-4">
-                <div class="user-avatar"><input class="btn-fullW" type="file"><div class="set-avatar" data-avatar="<?php echo $userInfor['avatar'] ?>"></div><i class="fa-solid fa-pen-to-square"></i></div>
+                <form class="user-avatar" action="" method="post" enctype="multipart/form-data">
+                    <input type="file" id="avatar-change" class="btn-fullW" name="avatar" >
+                    <input type="submit" id="submitAva" name="avaChange" value=" ">
+                    <div class="set-avatar" data-avatar="<?php echo $userInfor['avatar'] ?>"></div>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </form>
                 <div class="sidebar">
                     <div class="user-info">
                         <div class="user-name"><?php echo $delivery_info['client_name'] ?></div>
-                        <div class="user-favorite"><i class="fa-regular fa-heart"></i><a> 0 <?php  ?></a></div>
+                        <div class="user-favorite"><i class="fa-regular fa-heart"></i><a> 0 <?php  ?></a></div> 
                     </div>
                     
                     <ul class="user-sidebar">

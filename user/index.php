@@ -16,7 +16,10 @@ if (isset($_GET['page'])) {
             include "./page/checkout.php";
             break;
         case 'user-setting':
-            include "./page/user-setting.html";
+            include "./page/user-setting.php";
+            break;
+        case 'demo':
+            include "./page/form-demo.php";
             break;
         case 'blog':
             include "./page/blog.php";

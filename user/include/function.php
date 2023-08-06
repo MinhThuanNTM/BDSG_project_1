@@ -24,6 +24,47 @@ function connect($sql)
 }
 
 
+function uploadAvatar($n){
+    $target_dir = "./img/avatar/";
+    $target_file = $target_dir . basename($_FILES[$n]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    
+    // Check if image file is a actual image or fake image
+    //   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    //   if($check !== false) {
+    //     // echo "File is an image - " . $check["mime"] . ".";
+    //     $uploadOk = 1;
+    //   } else {
+    //     echo "File is not an image.";
+    //     $uploadOk = 0;
+    //   }
+    
+
+    // Allow certain file formats
+    if($imageFileType != "webp" && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+    echo "Sorry, only WEBP, JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+    }
+
+        // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+    if (move_uploaded_file($_FILES[$n]["tmp_name"], $target_file)) {
+        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    } else {
+        // echo "Sorry, there was an error uploading your file.";
+    }
+    }
+
+
+    return basename($_FILES[$n]["name"]);
+}
+
+
 $userID;
 if(isset($_COOKIE['BDSG_user-name'])){
     $username = $_COOKIE['BDSG_user-name'];
@@ -251,11 +292,48 @@ function checkout_cart()
 // $itemName  = Array_pop($x)['order_id'] +1;
 // print_r($itemName);
 
-if (isset($_POST['checkout']) && $_POST['checkout']) {
+if(isset($_POST['checkout'])&& $_POST['checkout']){
     $fullName = $_POST['full-name'];
     $email = $_POST['email'];
     $address = $_POST['address'];
+    $phoneNum = $_POST['phone'];
+    $userID = $GLOBALS['userID'];
+    
+    $note;
+    if(isset($_POST['user-note']) &&  $_POST['user-note'] != ''){
+        $note = $_POST['user-note'];
+    }else{
+        $note = ' ';
+    }
+
+    $id;
+    $x = connect("select*from order_sold");
+    if(!isset($x) || $x == null){
+        $id = 0;
+    }else{
+        $id = Array_pop($x)['order_id'] + 1;
+    }
+    // print_r($id. $fullName . $phoneNum . $email . $note . $userID);
+    connect("INSERT INTO order_sold (order_id , client_name, client_phone, client_email, note, user_id) VALUES ('$id', '$fullName', '$phoneNum', '$email', '$note', '$userID')" );
+    connect("INSERT INTO delivery (order_id, address ) VALUES ('$id', '$address')" );
+    connect("INSERT INTO order_status (order_id) VALUES ('$id')" );
+    
+    // print_r($_SESSION['data-cart']);
+    
+    foreach($_SESSION['data-cart'] as $index => $item){
+        $itemID = $item['id'];
+        $itemName = connect("SELECT name from product WHERE product_id = '$itemID' ")[0]['name'];
+        // print_r($itemName);
+        $itemImg = connect("SELECT image_0 from prd_img WHERE product_id = '$itemID' ")[0]['image_0'];
+        $itemQty = $item['quantity'];
+        $itemPrice = connect("SELECT price from product WHERE product_id = '$itemID' ")[0]['price'];
+        connect("INSERT INTO sold_item (order_id , product_name, prd_img, price, qty ) VALUES ('$id', '$itemName', '$itemImg' ,  '$itemPrice', '$itemQty')");
+    }
+    session_destroy();
+    
+    // header('Location: index.php?page=shopping-cart');
 }
+
 // session_destroy();
 //-------- -------------- -----------
 
@@ -457,6 +535,12 @@ if(isset($_POST['updateUserInfo']) && $_POST['updateUserInfo']){
     $address = $_POST['address'];
 
     connect("UPDATE delivery_info SET client_name = '$fullName', client_phone = '$phoneNum', address = '$address' WHERE user_id = '$userID'");
+}
+
+
+if(isset($_POST['avaChange']) && $_POST['avaChange']){
+    $avatar = uploadAvatar('avatar');
+    connect("UPDATE user SET avatar = '$avatar' WHERE user_id = '$userID'");
 }
 //-------- -------------- -----------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
