@@ -8,8 +8,8 @@ if (blogList) {
       blogList.innerHTML += `
             <div class="con-1-blog col-6">
               <a>
-                <div style="background-image: url('img/${blogEL[i].post_thumb}'); 
-                            height: 262px; background-size: cover;" alt=""   />
+                <div class="backgroud" style="background-image: url('img/${blogEL[i].post_thumb}'); 
+                            height: 320px; background-size: cover;" alt=""   />
                   <a href="?page=blog_detail&post_id=${blogEL[i].post_id}" class="btn-full-w"> </a>
                 </div>
               </a>
