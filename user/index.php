@@ -1,9 +1,9 @@
 <?php
 include "./include/header.php";
 include "./include/function.php";
-if(isset($_GET['page'])){
-    switch($_GET['page']){
-        case 'shop': 
+if (isset($_GET['page'])) {
+    switch ($_GET['page']) {
+        case 'shop':
             include "./page/shop.php";
             break;
         case 'shopping-cart':
@@ -16,20 +16,34 @@ if(isset($_GET['page'])){
             include "./page/checkout.php";
             break;
         case 'user-setting':
-            include "./page/user-setting.php";
+            include "./page/user-setting.html";
             break;
-             case 'blog':
+        case 'blog':
             include "./page/blog.php";
             break;
-             case 'blog_detail':
+        case 'blog_detail':
             include "./page/blog_detail.php";
+            break;
+        case 'chitiet':
+            include "./page/chitiet.php";
+            break;
+        case 'Log-in':
+            include "./page/login.php";
+            break;
+        case 'Forgotpass':
+            include "./page/Forgotpass.php";
+            break;
+        case 'forgotpass-mail':
+            include "./page/forgotpass-mail.php";
+            break;
+        case 'resetpass':
+            include "./page/resetpass.php";
             break;
         default:
             include './page/home.php';
     }
-}else{
+} else {
     include './page/home.php';
 }
 
-include "./include/footer.php"
-?>
+include "./include/footer.php";

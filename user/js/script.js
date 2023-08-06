@@ -1,67 +1,78 @@
 
+const userInfo = document.getElementsByClassName('user-infor_details')[0]
+const updtBtn = document.getElementsByClassName('updtInfo')[0]
+
+userInfo.addEventListener("change", function(){ 
+    updtBtn.disabled = false
+    console.log(updtBtn)
+});
 
 
-
-// --------------------------------------- Thuận ----------------------------------------
-// Hàm thiết lập Cookie
-// function setCookie(cname, cvalue, exdays) {
-//     var d = new Date();
-//     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-//     var expires = "expires="+d.toUTCString();
-//     document.cookie = cname + "=" + cvalue + "; " + expires;
-//     alert('setCookie ok')
-// }
- 
-// // Hàm lấy Cookie
-// function getCookie(cname) {
-//     var name = cname + "=";
-//     var ca = document.cookie.split(';');
-//     for(var i=0; i<ca.length; i++) {
-//         var c = ca[i];
-//         while (c.charAt(0)==' ') c = c.substring(1);
-//         if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-//     }
-//     return "";
-// }
-
-// const bg = document.getElementsByClassName("set-bg");
-// for (let i = 0; i < bg.length; i++) {
-//     let data = bg[i].getAttribute("data-bg")
-//     bg[i].style.backgroundImage = "url(./asset/img/product/"+ data +")"
-// }
+const userAvatar = document.getElementsByClassName('user-avatar')[0]
+userAvatar.addEventListener("click", function(){
+    alert('yo')
+})
 
 
-// window.onload = autoCookies()
+const userSidebarTab = document.getElementsByClassName('sideBarTab')
+const userPageContent = document.getElementsByClassName('userPage_content')
 
-
-// var cartList = new Array()
-// cartList.push('avs')
-// console.log(cartList)
-// function autoCookies(){
-//     for(let i = 0; i < 15; i++){
-//         console.log('ok')
-//         addToCart(i)
-//     }
+for(let i = 0; i< userSidebarTab.length; i++){
+    if(userSidebarTab[i].classList.contains('actived')){
+        userPageContent[i].style.display = 'flex'
+    }else{
+        
+        userPageContent[i].style.display = 'none'
+    }
+}
+function openTab(x){
+    for(let i = 0; i< userSidebarTab.length; i++){
+        userSidebarTab[i].classList.remove('actived')
+        userPageContent[i].classList.remove('actived')
+        userPageContent[i].style.display = 'none';
+    }
+    x.classList.toggle('actived')
+    for(let i = 0; i< userSidebarTab.length; i++){
+        if(userSidebarTab[i].classList.contains('actived')){
+            userPageContent[i].style.display = 'flex'
     
-//     setCookie('cartList', cartList, 1)
-// }
-// function addToCart(x) {
-//     console.log(cartList)
-//     // let prdElement = x.parentElement.children
-//     let id = x
-//     let img = '00038-3896515113.png'
-//     let name = 'product '
-//     let price = 1000000
-//     let count = 1
-//     let item = { id, img, name, count, price }
-//     let flag = true;
-//     // for (let i = 0; i < cartList.length; i++) {
-//     //     if (cartList[i].name == name) {
-//     //         cartList[i].count += 1
-//     //         flag = false
-//     //     }
-//     // }
-//     // if (flag) {
-//         cartList.push(item)
-//     // }
-// }
+        }
+        // else{
+        //     userPageContent[i].style.display = 'none';
+        // }
+    }
+}
+
+
+const ava = document.getElementsByClassName('set-avatar')
+for (let i = 0; i < ava.length; i++) {
+    let data = ava[i].getAttribute("data-avatar")
+    if(data != '') 
+    ava[i].style.backgroundImage = "url(./img/avatar/"+ data +")"
+}
+
+
+
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+//   document.getElementById("demo").innerHTML = myObj.name;
+    console.log(myObj)
+}
+xmlhttp.open("GET", "./include/product.php");
+xmlhttp.send();
+
+
+
+const input = document.getElementsByClassName('btn-fullW');
+
+for(let i = 0; i < imgBtn.length; i++){
+
+    input[i].addEventListener('change', (e) => {
+        if (e.target.files.length) {
+            let src = URL.createObjectURL(e.target.files[0]);
+            image[i].style.backgroundImage = 'url('+src+')'
+            imgBtn[i].style.backgroundImage = 'url('+src+')'
+        }
+    });
+}

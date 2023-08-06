@@ -1,5 +1,5 @@
 <?php
-// connect database
+// connect database../
 function connect($sql){
     $servername = "localhost";
         $username = "root";
@@ -182,9 +182,9 @@ function showproduct(){
             </div>
             <div class="chitiet">
                 <div class="anh1">
-                    <img src="../user/IMG/product/'.$product_img[0]['image_0'].'" alt="" width="30px" height="40px">
-                    <img src="../user/IMG/product/'.$product_img[0]['image_1'].'" alt="" width="30px" height="40px">
-                    <img src="../user/IMG/product/'.$product_img[0]['image_2'].'" alt="" width="30px" height="40px">
+                    <img src="../user/img/product/'.$product_img[0]['image_0'].'" alt="" width="30px" height="40px">
+                    <img src="../user/img/product/'.$product_img[0]['image_1'].'" alt="" width="30px" height="40px">
+                    <img src="../user/img/product/'.$product_img[0]['image_2'].'" alt="" width="30px" height="40px">
                 </div>
                 <div class="anh2">
                     <img src="IMG/ao-polo-nam-10s23pol063_evegreen_1__1.jpg" alt="" width="130px"
@@ -330,33 +330,78 @@ if(isset ($_GET['delete'])){
           header('Location: index.php?page=product-list');
 }
 
-// ------------
+
+
 function order_list(){
     $order_list = connect("SELECT * FROM order_sold");
     foreach($order_list as $index => $item){
+        $id = $item['order_id'];
+        $userID = $item['user_id'];
+        $userAvatar = connect("SELECT avatar FROM user WHERE user_id = '$userID'")[0]['avatar'];
+        $orderItem = connect("SELECT price FROM sold_item WHERE order_id = '$id'");
+        $orderItem_price = 0;
+        foreach($orderItem as $index => $price){
+            // print_r($price['price']);
+            $orderItem_price += $price['price'];
+        }
+        $order_status = connect("SELECT * FROM order_status WHERE order_id = '$id'")[0];
+        // print_r($order_status);
+        $orderItem_count = count($orderItem);
+        $delivery = connect("SELECT * FROM delivery WHERE order_id = '$id'")[0];
+
+        $status ;
+        if($delivery['delivery_start'] == null){
+            $status = 0;
+        }else{
+            if($delivery['delivery_end'] == null){
+                $status = 1;
+            }else{
+                if($order_status['purchase_time']== null){
+                    $status = 2;
+                }else{
+                    $status = 3;
+                }
+            }
+        }
         echo '
         <div class="order-show">
           <div class="order-card">
             <div class="order-card_top  d-flex justify-content-between">
               <div class="client-info d-flex ">
-                <div class="client-avatar">
-                    <img src="" alt="">
+                <div class="client-avatar set-avatar" data-avatar="'.$userAvatar.'">
                 </div>
                 <div class="client-info_text">
-                    <div class="client-name">Tên: abc</div>
-                    <div class="client-phone">Điện thoại: abc</div>
-                    <div class="client-email">Email: abc</div>
-                    <div class="client-address">Địa chỉ: abc</div>
+                    <div class="client-name">Tên: '.$item['client_name'].'</div>
+                    <div class="client-phone">Điện thoại: '.$item['client_phone'].'</div>
+                    <div class="client-email">Email: '.$item['client_email'].'</div>
+                    <div class="client-address">Địa chỉ: '.$delivery['address'].'</div>
                 </div>
             </div>
-            <div class="order-status">Trạng thái: Đang vận chuyển</div>
+            <div class="order-status">Trạng thái: ';
+                                                switch($status){
+                                                    case 0: 
+                                                        echo 'Chuẩn bị hàng';
+                                                        break;
+                                                    case 1:
+                                                        echo 'Đang vận chuyển';
+                                                        break;
+                                                    case 2:
+                                                        echo 'Chờ thanh toán';
+                                                        break;
+                                                    case 3: 
+                                                        echo 'Đã hoàn thành';
+                                                        break;
+                                                }
+        echo '
+                <div class="order_time">Bắt đầu: '.$order_status['order_time'].' </div>
+            </div>
             </div>
             <div class="order-card_bottom d-flex justify-content-between">
-              <div class="total-prd">Số lượng sản phẩm: 4</div>
+              <div class="total-prd">Số lượng sản phẩm: '.$orderItem_count.'</div>
               <div class="angle-down">
                   <i class="fa-solid fa-angle-down"></i>
               </div>
-              <div class="cost-total">Giá trị đơn hàng: 200000 đ</div>
+              <div class="cost-total">Giá trị đơn hàng: '.$orderItem_price.' đ</div>
             </div>
           </div>
           <div class="order-expand">
@@ -370,40 +415,112 @@ function order_list(){
                     <th scope="col">Tổng</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td><div class="img"></div></td>
-                    <td>Mark</td>
-                    <td>120</td>
-                    <td>x 2</td>
-                    <td>120000</td>
-                  </tr>
+                <tbody>';
+                order_item($id);
+            echo'
                 </tbody>
               </table>
               <div class="order-note">
-                <a>Note: </a>
-                shop hứa tặng tui 1 voucher 50% all sản phẩm
+                <a>Ghi chú: </a>
+                '.$item['note'].'
               </div>
               <div class="order-progress d-flex">
-                <div class="row progress_bar">
-                    <div class="col-2">
-                      <i class="fa-solid fa-circle-check"></i>
-                      <div class="progress-text">Chuẩn bị hàng</div>
-                      <div class="progress-confirm"> Hoàn thành </div>
-                    </div>
-                    <div class="col-2">
-                      <i class="fa-solid fa-spinner"></i>
-                      <div class="progress-text">Đang giao</div>
-                    </div>  
-                    <div class="col-2">
-                      <i class="fa-solid fa-circle-notch"></i>
-                      <div class="progress-text">Đã giao</div>
-                    </div>
+                <div class="row progress_bar">';
+                    if ($status <= 0){
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-spinner"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                          <a href="?page=order-list&deliveryStart='.$id.'" class="progress-confirm"> Hoàn thành </a>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-notch"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                          <i class="fa-solid fa-circle-notch"></i>
+                          <div class="progress-text">Đã giao</div>
+                        </div>';
+                    }elseif($status == 1) {
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-spinner"></i>
+                          <div class="progress-text">Đang giao</div>
+                          <a href="?page=order-list&deliveryEnd='.$id.'" class="progress-confirm"> Hoàn thành </a>
+                        </div>
+                        <div class="col-2">
+                          <i class="fa-solid fa-circle-notch"></i>
+                          <div class="progress-text">Đã giao</div>
+                        </div>';
+                    }elseif($status == 2){
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                            <i class="fa-solid fa-spinner"></i>
+                          <div class="progress-text">Đã giao</div>
+                          <div class="progress-text_1">Chờ thanh toán</div>
+                        </div>';
+                    }elseif($status == 3){
+                        echo'
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Chuẩn bị hàng</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Đang giao</div>
+                        </div>
+                        <div class="col-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                          <div class="progress-text">Đã giao</div>
+                        </div>';
+                    }
+                    echo'
                   </div>
               </div>
           </div>
         </div>';
     }
 }
+
+if(isset($_GET['deliveryStart'])){
+    $id = $_GET['deliveryStart'];
+    connect("UPDATE delivery SET delivery_start = (now()) WHERE order_id = '$id'");
+    header('Location: index.php?page=order-list');
+}
+
+if(isset($_GET['deliveryEnd'])){
+    $id = $_GET['deliveryEnd'];
+    connect("UPDATE delivery SET delivery_end = (now()) WHERE order_id = '$id'");
+    connect("UPDATE order_status SET delivered = (now()) WHERE order_id = '$id'");
+    header('Location: index.php?page=order-list');
+}
+
+function order_item($id){
+    $order_item = connect("SELECT * FROM sold_item WHERE order_id = '$id'");
+    foreach($order_item as $index => $item){
+        echo'
+        <tr>
+            <th scope="row">'. 1+$index.'</th>
+            <td><div class="img"></div></td>
+            <td>'.$item['product_name'].'</td>
+            <td>'.$item['price'].' đ</td>
+            <td>x '.$item['qty'].'</td>
+            <td>'.$item['price']*$item['qty'].' đ</td>
+        </tr>
+        ';
+    }
+}
+// ------------
 ?>

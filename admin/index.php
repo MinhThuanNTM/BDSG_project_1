@@ -4,6 +4,9 @@ include "./include/sidebar.php";
 include "./include/function.php";
 if(isset($_GET['page'])){
     switch($_GET['page']){
+        case 'dashboard': 
+            include "./page/dashboard.html";
+            break;
         case 'shop': 
             include "./page/post-list.php";
             break;
