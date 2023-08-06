@@ -12,12 +12,14 @@ if(isset($_POST['thembaiviet'])&&$_POST['thembaiviet']) {
    <div class="col-6">
                             <label for=""> </label>
                             <br>
-                            <div style="height:100px;">
-                            <img src="../user/img/product/<?php echo  $_SESSION['add-image'] ?>"  height="100px" >
+                            <div style="height:240px;">
+                            <div class="large-img" style="
+    display: block;" >
+                              <input type="file" class="btn-fullW" name="addImage" value=" ">
+                            </div>
                             </div>
                             <br>
-                            <input type="file" class="btn btn-primary my-3" name="fileToUpload" value="Choose an image">
-                            <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="themhinhanh">
+                            <!-- <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="themhinhanh"> -->
                             <br>
                         </div>
  

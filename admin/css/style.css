@@ -248,6 +248,8 @@
   margin-top: 15px;
   font-family: RobotoCondensed-Bold;
   font-size: 18px;
+  word-wrap: break-word;
+  width: 393px;
 }
 .span-show-blog {
   margin-top: 20px;
