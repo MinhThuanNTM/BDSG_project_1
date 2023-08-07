@@ -252,14 +252,16 @@ function add_product(){
 }
 
 function add_blog_detail(){
-   
+   if(uploadimg_1('addImage') != '' && uploadimg_1('addImage') != null){
+      $_SESSION['add-image'] = uploadimg_1('addImage');
+    }
     $title = $_POST['title'];
     $image = $_SESSION['add-image'];
     $conten = $_POST['textarea'];
     // echo $image;
         connect("INSERT INTO post ( post_title ,post_thumb,post_content,post_by) VALUES ('$title','$image', '$conten','post_by')");
-        // session_destroy();
-        // header('Location: index.php');
+        session_destroy();
+        header('Location: index.php?page=blog-list');
 }
 
 // connect("DELETE FROM sold_item WHERE order_id='0'"); 

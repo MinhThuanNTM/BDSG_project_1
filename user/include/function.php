@@ -1,6 +1,5 @@
 <?php
 
-// connect database
 function connect($sql)
 {
     $servername = "localhost";
@@ -67,12 +66,10 @@ function uploadAvatar($n){
 
 $userID;
 if(isset($_COOKIE['BDSG_user-name'])){
-    $username = $_COOKIE['BDSG_user-name'];
-    $userID = connect("SELECT user_id FROM user WHERE user_nickname = '$username' ")[0]['user_id'];
+    $userID = $_COOKIE['BDSG_user-name'];
 }
-echo '<script>console.log('.$userID.')</script>';
 
-$delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ")[0];
+$delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ");
 
 if($userID != null && $delivery_info == null){
     connect("INSERT INTO delivery_info (user_id ) VALUES ('$userID')");

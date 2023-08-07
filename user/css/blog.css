@@ -132,7 +132,6 @@
 }
 .product-blog .con-1-blog p {
   margin-top: 15px;
-  font-family: RobotoCondensed-Bold;
   font-size: 18px;
 }
 .product-blog .con-1-blog span {
@@ -285,4 +284,14 @@ footer {
 .messenger img {
   border-radius: 400px;
   text-align: center;
+}
+
+/* blog js */
+.post-title {
+  height: 40px;
+  overflow: hidden;
+}
+.post-content {
+  height: 55px;
+  overflow: hidden;
 }

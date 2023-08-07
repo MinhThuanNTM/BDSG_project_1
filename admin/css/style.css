@@ -236,6 +236,7 @@
 }
 .display-blog .img-show-blog img {
   width: 400px;
+  margin-top: 50px;
 }
 .a-show-blog a:hover {
   background-color: black;
@@ -249,6 +250,8 @@
   margin-top: 15px;
   font-family: RobotoCondensed-Bold;
   font-size: 18px;
+  word-wrap: break-word;
+  width: 393px;
 }
 .span-show-blog {
   margin-top: 20px;

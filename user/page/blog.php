@@ -63,8 +63,8 @@
               </button>
             </div>
           </div>
-          <div class="product-blog">
-            <div class="con-1-blog">
+          <div class="product-blog row">
+            <!-- <div class="con-1-blog col-6">
               <img src="img/blog1.jpg" alt="" width="393px" height="262px" />
               <div class="km-blog">
                 <a href="#">Khuyến Mãi</a>
@@ -75,76 +75,7 @@
                 Cùng điểm danh những chương trình khuyến mãi hấp dẫn mà Routine
                 muốn gửi đến quý khách hàng tron
               </div>
-            </div>
-            <div class="con-2-blog">
-              <a href="?page=blog_detail"><img src="img/blog2.jpg" alt="" width="393px" height="262px" /></a>
-              <div class="km-blog">
-                <a href="#">Xu Hướng Thời Trang</a>
-                <a href="#">Khám Phá</a>
-              </div>
-              <p>Chất liệu làm nên những bộ sportswear cao cấp</p>
-              <span>12.07.2023</span>
-              <div>
-                Nếu đã là một người đam mê thể thao, thích vận động chắc hẳn bạn
-                sẽ không thể nào bỏ qua những trang...
-              </div>
-            </div>
-          </div>
-          <div class="product-blog">
-            <div class="con-1-blog">
-              <img src="img/blog3.jpg" alt="" width="393px" height="262px" />
-              <div class="km-blog">
-                <a href="#">Khám Phá</a>
-                <a href="#">Chất Liệu</a>
-              </div>
-              <p>Chất liệu Tencel là gì? có thân thiện môi trường?</p>
-              <span>12.07.2023</span>
-              <div>
-                Tencel là một trong những chất liệu vải an toàn và thân thiện
-                môi trường nhất hiện nay. Các sản phẩm từ vả...
-              </div>
-            </div>
-            <div class="con-2-blog">
-              <img src="img/blog4.jpg" alt="" width="393px" height="262px" />
-              <div class="km-blog">
-                <a href="#">Xu Hướng Thời Trang</a>
-                <a href="#">Mix & Mach</a>
-              </div>
-              <p>Chất liệu làm nên những bộ sportswear cao cấp</p>
-              <span>12.07.2023</span>
-              <div>
-                Áo sơ mi nam luôn là một trong những lựa chọn hàng đầu của các
-                chàng trai trong cuộc sống hiện đại ngày..
-              </div>
-            </div>
-          </div>
-          <div class="product-blog">
-            <div class="con-1-blog">
-              <img src="img/blog5.jpg" alt="" width="393px" height="262px" />
-              <div class="km-blog">
-                <a href="#">Xu Hướng Thời Trang</a>
-                <a href="#">Mix & Mach</a>
-              </div>
-              <p>Gợi ý cách phối đồ cùng quần kaki nam ống đứng</p>
-              <span>12.07.2023</span>
-              <div>
-                Quần kaki nam ống đứng là một item được thiết kế dành cho các
-                anh chàng thích sự phóng khoáng hoặc...
-              </div>
-            </div>
-            <div class="con-2-blog">
-              <img src="img/blog6.jpg" alt="" width="393px" height="262px" />
-              <div class="km-blog">
-                <a href="#">Xu Hướng Thời Trang</a>
-                <a href="#">Khám Phá</a>
-              </div>
-              <p>Gợi ý kiểu quần kaki nữ trẻ trung được giới trẻ lăng xê</p>
-              <span>12.07.2023</span>
-              <div>
-                Quần kaki nữ khá đa dạng từ thiết kế, form dáng đến màu sắc,
-                chất liệu. Vậy đâu sẽ là top 5 kiểu quần kaki...
-              </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="blofcolright-blog">

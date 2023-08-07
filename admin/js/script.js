@@ -56,13 +56,14 @@ function showImage(n){
 const input = document.getElementsByClassName('btn-fullW');
 const image = document.getElementsByClassName('large-img');
 
-for(let i = 0; i < imgBtn.length; i++){
+for (let i = 0; i < input.length; i++){
 
     input[i].addEventListener('change', (e) => {
         if (e.target.files.length) {
             let src = URL.createObjectURL(e.target.files[0]);
             image[i].style.backgroundImage = 'url('+src+')'
-            imgBtn[i].style.backgroundImage = 'url('+src+')'
+            if(imgBtn)
+            imgBtn[i].style.backgroundImage = 'url('+src+')';
         }
     });
 }
