@@ -61,6 +61,19 @@ if ($uploadOk == 0) {
     return basename($_FILES["fileToUpload"]["name"]);
 }
 
+
+
+$userID;
+if(isset($_COOKIE['BDSG_user-name'])){
+    $username = $_COOKIE['BDSG_user-name'];
+    $userID = connect("SELECT * FROM user WHERE user_nickname = '$username' ")[0]['user_id'];
+    if(connect("SELECT * FROM user WHERE user_nickname = '$username' ")[0]['role'] != 1){
+        // header('Location: ../user/index.php');
+    }
+}else{
+    
+    header('Location: ../user/index.php');
+}
 // ----------------------------------------------------------------------
 
 function uploadimg_1($n){
@@ -442,7 +455,7 @@ function order_list(){
                         </div>
                         <div class="col-2">
                           <i class="fa-solid fa-circle-notch"></i>
-                          <div class="progress-text">Đã giao</div>
+                          <div class="progress-text">Thanh toán</div>
                         </div>';
                     }elseif($status == 1) {
                         echo'
@@ -457,7 +470,7 @@ function order_list(){
                         </div>
                         <div class="col-2">
                           <i class="fa-solid fa-circle-notch"></i>
-                          <div class="progress-text">Đã giao</div>
+                          <div class="progress-text">Thanh toán</div>
                         </div>';
                     }elseif($status == 2){
                         echo'
@@ -471,8 +484,8 @@ function order_list(){
                         </div>
                         <div class="col-2">
                             <i class="fa-solid fa-spinner"></i>
-                          <div class="progress-text">Đã giao</div>
-                          <div class="progress-text_1">Chờ thanh toán</div>
+                          <div class="progress-text">Thanh toán</div>
+                          <a href="?page=order-list&delivery_confirm='.$id.'" class="progress-confirm"> Hoàn thành </a>
                         </div>';
                     }elseif($status == 3){
                         echo'
@@ -486,7 +499,7 @@ function order_list(){
                         </div>
                         <div class="col-2">
                         <i class="fa-solid fa-circle-check"></i>
-                          <div class="progress-text">Đã giao</div>
+                          <div class="progress-text">Thanh toán</div>
                         </div>';
                     }
                     echo'
@@ -510,6 +523,13 @@ if(isset($_GET['deliveryEnd'])){
     header('Location: index.php?page=order-list');
 }
 
+if (isset($_GET['delivery_confirm'])) {
+    $id = $_GET['delivery_confirm'];
+    connect("UPDATE order_status SET purchase_time = (now()) WHERE order_id = '$id'");
+    header('Location: index.php?page=order-list');
+}
+
+
 function order_item($id){
     $order_item = connect("SELECT * FROM sold_item WHERE order_id = '$id'");
     foreach($order_item as $index => $item){
@@ -525,5 +545,8 @@ function order_item($id){
         ';
     }
 }
+
+
+
 // ------------
 ?>

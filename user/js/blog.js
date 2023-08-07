@@ -5,7 +5,7 @@ post.onload = function() {
 //   document.getElementById("demo").innerHTML = myObj.name;
     console.log(myObj)
 }
-post.open("GET", "./include/blog.php");
+post.open("GET", "./include/blog.php?q=" + x);
 post.send();
 
 

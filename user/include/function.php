@@ -70,8 +70,9 @@ if(isset($_COOKIE['BDSG_user-name'])){
     $username = $_COOKIE['BDSG_user-name'];
     $userID = connect("SELECT user_id FROM user WHERE user_nickname = '$username' ")[0]['user_id'];
 }
+echo '<script>console.log('.$userID.')</script>';
 
-$delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ");
+$delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ")[0];
 
 if($userID != null && $delivery_info == null){
     connect("INSERT INTO delivery_info (user_id ) VALUES ('$userID')");
@@ -101,6 +102,7 @@ foreach ($_SESSION['data-cart'] as $index => $item) {
 
 //-------- cookies -----------
 
+print_r($_SESSION['data-cart']);    
 
 //-------- thêm vào giỏ hàng -----------
 if (isset($_GET['addToCart'])) {
@@ -121,7 +123,7 @@ if (isset($_GET['addToCart'])) {
     if ($flag == 0) {
         array_push($_SESSION['data-cart'], $item);
     }
-
+    
     header('Location: index.php?page=shop');
 }
 //-------- thêm vào giỏ hàng end -----------//
@@ -297,8 +299,13 @@ if(isset($_POST['checkout'])&& $_POST['checkout']){
     $email = $_POST['email'];
     $address = $_POST['address'];
     $phoneNum = $_POST['phone'];
-    $userID = $GLOBALS['userID'];
-    
+    $userID ;
+    if(isset($GLOBALS['userID']) && $GLOBALS['userID'] != ''){
+        $userID = $GLOBALS['userID'];
+
+    }else{
+        $userID = ' ';
+    }
     $note;
     if(isset($_POST['user-note']) &&  $_POST['user-note'] != ''){
         $note = $_POST['user-note'];

@@ -1,6 +1,6 @@
 <?php
-include "./include/header.php";
 include "./include/function.php";
+include "./include/header.php";
 if (isset($_GET['page'])) {
     switch ($_GET['page']) {
         case 'shop':

@@ -27,40 +27,6 @@
   font-family: RobotoCondensed-Regular;
   src: url(font/Roboto_Condensed/RobotoCondensed-Regular.ttf);
 }
-.menu-index {
-  background-color: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-.menu-index ul {
-  display: flex;
-  align-items: center;
-}
-.menu-index ul li {
-  list-style-type: none;
-  padding: 16px 18px;
-}
-
-.menu-index ul li a {
-  text-decoration: none;
-  color: black;
-  font-family: RobotoCondensed-Bold;
-}
-.menu-index li:nth-child(1) {
-  margin-right: 50px;
-}
-
-.menu-index li:last-child {
-  flex-grow: 1;
-  text-align: right;
-  padding: 0 56px;
-}
-.menu-index li:last-child a {
-  padding: 0 10px;
-  font-size: 18px;
-}
 
 /* main */
 .h1-blog {

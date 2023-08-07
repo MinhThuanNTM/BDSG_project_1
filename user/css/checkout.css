@@ -52,11 +52,6 @@
   margin-right: 50px;
 }
 
-.menu-index li:last-child {
-  flex-grow: 1;
-  text-align: right;
-  padding: 0 56px;
-}
 .menu-index li:last-child a {
   padding: 0 10px;
   font-size: 18px;

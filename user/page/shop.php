@@ -61,7 +61,7 @@
                     ?>
                       <div class="prd-item d-flex flex-column col-3">
                         <div class="prd-img set-bg " data-bg="<?php echo $img_url[0]['image_0'] ?>">
-                          <a class="btn-full-w" href="?page=chitiet&id=<?php echo $product_id; ?>"></a>
+                          <a class="btn-img" href="?page=chitiet&id=<?php echo $product_id; ?>"></a>
                         </div>
                         <div class="prd-text">
                           <div class="prd-name">
