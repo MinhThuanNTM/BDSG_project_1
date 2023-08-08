@@ -99,7 +99,6 @@ foreach ($_SESSION['data-cart'] as $index => $item) {
 
 //-------- cookies -----------
 
-print_r($_SESSION['data-cart']);    
 
 //-------- thêm vào giỏ hàng -----------
 if (isset($_GET['addToCart'])) {

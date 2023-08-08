@@ -39,7 +39,12 @@
     <?php
     ob_start();
     session_start();
+
+    if(isset($userID) && $userID != ''){
+        $user_info = connect("SELECT * FROM user where user_id = '$userID'");
     ?>
+    
+    <div class="user-id" style=""><?php echo $userID;?></div>
     <header>
         <div class="menu-index">
             <ul class="header-menu" >
@@ -72,14 +77,13 @@
                 <i class="position-index fa-solid fa-magnifying-glass"></i>
                </div>
 
-                <li>
-                    <a href="?page=Log-in&form=true">Đăng Nhập</a>
-                    <a href="#">|</a>
-                    <a href="?page=Log-in&form=false">Đăng Ký</a>
-                    <a href="?page=user-setting"><i class="fa-regular fa-user"></i></a>
-                    <a href="?page=shopping-cart"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                <li  data-header-menu>
+            <!-- Small button groups (default and split) -->
+
+
                 </li>
 
             </ul>
         </div>
     </header>
+    <?php }?>
