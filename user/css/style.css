@@ -40,7 +40,6 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-
 }
 
 .menu-index ul.header-menu {
@@ -811,14 +810,12 @@ footer {
   height: 100%;
 }
 
-
 .btn-img {
   display: block;
   /* position: absolute; */
   width: 100%;
   height: 100%;
 }
-
 
 .btn-fullW {
   /* background-color: red; */
@@ -831,14 +828,11 @@ footer {
   position: absolute;
 }
 
-
 .user-page {
   margin-top: 200px;
 }
 
-
 .user-page ul {
-
   list-style: none;
 }
 
@@ -846,7 +840,6 @@ footer {
   padding: 0px;
   font-size: 20px;
   width: 90%;
-
 }
 
 .user-sidebar li {
@@ -872,7 +865,6 @@ footer {
   background-color: #000000de;
   border: 5px solid #000000de;
   box-sizing: content-box;
-
 }
 
 #submitAva {
@@ -888,7 +880,6 @@ footer {
 }
 
 .set-avatar {
-
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930);
   background-size: cover;
   background-position: center center;
@@ -912,7 +903,6 @@ footer {
 }
 
 .userPage_content {
-
   margin-top: 32px;
   width: 0;
   overflow: hidden;
@@ -934,7 +924,6 @@ footer {
   font-weight: 700;
   padding: 12px 0;
 }
-
 
 .client-info {
   gap: 32px;
@@ -1039,7 +1028,7 @@ footer {
 .progress-text_1 {
   position: absolute;
   padding-top: 76px;
-  opacity: .7;
+  opacity: 0.7;
   user-select: none;
 }
 
@@ -1093,13 +1082,12 @@ td:last-child {
   text-transform: none;
 }
 
-.user-choice_header{
+.user-choice_header {
   display: none;
   position: absolute;
 }
 
-
-a.header-avatar:hover .user-choice_header li{
+a.header-avatar:hover .user-choice_header li {
   display: block;
 }
 
@@ -1111,3 +1099,15 @@ a.header-avatar:hover .user-choice_header li{
 ul.user-choice_header li:last-child{
   display: none;
 } */
+
+.buton-userid img {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-bottom: 5px;
+}
+.dropdown-menu .dropdown-item {
+  font-family: RobotoCondensed-Light;
+  width: 200px;
+  line-height: 50px;
+}

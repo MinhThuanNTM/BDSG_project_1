@@ -47,6 +47,8 @@
         </div>
         <div class="bdsg">@2023 BIỆT ĐỘNG SÀI GÒN</div>
     </footer>
+    <script src="js/userID.js"></script>
+    <script src="js/login.js"></script>
     <script src="js/script.js"></script>
     <script src="./js/set-bg.js"></script>
     <script src="./js/blog.js"></script>
