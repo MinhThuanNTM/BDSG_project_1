@@ -2,6 +2,8 @@
 const userInfox = document.getElementsByClassName('user-infor_details')[0]
 const updtBtn = document.getElementsByClassName('updtInfo')[0]
 
+
+if(userInfox)
 userInfox.addEventListener("change", function(){ 
     updtBtn.disabled = false
     console.log(updtBtn)
@@ -45,6 +47,7 @@ function openTab(x){
 
 
 const ava = document.getElementsByClassName('set-avatar')
+if(ava)
 for (let i = 0; i < ava.length; i++) {
     let data = ava[i].getAttribute("data-avatar")
     if(data != '') 
@@ -69,7 +72,7 @@ const submitAva = document.getElementById('submitAva')
 // for (const btn of submitAva) {
 //     btn.
 // }
-
+if(avaChange)
     avaChange.addEventListener('change', (e) => {
         if (e.target.files.length) {
             let src = URL.createObjectURL(e.target.files[0]);
@@ -78,3 +81,23 @@ const submitAva = document.getElementById('submitAva')
             submitAva.click()
         }
     });
+
+
+
+
+
+    const bxtn = document.getElementsByClassName('demofetch')[0]
+    console.log(bxtn)
+    if(bxtn)
+    bxtn.addEventListener("click", function(){
+        alert()
+        fetch("include/product.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          },
+          body: `addtoCart=1`,
+        })
+        .then((response) => response.text())
+        .then((res) => (alert(res)));
+      })

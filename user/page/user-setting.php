@@ -7,7 +7,9 @@
     <!-- <div class="row">
         <div class="col-3">
         </div> -->
-        <?php $userInfor = connect("SELECT * FROM user WHERE user_id = '$userID'")[0]; 
+        <?php 
+        if(isset($userID) && $userID != ''){
+        $userInfor = connect("SELECT * FROM user WHERE user_id = '$userID'")[0]; 
         $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = '$userID'")[0]; 
          ?>
         <div class="row">
@@ -70,4 +72,5 @@
             </form>
         </div>
     </div>
+    <?php }?>
 </div>

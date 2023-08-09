@@ -65,13 +65,15 @@ function uploadAvatar($n){
 
 
 $userID;
+$delivery_info;
 if(isset($_COOKIE['BDSG_user-name'])){
-    $userID = $_COOKIE['BDSG_user-name'];
+    $username = $_COOKIE['BDSG_user-name'];
+    $userID = connect("SELECT * from user where user_nickname = '$username' ")[0]['user_id'];
+    $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ");
 }
 
-$delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ");
 
-if($userID != null && $delivery_info == null){
+if(isset($userID) && $userID != null && $delivery_info == null){
     connect("INSERT INTO delivery_info (user_id ) VALUES ('$userID')");
 }
 
@@ -99,7 +101,6 @@ foreach ($_SESSION['data-cart'] as $index => $item) {
 
 //-------- cookies -----------
 
-print_r($_SESSION['data-cart']);    
 
 //-------- thêm vào giỏ hàng -----------
 if (isset($_GET['addToCart'])) {

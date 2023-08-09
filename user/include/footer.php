@@ -47,11 +47,10 @@
         </div>
         <div class="bdsg">@2023 BIỆT ĐỘNG SÀI GÒN</div>
     </footer>
-    <script src="js/login.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/size.js"></script>
     <script src="./js/set-bg.js"></script>
     <script src="./js/blog.js"></script>
+    <script src="./js/show-product.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

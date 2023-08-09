@@ -77,7 +77,8 @@
                     <a href="#">|</a>
                     <a href="?page=Log-in&form=false">Đăng Ký</a>
                     <a href="?page=user-setting"><i class="fa-regular fa-user"></i></a>
-                    <a href="?page=shopping-cart"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                    <a data-cart-icon href="?page=shopping-cart"><i class="fa-solid fa-cart-shopping"></i></i>
+                    </a>
                 </li>
 
             </ul>

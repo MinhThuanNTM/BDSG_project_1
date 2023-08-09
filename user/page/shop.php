@@ -50,7 +50,7 @@
         </div>
         <div class="product-right-product">
           
-        <div class="prd_list row"> 
+        <div class="prd_list row" > 
                 <!-------------- product list ----------------->
                 <?php 
                     foreach ($product_list as $product) {
@@ -59,14 +59,14 @@
                       $img_url = connect($sql1);
 
                     ?>
-                      <div class="prd-item d-flex flex-column col-3">
+                      <div class="prd-item d-flex flex-column col-3" >  
                         <div class="prd-img set-bg " data-bg="<?php echo $img_url[0]['image_0'] ?>">
-                          <a class="btn-img" href="?page=chitiet&id=<?php echo $product_id; ?>"></a>
+                          <a class="btn-full-w" style="position: relative;" href="?page=prd_detail&id=<?php echo $product_id; ?>"></a>
                         </div>
                         <div class="prd-text">
                           <div class="prd-name">
                             <a class="prd-name-text"><?php echo $product['name'] ?></a>
-                            <div class="add-cart"><a href="?page=shop&addToCart=<?php echo $product_id;?>">+ Thêm vào giỏ hàng</a></div>
+                            <div class="add-cart"><a onclick="addToCart(<?php echo $product_id.',1';?>)">+ Thêm vào giỏ hàng</a></div>
                             <i class="fa-regular fa-heart"></i>
                           </div>
                           <div class="prd-price">

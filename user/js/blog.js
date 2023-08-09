@@ -3,6 +3,7 @@ blogList = document.getElementsByClassName('product-blog')[0]
 if (blogList) {
   const post = new XMLHttpRequest();
   post.onload = function () {
+    console.log(this.responseText)
     let blogEL = JSON.parse(this.responseText);
     for (let i = 0; i < blogEL.length; i++) {
       blogList.innerHTML += `
@@ -30,7 +31,7 @@ if (blogList) {
   post.send();
 }
 
-const postId = document.getElementsByClassName('id-blog')[0].innerHTML
+const postId = document.getElementsByClassName('id-blog')[0]
 if (postId) {
   const postdetail = new XMLHttpRequest();
   postdetail.onload = function () {
@@ -111,6 +112,6 @@ if (postId) {
         </div>`
     console.log(blogdetail)
   }
-  postdetail.open("GET", "./include/blog.php?q=" + postId);
+  postdetail.open("GET", "./include/blog.php?q=" + postId.innerHTML);
   postdetail.send();
 }

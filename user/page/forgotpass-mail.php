@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // Bước 1: Import các class của PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

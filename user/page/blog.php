@@ -64,18 +64,6 @@
             </div>
           </div>
           <div class="product-blog row">
-            <!-- <div class="con-1-blog col-6">
-              <img src="img/blog1.jpg" alt="" width="393px" height="262px" />
-              <div class="km-blog">
-                <a href="#">Khuyến Mãi</a>
-              </div>
-              <p>Ưu đãi tháng 7 | Săn Đồ Xinh - Nhận Quà Xịn</p>
-              <span>12.07.2023</span>
-              <div>
-                Cùng điểm danh những chương trình khuyến mãi hấp dẫn mà Routine
-                muốn gửi đến quý khách hàng tron
-              </div>
-            </div> -->
           </div>
         </div>
         <div class="blofcolright-blog">

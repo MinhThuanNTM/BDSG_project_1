@@ -1,6 +1,6 @@
 <?php
 // Bắt đầu session để sử dụng session lưu trữ giữa các trang
-session_start();
+// session_start();
 $_SESSION['forgotmail'] = $_SESSION['email'];
 
 // Kiểm tra nếu người dùng đã nhập mã xác thực và gửi form đi
