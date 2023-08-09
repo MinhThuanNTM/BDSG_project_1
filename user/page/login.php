@@ -70,7 +70,10 @@
                         echo $_SESSION['register-err']; // Hiển thị thông báo lỗi (nếu có)
                         unset($_SESSION['register-err']); // Xóa thông báo lỗi sau khi đã hiển thị
                     }
-
+                    if (isset($_SESSION['register-err2'])) {
+                        echo $_SESSION['register-err2']; // Hiển thị thông báo lỗi (nếu có)
+                        unset($_SESSION['register-err2']); // Xóa thông báo lỗi sau khi đã hiển thị
+                    }
                     ?>
                     <div class="field btn">
                         <div class="btn-layer"></div>

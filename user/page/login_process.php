@@ -37,13 +37,13 @@ try {
             setcookie('BDSG_user-name', $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 
             if ($data['role'] == 1) {
-                header('Location: http://localhost/BDSG_project_1/admin/index.php');
+                header('Location: ../../admin/index.php');
             } else {
-                header('Location: http://localhost/BDSG_project_1/user/index.php');
+                header('Location: ../index.php');
             }
         } else {
             $_SESSION['login_error'] = 'Tên đăng nhập hoặc mật khẩu không đúng.';
-            header('Location: http://localhost/BDSG_project_1/user/?page=Log-in'); // Chuyển hướng về trang chứa form
+            header('Location: ../?page=Log-in'); // Chuyển hướng về trang chứa form// Chuyển hướng về trang chứa form
         }
     }
 } catch (PDOException $e) {

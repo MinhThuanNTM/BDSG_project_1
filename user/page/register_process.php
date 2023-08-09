@@ -20,7 +20,7 @@ try {
             echo 'Vui lòng điền đầy đủ thông tin.';
         } else if ($password != $repassword) {
             $_SESSION['register-err'] = 'Mật khẩu và nhập lại mật khẩu không trùng khớp';
-            header('Location: http://localhost/BDSG_project_1/user/?page=Log-in&form=false');
+            header('Location: ../?page=Log-in&form=false');
         } else {
             // Sử dụng prepared statement để tránh SQL injection
             $query = "SELECT * FROM user WHERE user_nickname = :username OR email = :email";
@@ -30,7 +30,8 @@ try {
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
-                echo 'Tên đăng nhập hoặc địa chỉ email đã tồn tại.';
+                $_SESSION['register-err2'] = 'Tên đăng nhập hoặc địa chỉ email đã tồn tại.';
+                header('Location: ../?page=Log-in&form=false');
             } else {
                 // Nếu chưa tồn tại, thêm người dùng mới vào cơ sở dữ liệu
                 $query = "INSERT INTO user (user_nickname, email, password) VALUES (:username, :email, :password)";
@@ -40,7 +41,7 @@ try {
                 $stmt->bindParam(':password', $password);
                 $stmt->execute();
                 $_SESSION['register-success'] = 'Đăng ký thành công';
-                header('Location: http://localhost/BDSG_project_1/user/?page=Log-in');
+                header('Location: ../?page=Log-in');
             }
         }
     }
