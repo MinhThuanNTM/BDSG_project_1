@@ -3,11 +3,11 @@ var users = []
 const userID = document.getElementsByClassName('user-id')[0].innerHTML;
 
 console.log(userID)
-// fetch("include/user.php?q=" + userID )
-//   .then(res => res.json())
-//   .then(data => {
-//     console.log(data)
-//   })
+fetch("include/user.php")
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+  })
 
 
 const menu = document.querySelector('[data-header-menu]')
@@ -20,7 +20,6 @@ if (userID == 0) {
                     <a  href = "?page=user-setting" > <i class="fa-regular fa-user"></i></a >`
 
 } else if (userID >= 1) {
-  let xxx = `<?php echo $user_info['user_nickname']; ?>`
   menu.innerHTML +=
     `<div class="btn-group">
   <div type="button" class="buton-userid" data-toggle="dropdown" aria-expanded="false">
@@ -28,10 +27,10 @@ if (userID == 0) {
   </div>
   <div class="dropdown-menu">
     
-    <a class="dropdown-item" href="#">${xxx}</a>
+    <a class="dropdown-item" href="#"><?php echo $user_info['user_nickname'];?></a>
     <a class="dropdown-item" href="?page=user-setting">Thông tin cá nhân</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Đăng Xuất</a>
+    <a class="dropdown-item" href="?page=home&logout">Đăng Xuất</a>
   </div>
 </div>`
 }

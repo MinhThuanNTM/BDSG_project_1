@@ -1,5 +1,5 @@
 <?php
-
+include "cart.php";
 function connect($sql)
 {
     $servername = "localhost";
@@ -70,8 +70,9 @@ if(isset($_COOKIE['BDSG_user-name'])){
     $username = $_COOKIE['BDSG_user-name'];
     $userID = connect("SELECT * from user where user_nickname = '$username' ")[0]['user_id'];
     $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = $userID ");
+}else{
+    $userID = 0;
 }
-
 
 if(isset($userID) && $userID != null && $delivery_info == null){
     connect("INSERT INTO delivery_info (user_id ) VALUES ('$userID')");
@@ -377,7 +378,7 @@ function order_list()
         }
         echo '
         <div class="order-show">
-          <div class="order-card">
+          <div class="order-card" data-orderStatus_'.$status.'>
             <div class="order-card_top  d-flex justify-content-between">
               <div class="client-info d-flex ">
                 <div class="client-info_text">
@@ -501,6 +502,14 @@ function order_list()
           </div>
         </div>';
     }
+}
+
+if (isset($_GET['logout'])){
+    if (isset($_COOKIE['BDSG_user-name'])) {
+    // unset($_COOKIE['BDSG_user-name']); 
+    setcookie('BDSG_user-name', '', -1, '/'); 
+}
+    header('Location: index.php?page=home');
 }
 
 if (isset($_GET['delivery_confirm'])) {

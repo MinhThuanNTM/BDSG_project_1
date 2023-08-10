@@ -13,6 +13,9 @@ if(isset($_GET['page'])){
         case 'product-list':
             include "./page/product-list.php";
             break;
+        case 'category':
+            include "./page/category.php";
+            break;
         case 'sign-in':
             include "./page/sign-in.php";
             break;
@@ -33,6 +36,9 @@ if(isset($_GET['page'])){
             break;
          case 'add-blog-detail':
             include "./page/add-blog-detail.php";
+            break;
+         case 'edit-blog':
+            include "./page/edit-blog.php";
             break;
         default:
             include './page/home.php';

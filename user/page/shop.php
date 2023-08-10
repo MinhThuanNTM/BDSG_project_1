@@ -112,12 +112,14 @@ $ket_qua = connect($sql_lay_san_pham);
 
         <?php } ?>
 
+        <!-------------- product list end ----------------->
+      </div>
+      <div class="page-num">
         <?php for ($i = 1; $i <= $so_trang; $i++) { ?>
           <a href="?page=shop&trang=<?php echo $i ?> ">
             <?php echo $i ?>
           </a>
         <?php } ?>
-        <!-------------- product list end ----------------->
       </div>
     </div>
   </div>

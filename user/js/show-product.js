@@ -1,25 +1,25 @@
 // const productList = document.querySelector('[data-product-list]')
-let products = []
+// let products = []
 
-fetch("include/product.php")
-    .then(res => res.json())
-    .then(data => {
-        products.push(data)
-    })
+// fetch("include/product.php")
+//     .then(res => res.json())
+//     .then(data => {
+//         products.push(data)
+//     })
 
-    console.log(products)
-    function abs(handler) {
-        fetch("include/product.php")
-        .then(res => {return res.json()})
-        .then(data => {
-            var a = [];
-            a.push(data);
-            handler(a);
-        });
-    }
+//     console.log(products)
+//     function abs(handler) {
+//         fetch("include/product.php")
+//         .then(res => {return res.json()})
+//         .then(data => {
+//             var a = [];
+//             a.push(data);
+//             handler(a);
+//         });
+//     }
 
-var a = []
-console.log(abs(a))
+// var a = []
+// console.log(abs(a))
 
 
 var userCart = []
@@ -30,8 +30,6 @@ function addToCart(id,qty){
     for (let i = 0; i < userCart.length; i++){
         if (userCart[i].id == id){
             userCart[i].qty += 1
-            alert(userCart[i].qty)
-            alert(userCart[i].id)
             flag = false
         }
     }
@@ -39,16 +37,20 @@ function addToCart(id,qty){
         userCart.push(item)
     }
 
-    saveCart
+    saveCart()
 }
 
 
 
 function saveCart(){
     window.localStorage.setItem('Cart',JSON.stringify(userCart))
-}
-console.log(userCart)
 
+}
+var dataCart = JSON.parse(window.localStorage.getItem('Cart'))
+
+let fd = new FormData();
+fd.append("cart",dataCart);
+fetch('/iclude/cart.php', {method: "POST", body: fd})
 
 function showMiniCart(){
     let cartIcon = document.querySelector('[data-cart-icon]')

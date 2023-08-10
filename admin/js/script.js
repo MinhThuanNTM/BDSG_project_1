@@ -68,21 +68,40 @@ for (let i = 0; i < input.length; i++){
     });
 }
 
-// const navItem = document.getElementsByClassName('nav-item')
-// const tabShow = document.getElementsByClassName('tab-show')
-// function openTab(n){
-//     if(n.classList.contains('active')){
 
-//     }else{
-//         for(let i = 0; i < navItem.length; i++){
-//             navItem[i].classList.remove('active')
-//             tabShow[i].classList.remove('active')
-//         }
-//         n.classList.toggle('active')
-//         for(let i = 0; i < imgBtn.length; i++){
-//             if(navItem[i].classList.contains('active')){
-//                 tabShow[i].classList.toggle('active')
-//             }
-//         }
-//     }
-// }
+function openTab(x){
+    let itemAll = document.querySelectorAll("[data-orderStatus]")
+    if(x == 'pending'){
+        hide(document.querySelectorAll("[data-orderStatus_3]"))
+
+    }
+    if(x == 'done'){
+        show(itemAll,document.querySelectorAll("[data-orderStatus_3]"))
+    }
+    
+    if(x == 'cancel'){
+        show(itemAll,document.querySelectorAll("[data-orderStatus_4]"))
+    }
+    // console.log(itemHide)
+
+    // itemHide.forEach(item => {
+    //     console.log(item)
+    //     // item.style.display = 'none'
+    // });
+}
+
+function hide(x){
+     x.forEach(item => {
+        item.style.display = 'none'
+    });
+}
+
+
+function show(all,x){
+    all.forEach(item => {
+       item.style.display = 'none'
+   });
+   x.forEach(item => {
+      item.style.display = 'block'
+  });
+}

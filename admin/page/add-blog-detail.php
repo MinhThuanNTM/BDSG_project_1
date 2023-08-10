@@ -10,18 +10,17 @@ if(isset($_POST['thembaiviet'])&&$_POST['thembaiviet']) {
   </div>
   
    <div class="col-6">
-                            <label for=""> </label>
-                            <br>
-                            <div style="height:240px;">
-                            <div class="large-img" style="
-    display: block;" >
-                              <input type="file" class="btn-fullW" name="addImage" value=" ">
-                            </div>
-                            </div>
-                            <br>
-                            <!-- <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="themhinhanh"> -->
-                            <br>
-                        </div>
+        <label for=""> </label>
+        <br>
+        <div style="height:240px;">
+        <div class="large-img" style="display: block;width: 393px; height: 262px;" >
+          <input type="file" class="btn-fullW" name="blogThumb" value=" ">
+        </div>
+        </div>
+        <br>
+        <!-- <input type="submit" class="btn btn-primary" name="loadUploadedFile" value="themhinhanh"> -->
+        <br>
+    </div>
  
   <div class="form-group">
     <label for="exampleFormControlTextarea">Nội Dung :</label>

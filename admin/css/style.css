@@ -2,6 +2,21 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+
+.pd-8{
+  padding: 8px;
+}
+.color-white{
+  color: white;
+}
+.m-r-8{
+  margin-right: 8px;
+}
+.h-fit{
+  height:fit-content;
+}
+
 .header {
   padding-top: 12px;
   font-size: 20px;
@@ -282,6 +297,11 @@
   right: 0;
   margin-top: 10px;
 }
+
+.blog-bg{
+  background-position: center center;
+  background-size: cover;
+}
 .tab-show {
   padding-top: 64px;
   width: 65%;
@@ -519,6 +539,7 @@ td:last-child {
 
 .order-stat{
   margin: 64px 0;
+  height: 400px;
 }
 .stat-canvas{
   border-radius: 8px;

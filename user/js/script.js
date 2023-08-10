@@ -56,14 +56,14 @@ for (let i = 0; i < ava.length; i++) {
 
 
 
-const xmlhttp = new XMLHttpRequest();
-xmlhttp.onload = function() {
-  const myObj = JSON.parse(this.responseText);
-//   document.getElementById("demo").innerHTML = myObj.name;
-    console.log(myObj)
-}
-xmlhttp.open("GET", "./include/product.php");
-xmlhttp.send();
+// const xmlhttp = new XMLHttpRequest();
+// xmlhttp.onload = function() {
+//   const myObj = JSON.parse(this.responseText);
+// //   document.getElementById("demo").innerHTML = myObj.name;
+//     console.log(myObj)
+// }
+// xmlhttp.open("GET", "./include/product.php");
+// xmlhttp.send();
 
 
 
@@ -86,18 +86,12 @@ if(avaChange)
 
 
 
-    const bxtn = document.getElementsByClassName('demofetch')[0]
-    console.log(bxtn)
-    if(bxtn)
-    bxtn.addEventListener("click", function(){
-        alert()
-        fetch("include/product.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-          },
-          body: `addtoCart=1`,
-        })
-        .then((response) => response.text())
-        .then((res) => (alert(res)));
-      })
+
+      
+function hideDone(){
+    const doneItem = document.querySelectorAll("[data-orderStatus_3]")
+    doneItem.forEach(item =>{
+        console.log(item)
+        // item.style.display= 'none'
+    })
+}

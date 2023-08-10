@@ -41,7 +41,7 @@ session_start();
                             </div>
                             <ul data-sl="2">
                                 <li><a href="?page=product-list">Danh sách sản phẩm</a></li>
-                                <li>Quản lý danh mục</li>
+                                <li><a href="?page=category">Quản lý danh mục</a></li>
                             </ul>
                         </li>
                         <li>

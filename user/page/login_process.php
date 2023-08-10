@@ -32,9 +32,9 @@ try {
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // Lưu thông tin đăng nhập vào session
-            $_SESSION['username'] = $username;
-            $id = connect("SELECT user_id FROM user WHERE user_nickname = '$username'")[0]['user_id'];
-            setcookie('BDSG_user-name', $id, time() + (86400 * 30), "/"); // 86400 = 1 day
+            // $_SESSION['username'] = $username;
+            // $id = connect("SELECT user_id FROM user WHERE user_nickname = '$username'")[0]['user_id'];
+            setcookie('BDSG_user-name', $username, time() + (86400 * 30), "/"); // 86400 = 1 day
 
             if ($data['role'] == 1) {
                 header('Location: ../../admin/index.php');

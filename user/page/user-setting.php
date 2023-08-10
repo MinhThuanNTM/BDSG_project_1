@@ -68,6 +68,14 @@
                 <div>
                     Danh sách đơn hàng
                 </div>
+                <ul class="nav nav-tabs" >
+                    <li class="nav-item" onclick="hideDone()">
+                        <a class="nav-link active" href="#">Đang xử lý</a>
+                    </li>
+                    <li class="nav-item" onclick="hidePending()"> 
+                        <a class="nav-link" href="#">Đã hoàn thành</a>
+                    </li>
+                </ul>
                 <?php order_list(); ?>
             </form>
         </div>

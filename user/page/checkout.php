@@ -1,6 +1,9 @@
 <main>
-  <?php $userInfor = connect("SELECT * FROM user WHERE user_id = '$userID'")[0]; 
-        $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = '$userID'")[0]; ?>
+  <?php 
+  if($userID){
+          $userInfor = connect("SELECT * FROM user WHERE user_id = '$userID'")[0]; 
+          $delivery_info = connect("SELECT * FROM delivery_info WHERE user_id = '$userID'")[0];}
+           ?>
   <div class="container">
       <form class="container-check" action="" method="post">
         <div class="form-dk-check">

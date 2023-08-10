@@ -66,18 +66,23 @@ if ($uploadOk == 0) {
 $userID;
 if(isset($_COOKIE['BDSG_user-name'])){
     $username = $_COOKIE['BDSG_user-name'];
-    $userID = connect("SELECT * FROM user WHERE user_nickname = '$username' ")[0]['user_id'];
-    if(connect("SELECT * FROM user WHERE user_nickname = '$username' ")[0]['role'] != 1){
-        // header('Location: ../user/index.php');
-    }
+    $userID = $_COOKIE['BDSG_user-name'];
+    // connect("SELECT * FROM user WHERE user_nickname = '$username' ")[0]['user_id'];
+    // if(connect("SELECT * FROM user WHERE user_nickname = '$username' ")[0]['role'] != 1){
+    //     // header('Location: ../user/index.php');
+    // }
 }else{
     
-    header('Location: ../user/index.php');
+    // header('Location: ../user/index.php');
 }
 // ----------------------------------------------------------------------
 
 function uploadimg_1($n){
-    $target_dir = "../user/img/product/";
+    if($n == 'blogThumb'){
+        $target_dir = "../user/img/blog_thumb/";
+    }else{
+        $target_dir = "../user/img/product/";
+    }
     $target_file = $target_dir . basename($_FILES[$n]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -120,9 +125,43 @@ function uploadimg_1($n){
 
 $product_list = connect("select*from product");
 $product_img = connect("select*from prd_img ");
+$category_list = connect("SELECT * FROM category");
+// print_r($category_list);
 
 
 // ------------------------------------- Thịnh ------------------------------------------
+
+function category_list(){
+    $category_list = $GLOBALS['category_list'];
+    foreach($category_list as $item){
+        echo '<div class="bg-primary h-fit m-r-8 color-white pd-8 ">'.$item['category_name'].' 
+                <a href="?page=category&del_cate='.$item['category_id'].'"> <i class="fa-light fa-x color-white"></i> </a> </div>';
+    }
+}
+
+
+
+if(isset($_GET['del_cate'])){
+    $id = $_GET['del_cate'];
+    connect("DELETE FROM category WHERE category_id='$id'"); 
+    header('Location: index.php?page=category');
+}
+
+
+if(isset($_POST['add_category']) && ($_POST['add_category'])){
+      $name = $_POST['category'];
+      $flag = true;
+      foreach($category_list as $index=> $item){
+          if($item['category_name'] == $name){
+              echo 'Danh mục đã tồn tại!!';
+              $flag = false;
+          }
+      }
+      if($flag == true){
+        connect("INSERT INTO category (category_name) VALUES ('$name')" );
+        header('Location: index.php?page=category');
+      }
+}
 
 
 function added_img(){
@@ -252,17 +291,42 @@ function add_product(){
 }
 
 function add_blog_detail(){
-   if(uploadimg_1('addImage') != '' && uploadimg_1('addImage') != null){
-      $_SESSION['add-image'] = uploadimg_1('addImage');
+   if(uploadimg_1('blogThumb') != '' && uploadimg_1('blogThumb') != null){
+      $_SESSION['add-image'] = uploadimg_1('blogThumb');
     }
     $title = $_POST['title'];
     $image = $_SESSION['add-image'];
     $conten = $_POST['textarea'];
     // echo $image;
-        connect("INSERT INTO post ( post_title ,post_thumb,post_content,post_by) VALUES ('$title','$image', '$conten','post_by')");
+        connect("INSERT INTO post ( post_title ,post_thumb,post_content) VALUES ('$title','$image', '$conten')");
         session_destroy();
         header('Location: index.php?page=blog-list');
 }
+function editBlog(){
+    
+   if(uploadimg_1('blogThumb') != '' && uploadimg_1('blogThumb') != null){
+    $_SESSION['add-image'] = uploadimg_1('blogThumb');
+  }else{
+    $_SESSION['add-image'] = $_POST['blogThumb'];
+  }
+  $id = $_POST['id'];
+  $title = $_POST['title'];
+  $image = $_SESSION['add-image'];
+  $content = $_POST['textarea'];
+  // echo $image;
+      connect("UPDATE post SET post_title = '$title' ,post_thumb = '$image',post_content = '$content',post_by = 'post_by' WHERE post_id = '$id'");
+      session_destroy();
+      header('Location: index.php?page=blog-list');
+}
+
+
+if(isset($_GET['del-blog'])){
+    $id = $_GET['del-blog'];
+    connect("DELETE FROM post WHERE post_id = '$id'");
+    header('Location: index.php?page=blog-list');
+  }
+
+  
 
 // connect("DELETE FROM sold_item WHERE order_id='0'"); 
 // connect("DELETE FROM delivery WHERE order_id='0'"); 
@@ -270,24 +334,14 @@ function add_blog_detail(){
 // connect("DELETE FROM order_sold WHERE order_id='0'"); 
 
 
-
-
-if(isset ($_GET['delete'])){
-    $id = $_GET['delete'];
-    connect("DELETE FROM prd_img WHERE product_id='$id'"); 
-
-        connect("DELETE FROM product WHERE product_id='$id'"); 
-        
-        header('Location: index.php?page=product-list');
-  }
   function show_blog_list(){
     $blog_list = connect("select*from post");
     foreach($blog_list as $index=>$item){
         
          echo '<div class="img-show-blog">
-            <img src="../user/img/'.$item['post_thumb'].'" alt="" width="393px" height="262px">
-            <div class="icon-blog"><a href="#"><i class="fa-solid fa-trash" style="color: #000000;"></i></div></a>
-            <div class="icon-fix-blog"><a href="#"><i class="fa-solid fa-wrench" style="color: #000000;"></i></a></div>
+            <div class="blog-bg" style="width:393px; height:262px; background-image: url(../user/img/blog_thumb/'.$item['post_thumb'].')"></div>
+            <div class="icon-blog"><a href="?page=blog-list&del-blog='.$item['post_id'].'"><i class="fa-solid fa-trash" style="color: #000000;"></i></div></a>
+            <div class="icon-fix-blog"><a href="?page=edit-blog&blog-id='.$item['post_id'].'"><i class="fa-solid fa-wrench" style="color: #000000;"></i></a></div>
             <div class="a-show-blog">
                 <a href="#">Khám Phá</a>
                 <a href="#">Chất Liệu</a>
@@ -296,7 +350,7 @@ if(isset ($_GET['delete'])){
              '.$item['post_title'].'
             </div>
             <div class="span-show-blog">
-                12.07.2023
+                '.$item['posted_time'].'
             </div>
             <div class="tack-show-blog">
               '.$item['post_content'].'..
@@ -306,6 +360,16 @@ if(isset ($_GET['delete'])){
     }
    
 
+  }
+
+
+if(isset ($_GET['delete'])){
+    $id = $_GET['delete'];
+    connect("DELETE FROM prd_img WHERE product_id='$id'"); 
+
+        connect("DELETE FROM product WHERE product_id='$id'"); 
+        
+        header('Location: index.php?page=product-list');
   }
 
   function edit_product($id){
@@ -348,9 +412,6 @@ if(isset ($_GET['delete'])){
 
 
 function order_list(){
-//     SELECT Orders.OrderID, Customers.CustomerName
-// FROM Orders
-// INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
     $order_list = connect("SELECT order_sold.*, order_status.order_time FROM order_sold INNER JOIN order_status ON order_sold.order_id = order_status.order_id ORDER BY order_status.order_time DESC");
     foreach($order_list as $index => $item){
         $id = $item['order_id'];
@@ -368,22 +429,26 @@ function order_list(){
         $delivery = connect("SELECT * FROM delivery WHERE order_id = '$id'")[0];
 
         $status ;
-        if($delivery['delivery_start'] == null){
-            $status = 0;
+        if($order_status['canceled'] != null){
+            $status = 4;
         }else{
-            if($delivery['delivery_end'] == null){
-                $status = 1;
+            if($delivery['delivery_start'] == null){
+                $status = 0;
             }else{
-                if($order_status['purchase_time']== null){
-                    $status = 2;
+                if($delivery['delivery_end'] == null){
+                    $status = 1;
                 }else{
-                    $status = 3;
+                    if($order_status['purchase_time']== null){
+                        $status = 2;
+                    }else{
+                        $status = 3;
+                    }
                 }
             }
         }
         echo '
-        <div class="order-show">
-          <div class="order-card">
+        <div class="order-show" data-orderStatus data-orderStatus_'.$status.'>
+          <div class="order-card" >
             <div class="order-card_top  d-flex justify-content-between">
               <div class="client-info d-flex ">
                 <div class="client-avatar set-avatar" data-avatar="'.$userAvatar.'">
@@ -408,6 +473,9 @@ function order_list(){
                                                         break;
                                                     case 3: 
                                                         echo 'Đã hoàn thành';
+                                                        break;
+                                                    case 4: 
+                                                        echo 'Đã hủy';
                                                         break;
                                                 }
         echo '

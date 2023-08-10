@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs" >
-  <li class="nav-item" onclick="openTab(this)">
+  <li class="nav-item" onclick="hideDone()">
     <a class="nav-link active" href="#">Đang xử lý</a>
   </li>
-  <li class="nav-item" onclick="openTab(this)"> 
+  <li class="nav-item" onclick="hidePending()"> 
     <a class="nav-link" href="#">Đã hoàn thành</a>
   </li>
 </ul>
