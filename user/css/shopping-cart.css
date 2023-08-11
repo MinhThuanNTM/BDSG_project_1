@@ -78,6 +78,8 @@ tr {
 
 .cart-tile {
   padding-bottom: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cart-item-width {
@@ -90,7 +92,8 @@ tr {
   padding: 24px 0;
 }
 .quantity input {
-  padding: 5px;
+  text-align: center;
+  padding: 0px;
   width: 20px;
   font-size: 16px;
   font-weight: 600;
@@ -121,6 +124,7 @@ tr {
 .cart-calc {
   gap: 52px;
   width: 100%;
+  overflow: hidden;
 }
 
 .coupon-use {

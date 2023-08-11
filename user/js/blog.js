@@ -3,7 +3,6 @@ blogList = document.getElementsByClassName('product-blog')[0]
 if (blogList) {
   const post = new XMLHttpRequest();
   post.onload = function () {
-    console.log(this.responseText)
     let blogEL = JSON.parse(this.responseText);
     for (let i = 0; i < blogEL.length; i++) {
       blogList.innerHTML += `
@@ -41,7 +40,7 @@ if (postId) {
           <h1>${blogdetail.post_title}</h1>
         </div>
         <div class="day-blog-detail">${blogdetail.posted_time}</div>
-        <div class="img-blog-detail"><img src="IMG/${blogdetail.post_thumb}" alt="" width="876px"></div>
+        <div class="img-blog-detail"><img src="IMG/blog_thumb/${blogdetail.post_thumb}" alt="" width="876px"></div>
         <div class="p-blog-detail">
           <p>${blogdetail.post_content}</p>
         </div>

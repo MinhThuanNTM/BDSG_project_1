@@ -296,9 +296,9 @@ function add_blog_detail(){
     }
     $title = $_POST['title'];
     $image = $_SESSION['add-image'];
-    $conten = $_POST['textarea'];
+    $content = $_POST['textarea'];
     // echo $image;
-        connect("INSERT INTO post ( post_title ,post_thumb,post_content) VALUES ('$title','$image', '$conten')");
+        connect("INSERT INTO post ( post_title ,post_thumb,post_content) VALUES ('$title','$image', '$content')");
         session_destroy();
         header('Location: index.php?page=blog-list');
 }

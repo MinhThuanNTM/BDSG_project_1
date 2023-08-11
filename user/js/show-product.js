@@ -22,35 +22,36 @@
 // console.log(abs(a))
 
 
-var userCart = []
+// var userCart = []
 
-function addToCart(id,qty){
-    const item = {id,qty}
-    var flag = true
-    for (let i = 0; i < userCart.length; i++){
-        if (userCart[i].id == id){
-            userCart[i].qty += 1
-            flag = false
-        }
-    }
-    if (flag){
-        userCart.push(item)
-    }
+// function addToCart(id,qty){
+//     const item = {id,qty}
+//     var flag = true
+//     for (let i = 0; i < userCart.length; i++){
+//         if (userCart[i].id == id){
+//             userCart[i].qty += 1
+//             flag = false
+//         }
+//     }
+//     if (flag){
+//         userCart.push(item)
+//     }
 
-    saveCart()
+//     saveCart()
+// }
+function addToCart(x){
+    let val = x.querySelector("button").value
+    let fd = new FormData();
+    fd.append("addToCart", val)
+    fetch('./include/cart.php', {method: "POST", body: fd })
+        .then(res => res.json())
+        // .then(data =>{
+        //     // console.log(data)
+        // })
+
 }
 
 
-
-function saveCart(){
-    window.localStorage.setItem('Cart',JSON.stringify(userCart))
-
-}
-var dataCart = JSON.parse(window.localStorage.getItem('Cart'))
-
-let fd = new FormData();
-fd.append("cart",dataCart);
-fetch('/iclude/cart.php', {method: "POST", body: fd})
 
 function showMiniCart(){
     let cartIcon = document.querySelector('[data-cart-icon]')

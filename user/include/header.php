@@ -37,11 +37,13 @@
 
 <body>
     <?php
-    ob_start();
-    session_start();
 
     if(isset($userID) && $userID != ''){
         $user_info = connect("SELECT * FROM user where user_id = '$userID'");
+    }else{
+            $userID = 0;
+        }
+        echo  $userID ;
     ?>
     
     <div class="user-id" style=""><?php echo $userID;?></div>
@@ -86,4 +88,3 @@
             </ul>
         </div>
     </header>
-    <?php }?>

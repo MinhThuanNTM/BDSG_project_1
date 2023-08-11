@@ -101,7 +101,14 @@ $ket_qua = connect($sql_lay_san_pham);
             <div class="prd-text">
               <div class="prd-name">
                 <a class="prd-name-text"><?php echo $product['name'] ?></a>
-                <div class="add-cart"><a onclick="addToCart(<?php echo $product_id . ',1'; ?>)">+ Thêm vào giỏ hàng</a></div>
+                <div class="add-cart">
+                  <a onclick="addToCart(this)">+ Thêm vào giỏ hàng
+                    <form action="" method="post" style="display: none;">
+                      <input type="text" name="id" value="<?php echo $product_id; ?>">
+                      <button class="addCart-btn" type="button" name="addToCart" value="<?php echo $product_id; ?>"></button>
+                    </form>
+                  </a>
+                </div>
                 <i class="fa-regular fa-heart"></i>
               </div>
               <div class="prd-price">

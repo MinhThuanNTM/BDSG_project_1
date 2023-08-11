@@ -1,5 +1,7 @@
 <?php
-include "cart.php";
+// include "cart.php";
+ob_start();
+session_start();
 function connect($sql)
 {
     $servername = "localhost";
@@ -82,7 +84,6 @@ $product_list = connect("select*from product");
 $product_img = connect("select*from prd_img ");
 
 
-//-----------------------------------------------------------------------------Thuận---------------------------------------------------------------------------------------//
 
 //-------- session -----------
 
@@ -90,55 +91,25 @@ if (!isset($_SESSION['data-cart'])) {
     $_SESSION['data-cart'] = array();
 }
 
-foreach ($_SESSION['data-cart'] as $index => $item) {
-    if ($item['quantity'] <= 0) {
-        unset($_SESSION['data-cart'][$index]);
-        header('Location: index.php?page=shopping-cart');
-    }
+if(!isset($_SESSION['disscount'])){
+    $_SESSION['disscount'] = 0;
 }
-// session_destroy();
 
 
+//-----------------------------------------------------------------------------Thuận---------------------------------------------------------------------------------------//
 
-//-------- cookies -----------
-
-
-//-------- thêm vào giỏ hàng -----------
-if (isset($_GET['addToCart'])) {
-    $id = $_GET['addToCart'];
-    $item = array(
-        'id' => $id,
-        'quantity' => 1,
-    );
-    $flag = 0;
-    if (count($_SESSION['data-cart']) > 0) {
-        foreach ($_SESSION['data-cart'] as $x => $product) {
-            if (in_array($item['id'], $product)) {
-                $_SESSION['data-cart'][$x]['quantity'] += 1;
-                $flag = 1;
-            }
-        }
-    }
-    if ($flag == 0) {
-        array_push($_SESSION['data-cart'], $item);
-    }
-    
-    header('Location: index.php?page=shop');
-}
-//-------- thêm vào giỏ hàng end -----------//
 
 //-------- show giỏ hàng -----------//
 // session_destroy();
 function shoppingCart()
 {
     $subTotal = 0;
-    print_r($_SESSION['data-cart']);
-    // print_r( $_SESSION['data-cart']);
+    $discount = 0;
     foreach ($_SESSION['data-cart'] as $index => $item) {
         $id = $item['id'];
         $product = connect("select*from product WHERE product_id = $id");
         $prd_img = connect("select*from prd_img WHERE product_id = $id");
-        print_r($prd_img);
+        $subTotal += $product[0]['price'] * $item['quantity'];
         if ($item['quantity'] > 0) {
             echo '
             <tr>
@@ -174,49 +145,59 @@ function shoppingCart()
             </tr>';
         }
     }
+    if(isset($_SESSION['disscount']))
+    $discount = $subTotal * $_SESSION['disscount'];
     echo '
-        </tbody>
-      </table>
-      <button class="continue-btn">
-        <a href="?page=home">
-            Tiếp tục mua hàng
-        </a>
-      </button>
-    </div>
-    <div class="col-1" style="width: calc(25% / 3);"></div>
-        
-            <div class="col-3">
-                <div class="cart-calc d-flex flex-column">
-                    <div class="coupon-use d-flex flex-column">
-                        <a>mã giảm giá</a>
-                        <div class="coupon-code d-flex justify-content-between">
-                            <input type="text">
-                            <button class="coupon-apply-btn">dùng</button>
+            </tbody>
+        </table>
+        <button class="continue-btn">
+            <a href="?page=shop">
+                Tiếp tục mua hàng
+            </a>
+        </button>
+        </div>
+        <div class="col-1" style="width: calc(25% / 3);"></div>
+            
+                <div class="col-3">
+                    <div class="cart-calc d-flex flex-column">
+                        <div class="coupon-use d-flex flex-column">
+                            <a>mã giảm giá</a>
+                            <form action="" method="post" class="coupon-code d-flex justify-content-between">
+                                <input type="text" name="coupon_code" value=" ">
+                                <button type="submit" class="coupon-apply-btn" name="coupon_use" value=" " >dùng</button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="price-total">
-                        <a class="calc-title">Tổng giá</a>
-                        <div class="cart-calc-text d-flex justify-content-between">
-                            <a>Tạm tính</a>
-                            <a>' . $subTotal . 'đ</a>
+                        <div class="price-total">
+                            <a class="calc-title">Tổng giá</a>
+                            <div class="cart-calc-text d-flex justify-content-between">
+                                <a>Tạm tính</a>
+                                <a>' . $subTotal . ' đ</a>
+                            </div>
+                            <div class="cart-calc-text  d-flex justify-content-between">
+                                <a >Giảm giá</a>
+                                <a>'.$discount.' đ</a>
+                            </div>
+                            <div class="cart-calc-text d-flex justify-content-between">
+                                <a>Tổng cộng</a>
+                                <a >' . $subTotal - $discount. ' đ</a>
+                            </div>
+                            <button  class="to-checkout-btn"><a href="?page=checkout">đặt hàng</a></button>
                         </div>
-                        <div class="cart-calc-text  d-flex justify-content-between">
-                            <a >Giảm giá</a>
-                            <a>xxx</a>
-                        </div>
-                        <div class="cart-calc-text d-flex justify-content-between">
-                            <a>Tổng cộng</a>
-                            <a >' . $subTotal . ' đ</a>
-                        </div>
-                        <button  class="to-checkout-btn"><a href="?page=checkout">đặt hàng</a></button>
                     </div>
                 </div>
-            </div>
-        ';
+    ';
 }
 
-
-
+if(isset($_POST['coupon_code'])){
+    $coupon_code = trim($_POST['coupon_code']);
+    $discount = 0;
+    $coupon = connect("SELECT * FROM coupons WHERE coupon_code ='$coupon_code'")[0];
+    if($coupon['coupon_type'] == 0){
+        $_SESSION['disscount']  = $coupon['coupon_value'] /100;
+    }else{
+        $_SESSION['disscount'] = $coupon['coupon_value'];
+    }
+}
 //-------- --------------- -----------//
 
 
@@ -232,7 +213,6 @@ if (isset($_GET['del'])) {
 }
 //-------- -------------- -----------
 
-
 //-------- sl tăng giỏ hàng -----------//
 
 if (isset($_GET['increase'])) {
@@ -244,6 +224,7 @@ if (isset($_GET['increase'])) {
 //-------- sl giảm giỏ hàng -----------//
 if (isset($_GET['decrease'])) {
     $id = $_GET['decrease'];
+    if($_SESSION['data-cart'][$id]['quantity'] > 1)
     $_SESSION['data-cart'][$id]['quantity'] -= 1;
     header('Location: index.php?page=shopping-cart');
 }
@@ -260,30 +241,31 @@ function checkout_cart()
 
             echo '<div class="text-2-check">
             <div class="sp-check">' . $product[0]['name'] . '</div>
-            <div class="tt-check">' . $product[0]['price'] * $item['quantity'] . ' k</div>
+            <div class="tt-check">' . $product[0]['price'] * $item['quantity'] . ' đ</div>
           </div>
           <div class="x2-check">x' . $item['quantity'] . '</div>';
 
             $subTotal += $product[0]['price'] * $item['quantity'];
         }
-        $tax = $subTotal * 10 / 100;
-        $totalCost = $subTotal + $tax;
+        if(isset($_SESSION['disscount'])){
+            $disscount = $_SESSION['disscount']*$subTotal;
+        }else{
+            $disscount = 0;
+        }
+
+        $totalCost = $subTotal - $disscount;
         echo '
         <div class="text-4-check">
           <div class="sp-check">Tổng Giá</div>
-          <div class="tt-check">' . $subTotal . 'k</div>
-        </div>
+          <div class="tt-check">' . $subTotal . ' đ</div>
+        </div>  
         <div class="text-4-check">
           <div class="sp-check">Giảm Giá</div>
-          <div class="tt-check">0</div>
-        </div>
-        <div class="text-4-check">
-          <div class="sp-check">VAT(10%)</div>
-          <div class="tt-check">' . $tax . 'k</div>
+          <div class="tt-check">'.$disscount.' đ</div>
         </div>
         <div class="text-5-check">
           <div class="sp-check">Tổng Cộng</div>
-          <div class="tt-check">' . $totalCost . 'k</div>
+          <div class="tt-check">' . $totalCost . ' đ</div>
         </div>';
     }
 }
@@ -299,6 +281,14 @@ if(isset($_POST['checkout'])&& $_POST['checkout']){
     $address = $_POST['address'];
     $phoneNum = $_POST['phone'];
     $userID ;
+    $subTotal =0;
+    foreach($_SESSION['data-cart'] as $index => $item){
+        $itemID = $item['id'];
+        $itemPrice = connect("SELECT price from product WHERE product_id = '$itemID' ")[0]['price'];
+        $subTotal += $itemPrice * $item['quantity'];
+    }
+    $discount = $_SESSION['disscount']*$subTotal;
+    $totalCost = $subTotal - $discount;
     if(isset($GLOBALS['userID']) && $GLOBALS['userID'] != ''){
         $userID = $GLOBALS['userID'];
 
@@ -319,26 +309,39 @@ if(isset($_POST['checkout'])&& $_POST['checkout']){
     }else{
         $id = Array_pop($x)['order_id'] + 1;
     }
-    // print_r($id. $fullName . $phoneNum . $email . $note . $userID);
-    connect("INSERT INTO order_sold (order_id , client_name, client_phone, client_email, note, user_id) VALUES ('$id', '$fullName', '$phoneNum', '$email', '$note', '$userID')" );
+    print_r($id. $fullName . $phoneNum . $email . $note . $userID);
+    connect("INSERT INTO order_sold (order_id , client_name, client_phone, client_email, note, user_id, order_price, coupons_used, discount, total_cost) 
+                VALUES ('$id', '$fullName', '$phoneNum', '$email', '$note', '$userID', '$subTotal', '', '$discount', '$totalCost')" );
     connect("INSERT INTO delivery (order_id, address ) VALUES ('$id', '$address')" );
-    connect("INSERT INTO order_status (order_id) VALUES ('$id')" );
+    connect("INSERT INTO order_status (order_id, order_time) VALUES ('$id', now())" );
     
-    // print_r($_SESSION['data-cart']);
     
     foreach($_SESSION['data-cart'] as $index => $item){
         $itemID = $item['id'];
         $itemName = connect("SELECT name from product WHERE product_id = '$itemID' ")[0]['name'];
-        // print_r($itemName);
         $itemImg = connect("SELECT image_0 from prd_img WHERE product_id = '$itemID' ")[0]['image_0'];
         $itemQty = $item['quantity'];
         $itemPrice = connect("SELECT price from product WHERE product_id = '$itemID' ")[0]['price'];
         connect("INSERT INTO sold_item (order_id , product_name, prd_img, price, qty ) VALUES ('$id', '$itemName', '$itemImg' ,  '$itemPrice', '$itemQty')");
     }
+
+    check_order($id);
+}
+
+function check_order($id){
+    $order = connect("SELECT * FROM order_sold WHERE order_id = $id");
+    if(count($order) == 1){
+
+    echo'<script> alert("Đặt hàng thành công")</script>';
     session_destroy();
     
-    // header('Location: index.php?page=shopping-cart');
+    header('Location: index.php?page=shopping-cart');
+
+    }else{
+        print_r ($order);
+    }
 }
+
 
 // session_destroy();
 //-------- -------------- -----------
