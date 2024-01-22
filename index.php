@@ -1,4 +1,4 @@
 <?php
     
-    header('Location: ./user');
+    header('Location: ./user/');
 ?>
